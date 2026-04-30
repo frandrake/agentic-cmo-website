@@ -1,0 +1,18 @@
+name = "the-agentic-cmo"
+compatibility_date = "2026-04-01"
+pages_build_output_dir = "dist"
+
+# KV namespace for Cited request records and rate limiting.
+# Create with: npx wrangler kv:namespace create CITED_REQUESTS
+# Then update the id below.
+[[kv_namespaces]]
+binding = "CITED_REQUESTS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Public env vars (non-sensitive).
+[vars]
+PDF_URL = "https://the-agentic-cmo.com/pdfs/cited.pdf"
+FROM_EMAIL = "Cited <cited@the-agentic-cmo.com>"
+
+# Secrets (set via dashboard or `wrangler pages secret put RESEND_API_KEY`):
+#   - RESEND_API_KEY

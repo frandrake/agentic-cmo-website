@@ -1,0 +1,10 @@
+---
+export interface Props {
+  muted?: boolean;
+}
+const { muted = false } = Astro.props;
+const color = muted ? 'var(--fg-muted)' : 'var(--ff-steel-blue)';
+---
+<span class="mono" style={`font-variant-numeric: tabular-nums; font-size: 12px; color: ${color}; letter-spacing: 0.04em;`}>
+  <slot />
+</span>

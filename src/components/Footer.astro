@@ -1,0 +1,61 @@
+---
+import Logo from './Logo.astro';
+import { BOOK } from '../data/book';
+const year = new Date().getFullYear();
+---
+<footer style="margin-top: 128px; padding: 64px 0 40px; border-top: 1px solid var(--border);">
+  <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; align-items: start;">
+    <div>
+      <Logo />
+      <p style="margin-top: 16px; font-size: 13px; color: var(--fg-muted); max-width: 360px; line-height: 1.6;">
+        A book by Francesco Federico, Global CMO of S&amp;P Global. Published {BOOK.pubDate} by {BOOK.publisher}.
+      </p>
+      <p style="margin-top: 12px; font-size: 12px; color: var(--fg-muted); line-height: 1.6; max-width: 360px;">
+        ISBN {BOOK.isbnPrint} (print)<br />
+        ISBN {BOOK.isbnEbook} (eBook)
+      </p>
+    </div>
+    <div>
+      <span class="eyebrow-block">The book</span>
+      <ul style="list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+        <li><a href="/" style="font-size: 13px; color: var(--ff-charcoal);">Home</a></li>
+        <li><a href="/prompts/" style="font-size: 13px; color: var(--ff-charcoal);">Prompts</a></li>
+        <li><a href="/cited/" style="font-size: 13px; color: var(--ff-charcoal);">Cited — free manual</a></li>
+        <li><a href="/about/" style="font-size: 13px; color: var(--ff-charcoal);">About the author</a></li>
+        <li><a href="/#buy" style="font-size: 13px; color: var(--ff-charcoal);">Buy the book</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="eyebrow-block">Reference</span>
+      <ul style="list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+        <li><a href="/faq/" style="font-size: 13px; color: var(--ff-charcoal);">FAQ</a></li>
+        <li><a href="/privacy/" style="font-size: 13px; color: var(--ff-charcoal);">Privacy</a></li>
+        <li><a href="/llms.txt" style="font-size: 13px; color: var(--ff-charcoal);">llms.txt</a></li>
+        <li><a href="/robots.txt" style="font-size: 13px; color: var(--ff-charcoal);">robots.txt</a></li>
+        <li><a href="mailto:press@the-agentic-cmo.com" style="font-size: 13px; color: var(--ff-charcoal);">Press kit</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="eyebrow-block">Elsewhere</span>
+      <ul style="list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+        <li><a href="https://francescofederico.substack.com" style="font-size: 13px; color: var(--ff-charcoal);">Chronicles of Change</a></li>
+        <li><a href="https://www.linkedin.com/in/francescofederico/" style="font-size: 13px; color: var(--ff-charcoal);">LinkedIn</a></li>
+        <li><a href="https://francescofederico.com" style="font-size: 13px; color: var(--ff-charcoal);">francescofederico.com</a></li>
+        <li><a href="https://github.com/frandrake" style="font-size: 13px; color: var(--ff-charcoal);">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; font-size: 12px; color: var(--fg-muted); flex-wrap: wrap; gap: 12px;">
+    <span>© {year} Francesco Federico · Imprimatur Press</span>
+    <span class="mono" style="letter-spacing: 0.08em;">the-agentic-cmo.com · № 02</span>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 880px) {
+    .footer-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 560px) {
+    .footer-grid { grid-template-columns: 1fr !important; }
+  }
+</style>

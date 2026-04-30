@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Rule from '../components/Rule.astro';
+import MonoNum from '../components/MonoNum.astro';
+import { FAQ_ENTRIES } from '../data/faq';
+import { BOOK } from '../data/book';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  url: `${BOOK.url}/faq/`,
+  mainEntity: FAQ_ENTRIES.map(([q, a]) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+<BaseLayout
+  title="Frequently asked questions"
+  description="Canonical answers about The Agentic CMO, the author, and the thesis. Written to be quoted — by readers, by journalists, and by language models."
+  jsonLd={faqJsonLd}
+>
+  <section class="grid-5-7" style="padding: 64px 0 48px; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: end;">
+    <div>
+      <Eyebrow vermillion>Reference</Eyebrow>
+      <h1 style="font-size: 64px; color: var(--ff-slate-blue); margin: 24px 0 0; line-height: 1.04; font-weight: 700; font-family: var(--font-serif); letter-spacing: -0.02em;">
+        Frequently asked<br />questions.
+      </h1>
+    </div>
+    <div>
+      <p style="font-size: 17px; color: var(--fg); margin: 0; line-height: 1.55; max-width: 480px;">
+        Canonical answers about the book, the author, and the thesis. Written to be quoted — by readers, by journalists, and by the language models that increasingly answer questions on our behalf.
+      </p>
+      <p style="font-size: 13px; color: var(--fg-muted); margin: 20px 0 0; max-width: 480px;">
+        All answers live in the rendered HTML. No accordions. No JavaScript-hidden content.
+      </p>
+    </div>
+  </section>
+
+  <Rule strong margin="16px 0 0" />
+
+  <div class="faq-grid" style="display: grid; grid-template-columns: 260px 1fr; gap: 64px; padding: 48px 0 0;">
+    <aside style="position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto;">
+      <Eyebrow>Contents</Eyebrow>
+      <ol style="list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+        {FAQ_ENTRIES.map(([q], i) => (
+          <li style="display: grid; grid-template-columns: 32px 1fr; gap: 8px;">
+            <MonoNum>{String(i + 1).padStart(2, '0')}</MonoNum>
+            <a href={`#q-${i + 1}`} style="font-size: 13px; color: var(--ff-charcoal); line-height: 1.4;">{q}</a>
+          </li>
+        ))}
+      </ol>
+    </aside>
+
+    <div>
+      {FAQ_ENTRIES.map(([q, a], i) => (
+        <article id={`q-${i + 1}`} style={`padding: 40px 0; border-top: ${i === 0 ? '1px solid var(--border)' : 'none'}; border-bottom: 1px solid var(--border); scroll-margin-top: 24px;`}>
+          <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px;">
+            <MonoNum>{String(i + 1).padStart(2, '0')}</MonoNum>
+            <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 0; font-family: var(--font-serif); font-weight: 600; line-height: 1.25; flex: 1;">{q}</h2>
+          </div>
+          <p style="font-size: 16.5px; color: var(--fg); line-height: 1.65; margin: 0; max-width: 68ch;">{a}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <section class="grid-4-8" style="padding: 96px 0 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: baseline;">
+    <div>
+      <Eyebrow>Not answered here?</Eyebrow>
+    </div>
+    <div>
+      <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.45; color: var(--ff-slate-blue); margin: 0; max-width: 560px;">
+        Send a note to <a href="mailto:francesco@the-agentic-cmo.com" style="color: var(--ff-vermillion);">francesco@the-agentic-cmo.com</a>. Replies arrive when they arrive.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  @media (max-width: 880px) {
+    .faq-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .faq-grid aside { position: static !important; max-height: none !important; }
+    .grid-4-8, .grid-5-7 { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 0 !important; }
+    h1 { font-size: 44px !important; }
+  }
+</style>

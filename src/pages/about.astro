@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Rule from '../components/Rule.astro';
+import MonoNum from '../components/MonoNum.astro';
+import ContactRow from '../components/ContactRow.astro';
+import { BOOK } from '../data/book';
+
+const aboutJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: `${BOOK.url}/about/`,
+  mainEntity: {
+    '@type': 'Person',
+    '@id': 'https://francescofederico.com/#person',
+    name: BOOK.author,
+    jobTitle: 'Global Chief Marketing Officer',
+    worksFor: { '@type': 'Organization', name: 'S&P Global' },
+    nationality: { '@type': 'Country', name: 'Italy' },
+    homeLocation: { '@type': 'City', name: 'London' },
+    url: 'https://francescofederico.com',
+    sameAs: [
+      'https://www.linkedin.com/in/francescofederico/',
+      'https://github.com/frandrake',
+      'https://francescofederico.substack.com',
+      'https://francescofederico.com',
+    ],
+    alumniOf: [
+      { '@type': 'EducationalOrganization', name: 'Università Cattolica del Sacro Cuore' },
+      { '@type': 'EducationalOrganization', name: 'INSEAD' },
+      { '@type': 'EducationalOrganization', name: 'Harvard Business School' },
+      { '@type': 'EducationalOrganization', name: 'IMD Business School' },
+      { '@type': 'EducationalOrganization', name: 'IE Business School' },
+    ],
+    award: ['Financial Narrative 50 (2025)', 'The Drum Top 100 B2B CMOs (2025)', 'CMO to Watch (2025)'],
+    knowsAbout: ['Agentic AI', 'Marketing Leadership', 'Generative Engine Optimisation', 'B2B Marketing', 'Brand Strategy', 'Marketing Technology'],
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', name: 'Doctor of Law', educationalLevel: 'Doctorate' },
+      { '@type': 'EducationalOccupationalCredential', name: 'Fellow of the Chartered Institute of Marketing (FCIM)' },
+    ],
+    description: `Francesco Federico is the Global Chief Marketing Officer of S&P Global and the author of ${BOOK.title} (${BOOK.publisher}, ${BOOK.pubDate}). He writes the Chronicles of Change newsletter on agentic marketing.`,
+  },
+};
+
+const PROFESSIONAL: [string, string][] = [
+  ['Global CMO, S&P Global', 'Current'],
+  ['Fellow, Chartered Institute of Marketing', 'FCIM'],
+  ['Strategic Communicators Exchange, World Economic Forum', 'Member'],
+  ['Editorial board, Journal of Digital & Social Media Marketing', 'Standing'],
+  ['Advisor, HFS Research', 'Standing'],
+  ['Advisor, IDC', 'Standing'],
+];
+const EDUCATION: [string, string][] = [
+  ['Doctorate in Law, Università Cattolica del Sacro Cuore', 'Milan'],
+  ['Executive education, INSEAD', 'Fontainebleau'],
+  ['Executive education, Harvard Business School', 'Boston'],
+  ['Executive education, IMD Business School', 'Lausanne'],
+  ['Executive education, IE Business School', 'Madrid'],
+];
+const RECOGNITION: [string, string][] = [
+  ['Financial Narrative 50', '2025'],
+  ['The Drum — Top 100 B2B CMOs', '2025'],
+  ['CMO to Watch', '2025'],
+];
+const OTHER_WORK = [
+  { label: 'Chronicles of Change · Substack', meta: 'Weekly newsletter on agentic marketing', href: 'https://francescofederico.substack.com' },
+  { label: 'Chronicles of Change · LinkedIn', meta: 'Mirrored newsletter and shorter notes', href: 'https://www.linkedin.com/in/francescofederico/' },
+  { label: 'francescofederico.com', meta: 'Personal site · longer essays and projects', href: 'https://francescofederico.com' },
+  { label: 'GitHub · @frandrake', meta: 'Working code, demonstrations, and prompts', href: 'https://github.com/frandrake' },
+];
+---
+<BaseLayout
+  title="About the author"
+  description={`Francesco Federico is Global Chief Marketing Officer at S&P Global, author of ${BOOK.title}, and writer of the Chronicles of Change newsletter.`}
+  ogImage="/assets/author.png"
+  jsonLd={aboutJsonLd}
+>
+  <!-- HEADER -->
+  <section class="grid-5-7" style="padding: 64px 0 48px; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: end;">
+    <div>
+      <Eyebrow>About the author</Eyebrow>
+      <h1 style="font-size: 72px; color: var(--ff-slate-blue); margin: 24px 0 0; line-height: 1.02; font-weight: 700; font-family: var(--font-serif); letter-spacing: -0.025em;">
+        Francesco<br />Federico.
+      </h1>
+    </div>
+    <div>
+      <p style="font-family: var(--font-serif); font-size: 26px; line-height: 1.4; color: var(--ff-slate-blue); margin: 0; font-style: italic; max-width: 520px;">
+        Global Chief Marketing Officer, S&amp;P Global. Author of {BOOK.title}. Writer of Chronicles of Change.
+      </p>
+    </div>
+  </section>
+
+  <Rule strong margin="32px 0 0" />
+
+  <!-- PORTRAIT + BIO -->
+  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <div style="width: 100%; aspect-ratio: 4 / 5; filter: grayscale(1) contrast(1.05); background: var(--ff-light-gray); overflow: hidden;">
+        <img src="/assets/author.png" alt="Francesco Federico, Global Chief Marketing Officer of S&P Global" loading="lazy" decoding="async" style="width: 100%; height: 100%; display: block; object-fit: cover;" />
+      </div>
+      <div style="margin-top: 16px; font-size: 12px; color: var(--fg-muted);">
+        <span class="mono" style="letter-spacing: 0.06em;">London, MMXXVI</span>
+      </div>
+    </div>
+    <div>
+      <Eyebrow>Bio</Eyebrow>
+      <div style="margin-top: 16px; font-family: var(--font-serif); font-size: 21px; line-height: 1.55; color: var(--fg); max-width: 660px;">
+        <p style="margin: 0 0 24px;">
+          Francesco Federico is the Global Chief Marketing Officer of S&amp;P Global, where he leads the marketing function across the company's ratings, market intelligence, commodity insights, and indices businesses. He has spent two decades inside information businesses — companies whose product is, in the end, a particular kind of judgment.
+        </p>
+        <p style="margin: 0 0 24px;">
+          That work is what led him here. The arrival of capable AI agents inside marketing functions is not, in his reading, an automation story. It is a redesign of the function itself — of the brief, the team, the audit trail, the relationship with agencies, and the posture of the leader. The Agentic CMO is the field manual he wishes he had been handed eighteen months ago.
+        </p>
+        <p style="margin: 0 0 24px;">
+          He is a Fellow of the Chartered Institute of Marketing and a member of the World Economic Forum's Strategic Communicators Exchange. He sits on the editorial board of the Journal of Digital &amp; Social Media Marketing, and advises HFS Research and IDC. He was named to the Financial Narrative 50 in 2025 and The Drum's Top 100 B2B CMOs the same year.
+        </p>
+        <p style="margin: 0;">
+          He writes Chronicles of Change, a weekly newsletter on agentic marketing, and occasionally publishes longer essays at <a href="https://francescofederico.com" style="color: var(--ff-vermillion);">francescofederico.com</a>. He lives between London and Milan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Rule />
+
+  <!-- CREDENTIALS -->
+  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div style="position: sticky; top: 24px;">
+      <Eyebrow>Credentials and recognition</Eyebrow>
+      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        A note on<br />provenance.
+      </h2>
+      <p style="font-size: 14px; color: var(--fg-muted); margin: 20px 0 0; line-height: 1.6;">
+        The book's arguments rest on the work below. Listed not as ornament but for the reader who wants to know where a claim is coming from.
+      </p>
+    </div>
+    <div>
+      <div style="margin-bottom: 56px;">
+        <div style="font-size: 14px; font-weight: 600; color: var(--ff-charcoal); padding-bottom: 12px; border-bottom: 2px solid var(--ff-charcoal); letter-spacing: 0.04em;">Professional</div>
+        <ul style="list-style: none; margin: 0; padding: 0;">
+          {PROFESSIONAL.map(([k, v]) => (
+            <li class="cred-row"><span>{k}</span><MonoNum>{v}</MonoNum></li>
+          ))}
+        </ul>
+      </div>
+      <div style="margin-bottom: 56px;">
+        <div style="font-size: 14px; font-weight: 600; color: var(--ff-charcoal); padding-bottom: 12px; border-bottom: 2px solid var(--ff-charcoal); letter-spacing: 0.04em;">Education</div>
+        <ul style="list-style: none; margin: 0; padding: 0;">
+          {EDUCATION.map(([k, v]) => (
+            <li class="cred-row"><span>{k}</span><MonoNum>{v}</MonoNum></li>
+          ))}
+        </ul>
+      </div>
+      <div style="margin-bottom: 0;">
+        <div style="font-size: 14px; font-weight: 600; color: var(--ff-charcoal); padding-bottom: 12px; border-bottom: 2px solid var(--ff-charcoal); letter-spacing: 0.04em;">Recognition</div>
+        <ul style="list-style: none; margin: 0; padding: 0;">
+          {RECOGNITION.map(([k, v]) => (
+            <li class="cred-row"><span>{k}</span><MonoNum>{v}</MonoNum></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Rule />
+
+  <!-- OTHER WORK -->
+  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <Eyebrow>Other work</Eyebrow>
+      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        Where else<br />to find me.
+      </h2>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0;">
+      {OTHER_WORK.map((row, i) => (
+        <li class={i === 0 ? 'other-work-row first' : 'other-work-row'}>
+          <a href={row.href}>
+            <div>
+              <div class="ow-label">{row.label}</div>
+              <div class="ow-meta">{row.meta}</div>
+            </div>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <Rule strong />
+
+  <!-- CONTACT -->
+  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <Eyebrow>Contact</Eyebrow>
+      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        One inbox.<br />No forms.
+      </h2>
+    </div>
+    <div>
+      <ContactRow label="General" addr="francesco@the-agentic-cmo.com" />
+      <ContactRow label="Speaking" addr="speaking@the-agentic-cmo.com" subject="Speaking enquiry" />
+      <ContactRow label="Press" addr="press@the-agentic-cmo.com" subject="Press enquiry" />
+      <ContactRow label="Bulk orders" addr="orders@imprimaturpress.com" subject="Bulk order — The Agentic CMO" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cred-row {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    font-size: 15px;
+    color: var(--ff-charcoal);
+  }
+  .other-work-row { border-bottom: 1px solid var(--border); }
+  .other-work-row.first { border-top: 1px solid var(--border); }
+  .other-work-row a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    padding: 24px 0;
+    align-items: baseline;
+    color: var(--ff-charcoal);
+    text-decoration: none;
+  }
+  .ow-label {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ff-slate-blue);
+    line-height: 1.25;
+  }
+  .ow-meta { font-size: 14px; color: var(--fg-muted); margin-top: 6px; }
+
+  @media (max-width: 880px) {
+    .grid-4-8, .grid-5-7 { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 0 !important; }
+    h1 { font-size: 48px !important; }
+    h2 { font-size: 28px !important; }
+  }
+</style>

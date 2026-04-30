@@ -1,0 +1,8 @@
+---
+export interface Props {
+  strong?: boolean;
+  margin?: string;
+}
+const { strong = false, margin = '0' } = Astro.props;
+---
+<hr style={`border: 0; border-top: ${strong ? '2px' : '1px'} solid ${strong ? 'var(--ff-charcoal)' : 'var(--border)'}; margin: ${margin};`} />

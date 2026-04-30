@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { BOOK } from '../data/book';
+
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  jsonLd?: object | object[];
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = BOOK.shortDescription,
+  ogImage = '/assets/book-cover.png',
+  jsonLd,
+  canonical,
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = title === BOOK.title ? `${BOOK.title} — Francesco Federico` : `${title} · ${BOOK.title}`;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
+const ogUrl = canonicalUrl;
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Chronicles of Change" href="https://francescofederico.substack.com/feed" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/fonts/CrimsonPro-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/Inter-VariableFont_opsz_wght.ttf" as="font" type="font/ttf" crossorigin />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="book" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:site_name" content={BOOK.title} />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
+
+    <!-- LLM-friendly meta -->
+    <meta name="author" content={BOOK.author} />
+    <meta name="publisher" content={BOOK.publisher} />
+
+    <!-- JSON-LD -->
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="site">
+      <Nav currentPath={Astro.url.pathname} />
+      <main id="main" class="page-fade">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

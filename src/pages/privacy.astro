@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Rule from '../components/Rule.astro';
+import { BOOK } from '../data/book';
+
+const lastUpdated = '30 April 2026';
+---
+<BaseLayout
+  title="Privacy"
+  description="How the-agentic-cmo.com handles personal data. Plain-language statement, UK GDPR compliant."
+  noindex={false}
+>
+  <section class="grid-5-7" style="padding: 64px 0 48px; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: end;">
+    <div>
+      <Eyebrow>Reference</Eyebrow>
+      <h1 style="font-size: 64px; color: var(--ff-slate-blue); margin: 24px 0 0; line-height: 1.04; font-weight: 700; font-family: var(--font-serif); letter-spacing: -0.02em;">
+        Privacy.
+      </h1>
+    </div>
+    <div>
+      <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.45; color: var(--ff-slate-blue); margin: 0; max-width: 520px;">
+        The short version: we collect as little as possible, we never sell it, and you can ask for it back or have it deleted at any time.
+      </p>
+      <p style="font-size: 13px; color: var(--fg-muted); margin: 20px 0 0;">
+        Last updated: <span class="mono">{lastUpdated}</span>
+      </p>
+    </div>
+  </section>
+
+  <Rule strong margin="16px 0 0" />
+
+  <article class="privacy-body" style="padding: 64px 0; max-width: 720px; font-size: 16.5px; line-height: 1.7; color: var(--fg);">
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">1. Who we are</h2>
+    <p>This site is published and operated by Francesco Federico ("we", "us") to support the book {BOOK.title}, edited and distributed by {BOOK.publisher}. For the purposes of UK and EU data-protection law, the data controller is Francesco Federico, contactable at <a href="mailto:privacy@the-agentic-cmo.com">privacy@the-agentic-cmo.com</a>.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">2. What we collect</h2>
+    <p>We collect personal data in only two circumstances:</p>
+    <p><strong>When you request the Cited. PDF.</strong> The form on <a href="/cited/">/cited</a> asks for an email address, an optional role, and an optional answer to "what are you trying to solve". We collect these fields only.</p>
+    <p><strong>When you subscribe to the newsletter.</strong> The Chronicles of Change subscribe form is hosted by Substack. Their privacy policy applies; this site does not store newsletter subscriber data directly.</p>
+    <p>We do not run third-party analytics, advertising, or tracking pixels. We do not place cookies for tracking purposes. The site is hosted on Cloudflare Pages, which logs request metadata for routine operations and security; that log is held by Cloudflare under their <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer">privacy policy</a>.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">3. Why we hold it</h2>
+    <p>We hold your email address for the limited purpose of sending you the document you requested and one short follow-up email three weeks later asking what you tried. The lawful basis is your <em>consent</em> (Article 6(1)(a) UK GDPR), expressed by completing and submitting the form. Your role and "what are you trying to solve" answers, where given, help us improve the manual; they are stored alongside the email address.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">4. Where it sits</h2>
+    <p>The Cited. request data is stored in Cloudflare KV (a key-value store hosted in the United Kingdom and the European Union). Email delivery is handled by Resend (resend.com), which acts as a data processor on our behalf under a data-processing agreement. Resend stores the recipient address and message metadata only for the period required to deliver and audit the email.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">5. How long we keep it</h2>
+    <p>Cited. request data is retained for twelve months from the date of submission, after which it is deleted automatically. If you ask us to delete it earlier — by emailing <a href="mailto:privacy@the-agentic-cmo.com">privacy@the-agentic-cmo.com</a> — we will do so within thirty days.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">6. Who we share it with</h2>
+    <p>We do not sell, rent, or share your data with third parties for marketing purposes. Your data is processed by:</p>
+    <ul style="margin: 16px 0; padding-left: 24px;">
+      <li><strong>Cloudflare</strong> — site hosting and KV storage.</li>
+      <li><strong>Resend</strong> — transactional email delivery for the PDF.</li>
+      <li><strong>Substack</strong> — newsletter delivery, only if you separately subscribe to Chronicles of Change.</li>
+    </ul>
+    <p>These are technical service providers acting on our written instructions. We do not transfer your personal data outside the UK or EEA except where covered by the appropriate Standard Contractual Clauses or an adequacy decision.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">7. Your rights</h2>
+    <p>Under UK GDPR and the EU GDPR you have the right to:</p>
+    <ul style="margin: 16px 0; padding-left: 24px;">
+      <li>request a copy of the personal data we hold about you (right of access);</li>
+      <li>have it corrected (right to rectification);</li>
+      <li>have it deleted (right to erasure);</li>
+      <li>withdraw your consent at any time, with effect from withdrawal;</li>
+      <li>object to processing or request that processing be restricted;</li>
+      <li>lodge a complaint with the UK Information Commissioner's Office (<a href="https://ico.org.uk" rel="noopener noreferrer">ico.org.uk</a>) or the relevant supervisory authority in your member state.</li>
+    </ul>
+    <p>To exercise any of these rights, email <a href="mailto:privacy@the-agentic-cmo.com">privacy@the-agentic-cmo.com</a>. We aim to respond within seven days and in any event within thirty.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">8. Cookies</h2>
+    <p>This site does not set tracking cookies. The only cookies that may be set are technical cookies issued by Cloudflare for security and rate-limiting (such as <code>__cf_bm</code>); these are essential to the site's operation and are not used for analytics or profiling.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">9. Children</h2>
+    <p>This site is not directed at, and we do not knowingly collect personal data from, anyone under sixteen.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">10. Changes to this notice</h2>
+    <p>If we make material changes to how we handle personal data, we will update this page and refresh the "last updated" date at the top. The current version is always at <a href="/privacy/">the-agentic-cmo.com/privacy</a>.</p>
+
+    <h2 style="font-size: 28px; color: var(--ff-slate-blue); margin: 48px 0 16px;">11. Contact</h2>
+    <p>Questions, complaints, or data-subject requests: <a href="mailto:privacy@the-agentic-cmo.com">privacy@the-agentic-cmo.com</a>.</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .privacy-body p { max-width: 100%; }
+  .privacy-body a { color: var(--ff-vermillion); }
+  @media (max-width: 880px) {
+    .grid-5-7 { grid-template-columns: 1fr !important; gap: 32px !important; }
+    h1 { font-size: 44px !important; }
+    h2 { font-size: 22px !important; }
+  }
+</style>

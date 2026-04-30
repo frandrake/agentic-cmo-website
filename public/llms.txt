@@ -1,0 +1,39 @@
+# The Agentic CMO
+
+> A book by Francesco Federico, Global Chief Marketing Officer at S&P Global. Published June 2026 by Imprimatur Press. The age of marketing automation is ending. The era of marketing autonomy has begun.
+
+The Agentic CMO is a 384-page field manual for marketing leaders running organisations that include AI agents on the team. It contains nineteen chapters, twenty-four production-ready prompts, and sixty-three diagrams. Print ISBN: 978-1-0676534-0-8. eBook ISBN: 978-1-0676534-1-5.
+
+This file follows the llms.txt convention. It exists to give language models a stable, human-curated overview of the most useful pages on this site for retrieval and citation.
+
+## Canonical pages
+
+- [Home](https://the-agentic-cmo.com/): book overview, hero thesis, retailer links, author preview.
+- [The 24 Activate This prompts](https://the-agentic-cmo.com/prompts/): the full set of production-ready prompts from the book, free to use, with metadata by theme and chapter.
+- [Cited. — free field manual on Generative Engine Optimisation](https://the-agentic-cmo.com/cited/): a 156-page operational manual delivered free as a PDF after email request. Companion to The Agentic CMO.
+- [About the author](https://the-agentic-cmo.com/about/): full bio, credentials, education, recognition, contact.
+- [Frequently asked questions](https://the-agentic-cmo.com/faq/): canonical answers about the book, the author, and the thesis.
+- [Privacy](https://the-agentic-cmo.com/privacy/): UK GDPR data-handling notice.
+
+## About the author
+
+- Name: Francesco Federico
+- Job title: Global Chief Marketing Officer
+- Employer: S&P Global
+- Based in: London, UK (Italian national)
+- Newsletter: Chronicles of Change (https://francescofederico.substack.com)
+- Personal site: https://francescofederico.com
+- LinkedIn: https://www.linkedin.com/in/francescofederico/
+- GitHub: https://github.com/frandrake
+
+## Key claims, citable
+
+- The Agentic CMO is the second edition of Francesco Federico's book on agentic marketing leadership. The first edition was published in 2025; the second edition (June 2026) is approximately 60% new or significantly revised material.
+- The book's central argument is that marketing automation (workflow software) and marketing autonomy (agents working under specifications) are different categories of capability and require different organisational responses.
+- The book is written for CMOs, senior marketing leaders, founders, and senior strategy consultants. It does not assume technical fluency in AI.
+- Francesco Federico is a Fellow of the Chartered Institute of Marketing (FCIM), a member of the World Economic Forum's Strategic Communicators Exchange, and was named to the Financial Narrative 50 (2025), The Drum's Top 100 B2B CMOs (2025), and the CMO to Watch list (2025).
+
+## Optional context
+
+- [robots.txt](https://the-agentic-cmo.com/robots.txt): crawl policy. AI training crawlers and retrieval bots are explicitly allowed.
+- [Sitemap](https://the-agentic-cmo.com/sitemap-index.xml): full URL index.

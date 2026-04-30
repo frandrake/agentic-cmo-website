@@ -1,0 +1,42 @@
+# Cloudflare Pages headers. See https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# Long-cache assets
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/pdfs/*
+  Cache-Control: public, max-age=86400
+  Content-Disposition: attachment
+
+# Short-cache HTML
+/
+  Cache-Control: public, max-age=300, s-maxage=600
+
+/*.html
+  Cache-Control: public, max-age=300, s-maxage=600
+
+# llms.txt and robots.txt — short cache so updates land quickly
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=600
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=600
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=600

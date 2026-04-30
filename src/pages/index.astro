@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Rule from '../components/Rule.astro';
+import MonoNum from '../components/MonoNum.astro';
+import BookCover from '../components/BookCover.astro';
+import NewsletterInline from '../components/NewsletterInline.tsx';
+import { BOOK, RETAILERS, ANCHORS } from '../data/book';
+
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Book',
+      '@id': `${BOOK.url}/#book`,
+      name: BOOK.title,
+      alternativeHeadline: BOOK.subtitle,
+      bookEdition: BOOK.edition,
+      bookFormat: 'https://schema.org/Hardcover',
+      isbn: BOOK.isbnPrint,
+      datePublished: BOOK.pubDateMachine,
+      numberOfPages: BOOK.pages,
+      inLanguage: 'en',
+      publisher: { '@type': 'Organization', name: BOOK.publisher, address: BOOK.publisherCity },
+      author: {
+        '@type': 'Person',
+        '@id': 'https://francescofederico.com/#person',
+        name: BOOK.author,
+        jobTitle: 'Global Chief Marketing Officer',
+        worksFor: { '@type': 'Organization', name: 'S&P Global' },
+        url: 'https://francescofederico.com',
+        sameAs: [
+          'https://www.linkedin.com/in/francescofederico/',
+          'https://github.com/frandrake',
+          'https://francescofederico.substack.com',
+        ],
+      },
+      image: `${BOOK.url}/assets/book-cover.png`,
+      url: BOOK.url,
+      description: BOOK.shortDescription,
+      workExample: [
+        { '@type': 'Book', bookEdition: 'Hardcover', isbn: BOOK.isbnPrint, bookFormat: 'https://schema.org/Hardcover' },
+        { '@type': 'Book', bookEdition: 'eBook', isbn: BOOK.isbnEbook, bookFormat: 'https://schema.org/EBook' },
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${BOOK.url}/#website`,
+      url: BOOK.url,
+      name: BOOK.title,
+      description: BOOK.shortDescription,
+      publisher: { '@type': 'Organization', name: BOOK.publisher },
+      inLanguage: 'en-GB',
+    },
+  ],
+};
+---
+<BaseLayout
+  title={BOOK.title}
+  description={`${BOOK.thesis} A new book by ${BOOK.author}, Global CMO at S&P Global. ${BOOK.pubDate} — ${BOOK.publisher}.`}
+  jsonLd={homeJsonLd}
+>
+  <!-- COVER-LED HERO -->
+  <section class="hero hero-cover" style="padding: 80px 0; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: center;">
+    <div>
+      <BookCover />
+    </div>
+    <div>
+      <Eyebrow vermillion>A new book by Francesco Federico</Eyebrow>
+      <h1 style="font-size: 72px; line-height: 1.02; font-weight: 700; color: var(--ff-slate-blue); margin: 24px 0 0; letter-spacing: -0.025em; text-wrap: balance; font-family: var(--font-serif);">
+        The Agentic<br />CMO.
+      </h1>
+      <p style="font-family: var(--font-serif); font-size: 24px; font-style: italic; line-height: 1.4; color: var(--ff-slate-blue); margin: 32px 0 0; max-width: 520px;">
+        {BOOK.thesis}
+      </p>
+      <p style="font-size: 15px; color: var(--fg-muted); margin: 20px 0 0; max-width: 480px; line-height: 1.6;">
+        Second edition. {BOOK.pubDate}. {BOOK.publisher}. Nineteen chapters. Twenty-four prompts. Sixty-three diagrams.
+      </p>
+      <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="#buy" class="btn btn--accent btn--lg">Buy the book →</a>
+        <a href="/cited/" class="btn btn--secondary btn--lg">Get Cited. (free)</a>
+      </div>
+    </div>
+  </section>
+
+  <Rule strong />
+
+  <!-- WHAT'S INSIDE -->
+  <section class="grid-4-8" style="padding: 96px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div style="position: sticky; top: 24px;">
+      <Eyebrow>What's inside</Eyebrow>
+      <h2 style="font-size: 40px; color: var(--ff-slate-blue); margin: 16px 0 16px; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        Nineteen chapters. Twenty-four prompts. Sixty-three diagrams.
+      </h2>
+      <p style="font-size: 15px; color: var(--fg-muted); line-height: 1.6; margin: 8px 0 24px;">
+        Five anchor concepts run through the book. They are how a CMO thinks about a function whose participants now include agents.
+      </p>
+      <a href="/prompts/" style="font-size: 14px; color: var(--ff-vermillion);">Read the prompts →</a>
+    </div>
+    <ol style="list-style: none; margin: 0; padding: 0;">
+      {ANCHORS.map((a, i) => (
+        <li style={`padding: 32px 0; border-top: ${i === 0 ? '1px solid var(--border)' : 'none'}; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: baseline;`}>
+          <MonoNum>{a.n}</MonoNum>
+          <div>
+            <h3 style="font-size: 24px; color: var(--ff-slate-blue); margin: 0; font-family: var(--font-serif); font-weight: 600; line-height: 1.25;">{a.title}</h3>
+            <p style="margin: 8px 0 0; font-size: 15px; color: var(--fg); line-height: 1.6; max-width: 620px;">{a.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <Rule />
+
+  <!-- ABOUT PREVIEW -->
+  <section class="grid-4-8" style="padding: 96px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <div style="width: 100%; aspect-ratio: 4 / 5; filter: grayscale(1) contrast(1.05); background: var(--ff-light-gray); overflow: hidden;">
+        <img src="/assets/author.png" alt="Francesco Federico" loading="lazy" decoding="async" style="width: 100%; height: 100%; display: block; object-fit: cover;" />
+      </div>
+    </div>
+    <div>
+      <Eyebrow>About the author</Eyebrow>
+      <h2 style="font-size: 48px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.05; font-weight: 700; font-family: var(--font-serif); letter-spacing: -0.015em;">Francesco Federico.</h2>
+      <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.5; color: var(--fg); margin: 32px 0 0; max-width: 620px;">
+        Global Chief Marketing Officer at S&amp;P Global. Fellow of the Chartered Institute of Marketing. Member of the World Economic Forum's Strategic Communicators Exchange.
+      </p>
+      <ul class="cred-grid" style="list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 620px;">
+        <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 14px; color: var(--ff-charcoal);">Financial Narrative 50</span>
+          <MonoNum>2025</MonoNum>
+        </li>
+        <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 14px; color: var(--ff-charcoal);">The Drum Top 100 B2B CMOs</span>
+          <MonoNum>2025</MonoNum>
+        </li>
+        <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 14px; color: var(--ff-charcoal);">CMO to Watch</span>
+          <MonoNum>2025</MonoNum>
+        </li>
+        <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 14px; color: var(--ff-charcoal);">FCIM · WEF SCE</span>
+          <MonoNum>Standing</MonoNum>
+        </li>
+      </ul>
+      <div style="margin-top: 40px;">
+        <a href="/about/" class="btn btn--secondary">Read the full bio →</a>
+      </div>
+    </div>
+  </section>
+
+  <Rule />
+
+  <!-- NEWSLETTER -->
+  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: center;">
+    <div>
+      <Eyebrow vermillion>Chronicles of Change</Eyebrow>
+      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        The thinking that leads<br />to the book.
+      </h2>
+    </div>
+    <div>
+      <p style="font-size: 17px; color: var(--fg); margin: 0 0 24px; max-width: 560px; line-height: 1.55;">
+        Weekly notes on agentic marketing — what is happening, what is being deployed, and what the framework in the book makes of it. No promotions. No referrals. One email.
+      </p>
+      <NewsletterInline client:visible />
+      <div style="margin-top: 16px; font-size: 12px; color: var(--fg-muted);">
+        Also published on Substack and LinkedIn.
+      </div>
+    </div>
+  </section>
+
+  <Rule strong />
+
+  <!-- BUY BLOCK -->
+  <section id="buy" class="grid-4-8" style="padding: 96px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <Eyebrow>Buy the book</Eyebrow>
+      <h2 style="font-size: 40px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        Print, Kindle,<br />and EPUB.
+      </h2>
+      <p style="font-size: 15px; color: var(--fg-muted); margin: 24px 0 0; line-height: 1.6; max-width: 320px;">
+        Direct purchases through {BOOK.publisher} support independent publishing. All retailers ship internationally.
+      </p>
+    </div>
+    <div>
+      <ul class="retailer-grid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border);">
+        {RETAILERS.map((r) => (
+          <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+            <a
+              href={r.href}
+              rel={r.id === 'imp' ? '' : 'sponsored noopener'}
+              style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
+              onmouseover="this.style.background='#F1F2F4'"
+              onmouseout="this.style.background='transparent'"
+            >
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span class={r.primary ? 'eyebrow-block eyebrow-vermillion' : 'eyebrow-block'}>
+                  {r.primary ? 'Recommended' : 'Retailer'}
+                </span>
+                <span aria-hidden="true" style="font-size: 14px; color: var(--fg-muted);">↗</span>
+              </div>
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); margin-bottom: 6px;">{r.name}</div>
+                <div style="font-size: 13px; color: var(--fg-muted);">{r.format}</div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  @media (max-width: 880px) {
+    .hero-cover { grid-template-columns: 1fr !important; gap: 32px !important; padding: 32px 0 48px !important; }
+    .grid-4-8 { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 0 !important; }
+    .retailer-grid { grid-template-columns: 1fr !important; }
+    .cred-grid { grid-template-columns: 1fr !important; }
+    h1 { font-size: 48px !important; }
+    h2 { font-size: 28px !important; }
+  }
+</style>

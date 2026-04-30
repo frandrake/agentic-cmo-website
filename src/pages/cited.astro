@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Rule from '../components/Rule.astro';
+import MonoNum from '../components/MonoNum.astro';
+import CitedForm from '../components/CitedForm.tsx';
+import { CITED_META, CITED_CHAPTERS, CITED_FOR_WHOM } from '../data/cited';
+import { BOOK } from '../data/book';
+
+const citedJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: 'Cited.',
+  alternativeHeadline: CITED_META.subtitle,
+  bookFormat: 'https://schema.org/EBook',
+  inLanguage: 'en',
+  author: { '@id': 'https://francescofederico.com/#person', name: BOOK.author },
+  publisher: { '@type': 'Organization', name: BOOK.publisher },
+  isPartOf: { '@id': `${BOOK.url}/#book` },
+  url: `${BOOK.url}/cited/`,
+  description: CITED_META.subtitle,
+  isAccessibleForFree: true,
+  numberOfPages: CITED_META.pages,
+};
+---
+<BaseLayout
+  title="Cited. — A field manual on Generative Engine Optimisation"
+  description="A free operational manual on Generative Engine Optimisation. The discipline of being read, retrieved, and attributed by the models your customers now ask first."
+  ogImage="/assets/cited-cover.png"
+  jsonLd={citedJsonLd}
+>
+  <!-- HERO -->
+  <section class="cited-hero" style="padding: 80px 0 64px; display: grid; grid-template-columns: 7fr 5fr; gap: 80px; align-items: center;">
+    <div>
+      <Eyebrow vermillion>Free · A field manual from The Agentic CMO</Eyebrow>
+      <h1 style="font-size: 120px; line-height: 0.92; font-weight: 700; color: var(--ff-slate-blue); margin: 32px 0 0; letter-spacing: -0.04em; font-family: var(--font-serif);">
+        Cited<span style="color: var(--ff-vermillion);">.</span>
+      </h1>
+      <p style="font-family: var(--font-serif); font-size: 28px; line-height: 1.35; color: var(--ff-slate-blue); margin: 32px 0 0; font-style: italic; max-width: 560px;">
+        An operational manual on Generative Engine Optimisation — the discipline of being read, retrieved, and attributed by the models your customers now ask first.
+      </p>
+      <div style="margin-top: 36px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; color: var(--fg-muted); align-items: center;">
+        <span class="mono" style="letter-spacing: 0.06em;">{CITED_META.pages} PAGES</span>
+        <span style="color: var(--border);">·</span>
+        <span class="mono" style="letter-spacing: 0.06em;">{CITED_META.format}</span>
+        <span style="color: var(--border);">·</span>
+        <span class="mono" style="letter-spacing: 0.06em;">{CITED_META.edition.toUpperCase()}</span>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: flex-end;">
+      <div class="cited-cover" style="width: 88%; aspect-ratio: 628 / 880; background: var(--ff-cool-white); border: 1px solid var(--border); box-shadow: 24px 24px 0 0 var(--ff-slate-blue); position: relative; overflow: hidden;">
+        <img src="/assets/cited-cover.png" alt="Cited. — Cover" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+      </div>
+    </div>
+  </section>
+
+  <Rule strong />
+
+  <!-- WHAT'S INSIDE -->
+  <section class="grid-4-8" style="padding: 96px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div style="position: sticky; top: 24px;">
+      <Eyebrow>What's inside</Eyebrow>
+      <h2 style="font-size: 40px; color: var(--ff-slate-blue); margin: 16px 0 16px; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        Fifteen chapters. One operating plan.
+      </h2>
+      <p style="font-size: 15px; color: var(--fg-muted); line-height: 1.6; margin: 8px 0 0;">
+        Cited is shorter than a book and longer than a blog post on purpose. It is the document a marketing leader can read on a flight and act on the next morning.
+      </p>
+    </div>
+    <ol style="list-style: none; margin: 0; padding: 0;">
+      {CITED_CHAPTERS.map((c, i) => (
+        <li style={`padding: 32px 0; border-top: ${i === 0 ? '1px solid var(--border)' : 'none'}; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: baseline;`}>
+          <MonoNum>{c.n}</MonoNum>
+          <div>
+            <h3 style="font-size: 24px; color: var(--ff-slate-blue); margin: 0; font-family: var(--font-serif); font-weight: 600; line-height: 1.25;">{c.title}</h3>
+            <p style="margin: 8px 0 0; font-size: 15px; color: var(--fg); line-height: 1.6; max-width: 620px;">{c.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <Rule />
+
+  <!-- FOR WHOM -->
+  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <Eyebrow>Who it's for</Eyebrow>
+      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        Written for four<br />specific readers.
+      </h2>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0;">
+      {CITED_FOR_WHOM.map((line, i) => (
+        <li style={`padding: 24px 0; border-top: ${i === 0 ? '1px solid var(--border)' : 'none'}; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: baseline;`}>
+          <MonoNum>{String(i + 1).padStart(2, '0')}</MonoNum>
+          <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.4; color: var(--ff-slate-blue); margin: 0; max-width: 720px;">{line}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <Rule />
+
+  <!-- DOWNLOAD FORM -->
+  <section id="download" class="grid-5-7" style="padding: 96px 0; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: start;">
+    <div>
+      <Eyebrow vermillion>Free download</Eyebrow>
+      <h2 style="font-size: 56px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.02; font-weight: 700; font-family: var(--font-serif); letter-spacing: -0.02em;">
+        Get the<br />manual.
+      </h2>
+      <p style="font-size: 16px; color: var(--fg); margin: 32px 0 0; line-height: 1.55; max-width: 380px;">
+        Leave an email. We send the PDF immediately, and a short follow-up three weeks later asking what you tried. No newsletter sign-up. No marketing automation. Unsubscribe in one click.
+      </p>
+      <ul style="list-style: none; margin: 32px 0 0; padding: 0; font-size: 13px; color: var(--fg-muted); line-height: 1.8;">
+        <li>· Delivered as a single PDF, {CITED_META.format.split('·')[1].trim()}.</li>
+        <li>· Print-ready at A4 and US Letter.</li>
+        <li>· Cited may be redistributed within your organisation.</li>
+      </ul>
+    </div>
+    <div>
+      <CitedForm client:load />
+    </div>
+  </section>
+
+  <Rule />
+
+  <!-- FROM THE BOOK CROSS-LINK -->
+  <section class="grid-4-8" style="padding: 96px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <Eyebrow>Why we wrote it</Eyebrow>
+      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        A note from<br />the author.
+      </h2>
+    </div>
+    <div>
+      <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.55; color: var(--fg); margin: 0; max-width: 660px;">
+        Cited started as one chapter of The Agentic CMO. It outgrew its allocation. The argument was too operational for the book — full of file formats, crawler specifications, and ninety-day plans — and too urgent to hold for a second printing.
+      </p>
+      <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.55; color: var(--fg); margin: 24px 0 0; max-width: 660px;">
+        So we cut it loose. The manual is free because the marketing function is in a difficult quarter and the people who need this information most are also the people most likely to be told they cannot expense another book.
+      </p>
+      <div style="margin-top: 40px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;">
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--ff-slate-blue);">
+            The full argument is in The Agentic CMO.
+          </div>
+          <div style="font-size: 14px; color: var(--fg-muted); margin-top: 6px;">
+            Nineteen chapters · twenty-four prompts · sixty-three diagrams.
+          </div>
+        </div>
+        <a href="/" class="btn btn--secondary">Read about the book →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  @media (max-width: 880px) {
+    .cited-hero { grid-template-columns: 1fr !important; gap: 32px !important; padding: 32px 0 48px !important; }
+    .cited-cover { box-shadow: 12px 12px 0 0 var(--ff-slate-blue) !important; width: 70% !important; }
+    .grid-4-8, .grid-5-7 { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 0 !important; }
+    h1 { font-size: 80px !important; }
+    h2 { font-size: 32px !important; }
+  }
+  @media (max-width: 560px) {
+    .cited-hero h1 { font-size: 64px !important; }
+  }
+</style>

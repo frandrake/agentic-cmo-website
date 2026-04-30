@@ -1,0 +1,12 @@
+---
+export interface Props {
+  inverse?: boolean;
+}
+const { inverse = false } = Astro.props;
+---
+<div style="display: flex; align-items: center; gap: 14px;">
+  <span aria-hidden="true" style="width: 28px; height: 2px; background: var(--ff-vermillion); display: inline-block; flex-shrink: 0;"></span>
+  <span style={`font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: ${inverse ? 'var(--ff-cool-white)' : 'var(--ff-slate-blue)'}; letter-spacing: -0.01em;`}>
+    The Agentic CMO
+  </span>
+</div>

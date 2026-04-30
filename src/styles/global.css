@@ -1,0 +1,291 @@
+/* =============================================================
+   THE AGENTIC CMO — DESIGN TOKENS
+   The Milanese Futurist — Italian design heritage meets AI precision.
+   ============================================================= */
+
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('/fonts/CrimsonPro-VariableFont_wght.ttf') format('truetype-variations'),
+       url('/fonts/CrimsonPro-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('/fonts/CrimsonPro-Italic-VariableFont_wght.ttf') format('truetype-variations'),
+       url('/fonts/CrimsonPro-Italic-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype-variations'),
+       url('/fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype-variations'),
+       url('/fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+}
+
+:root {
+  /* Raw palette */
+  --ff-slate-blue:   #4A5E7C;
+  --ff-cool-white:   #F8F9FA;
+  --ff-charcoal:     #2B2D30;
+  --ff-vermillion:   #E63946;
+  --ff-vermillion-d: #C22A36;
+  --ff-steel-blue:   #7D8E9E;
+  --ff-light-gray:   #D8D9DA;
+
+  /* Semantic */
+  --bg:              var(--ff-cool-white);
+  --bg-inverse:      var(--ff-slate-blue);
+  --bg-code:         var(--ff-charcoal);
+  --fg:              var(--ff-charcoal);
+  --fg-muted:        #5A5C60;
+  --fg-display:      var(--ff-slate-blue);
+  --fg-inverse:      var(--ff-cool-white);
+  --fg-accent:       var(--ff-vermillion);
+  --fg-data:         var(--ff-steel-blue);
+  --border:          var(--ff-light-gray);
+  --border-strong:   var(--ff-charcoal);
+  --border-brand:    var(--ff-slate-blue);
+  --link:            var(--ff-vermillion);
+  --link-hover:      var(--ff-vermillion-d);
+  --focus-ring:      var(--ff-vermillion);
+
+  /* Type families */
+  --font-serif:  'Crimson Pro', 'Libre Baskerville', Georgia, serif;
+  --font-sans:   'Inter', 'Lexend', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:   'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale */
+  --fs-h1:       48px;
+  --fs-h2:       36px;
+  --fs-h3:       24px;
+  --fs-h4:       20px;
+  --fs-body:     16px;
+  --fs-small:    14px;
+  --fs-eyebrow:  12px;
+  --fs-quote:    24px;
+
+  --lh-tight:    1.1;
+  --lh-snug:     1.25;
+  --lh-body:     1.6;
+  --fw-reg:      400;
+  --fw-med:      500;
+  --fw-semi:     600;
+  --fw-bold:     700;
+  --tracking-eyebrow: 0.08em;
+
+  /* Spacing — 8px grid */
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  32px;
+  --space-4:  64px;
+  --space-5:  96px;
+  --space-6:  128px;
+
+  /* Radii + borders */
+  --radius:      2px;
+  --border-w:    1px;
+  --border-w-strong: 2px;
+
+  /* Motion */
+  --ease:        ease;
+  --dur:         0.2s;
+  --dur-slow:    0.3s;
+
+  /* Layout */
+  --container:   1280px;
+  --measure:     68ch;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-reg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--fg-display);
+  font-weight: var(--fw-semi);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--space-2);
+  text-wrap: balance;
+}
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-bold); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-snug); }
+h4 { font-size: var(--fs-h4); line-height: var(--lh-snug); }
+
+p {
+  margin: 0 0 var(--space-2);
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
+a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+small, .eyebrow {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--fw-med);
+  color: var(--fg-data);
+}
+
+blockquote, .pull-quote {
+  font-family: var(--font-serif);
+  font-size: var(--fs-quote);
+  font-style: italic;
+  color: var(--fg-display);
+  margin: var(--space-3) 0;
+  padding: 0 0 0 var(--space-2);
+  border-left: var(--border-w-strong) solid var(--fg-display);
+  max-width: var(--measure);
+}
+
+hr {
+  border: 0;
+  border-top: var(--border-w) solid var(--border);
+  margin: var(--space-3) 0;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+::selection { background: var(--ff-vermillion); color: var(--ff-cool-white); }
+
+.mono { font-family: var(--font-mono); }
+
+/* Layout shell */
+.site {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ff-charcoal);
+  color: var(--ff-cool-white);
+  padding: 8px 16px;
+  z-index: 100;
+}
+.skip-link:focus { left: 16px; top: 16px; }
+
+/* Page transitions */
+.page-fade { animation: fadeIn 0.18s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: var(--fw-med);
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  border: var(--border-w-strong) solid var(--ff-charcoal);
+  background: var(--ff-charcoal);
+  color: var(--fg-inverse);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.btn:hover { background: var(--ff-slate-blue); border-color: var(--ff-slate-blue); color: var(--fg-inverse); border-bottom-color: var(--ff-slate-blue); }
+.btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.btn--secondary { background: transparent; color: var(--ff-charcoal); }
+.btn--secondary:hover { background: var(--ff-charcoal); color: var(--fg-inverse); }
+.btn--accent { background: var(--ff-vermillion); border-color: var(--ff-vermillion); color: var(--fg-inverse); }
+.btn--accent:hover { background: var(--ff-vermillion-d); border-color: var(--ff-vermillion-d); color: var(--fg-inverse); }
+.btn--ghost { background: transparent; color: var(--ff-charcoal); border-color: var(--border); }
+.btn--ghost:hover { background: var(--ff-charcoal); color: var(--fg-inverse); border-color: var(--ff-charcoal); }
+.btn--lg { padding: 14px 32px; font-size: 15px; }
+.btn--sm { padding: 8px 18px; font-size: 13px; }
+.btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+
+/* Eyebrow */
+.eyebrow-block {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ff-steel-blue);
+}
+.eyebrow-vermillion { color: var(--ff-vermillion); }
+
+/* MonoNum */
+.mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--ff-steel-blue);
+  letter-spacing: 0.04em;
+}
+
+/* Mobile fallback */
+@media (max-width: 880px) {
+  .site { padding: 0 24px; }
+  :root {
+    --fs-h1: 36px;
+    --fs-h2: 28px;
+    --fs-h3: 22px;
+  }
+  .grid-7-5, .grid-5-7, .grid-4-8, .grid-7-4 {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .nav-list { display: none !important; }
+  .mobile-menu-toggle { display: flex !important; }
+}
+
+/* Print */
+@media print {
+  nav, footer, .skip-link { display: none; }
+  body { color: black; background: white; }
+}

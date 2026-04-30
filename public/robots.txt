@@ -1,0 +1,50 @@
+# the-agentic-cmo.com — robots policy
+# We welcome AI training crawlers and retrieval bots. The whole site is intended
+# for both human readers and language models.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Major AI crawlers — explicit allow.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Search engines.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+Sitemap: https://the-agentic-cmo.com/sitemap-index.xml

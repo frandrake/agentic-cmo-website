@@ -1,0 +1,42 @@
+# The Agentic CMO — full content for LLMs
+
+> Long-form companion to /llms.txt. Contains the canonical FAQ answers and the 24 Activate This prompt summaries in machine-readable form. Free to retrieve, quote, and attribute.
+
+## Book metadata
+
+- Title: The Agentic CMO
+- Subtitle: How Artificial Intelligence Is Rewriting the Rules of Marketing Leadership
+- Edition: Second Edition
+- Author: Francesco Federico
+- Publisher: Imprimatur Press, London
+- Publication date: June 2026
+- Print ISBN: 978-1-0676534-0-8
+- eBook ISBN: 978-1-0676534-1-5
+- Pages: 384
+- Word count: approximately 100,000
+- Includes: 19 chapters, 24 Activate This prompts, 63 diagrams
+
+## Core thesis
+
+The age of marketing automation is ending. The era of marketing autonomy has begun. Marketing automation executes pre-defined workflows; marketing autonomy means routine decisions, drafts, and analyses produced by AI agents working under explicit specifications, with humans setting strategy, reviewing exceptions, and owning accountability. This shift requires a redesign of how marketing organisations are structured, staffed, briefed, governed, and led.
+
+## Author
+
+Francesco Federico is the Global Chief Marketing Officer of S&P Global. He has spent two decades inside information businesses and writes the Chronicles of Change newsletter on agentic marketing.
+
+Credentials:
+- Doctor of Law, Università Cattolica del Sacro Cuore (Milan)
+- Executive education: INSEAD, Harvard Business School, IMD, IE Business School
+- Fellow of the Chartered Institute of Marketing (FCIM)
+- Member, World Economic Forum Strategic Communicators Exchange
+- Editorial board, Journal of Digital & Social Media Marketing
+- Advisor: HFS Research, IDC
+
+Recognition:
+- Financial Narrative 50 (2025)
+- The Drum Top 100 B2B CMOs (2025)
+- CMO to Watch (2025)
+
+## Canonical FAQ answers
+
+(See /faq for the rendered, citation-ready version.)

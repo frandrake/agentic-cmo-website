@@ -1,0 +1,15 @@
+---
+export interface Props {
+  width?: string;
+  alt?: string;
+  src?: string;
+}
+const {
+  width = '100%',
+  alt = 'The Agentic CMO — book cover',
+  src = '/assets/book-cover.png',
+} = Astro.props;
+---
+<div style={`width: ${width}; aspect-ratio: 628 / 1000; background: #F1F2F4; border: 1px solid var(--border); overflow: hidden; position: relative;`}>
+  <img src={src} alt={alt} loading="lazy" decoding="async" style="width: 100%; height: 100%; display: block; object-fit: cover;" />
+</div>

@@ -1,0 +1,69 @@
+---
+import Logo from './Logo.astro';
+
+export interface Props {
+  currentPath: string;
+}
+const { currentPath } = Astro.props;
+
+const NAV_ITEMS = [
+  { href: '/', label: 'Home', match: (p: string) => p === '/' },
+  { href: '/prompts/', label: 'Prompts', match: (p: string) => p.startsWith('/prompts') },
+  { href: '/cited/', label: 'Cited.', match: (p: string) => p.startsWith('/cited') },
+  { href: '/about/', label: 'About', match: (p: string) => p.startsWith('/about') },
+  { href: '/#buy', label: 'Buy the book', match: (_p: string) => false },
+];
+---
+
+<nav aria-label="Primary" style="display: flex; align-items: center; justify-content: space-between; padding: 28px 0; border-bottom: 1px solid var(--border);">
+  <a href="/" aria-label="The Agentic CMO — home" style="display: block; border-bottom: none;">
+    <Logo />
+  </a>
+  <ul class="nav-list" style="list-style: none; display: flex; gap: 36px; margin: 0; padding: 0;">
+    {NAV_ITEMS.map((item) => {
+      const active = item.match(currentPath);
+      return (
+        <li>
+          <a
+            href={item.href}
+            style={`font-size: 14px; color: ${active ? 'var(--ff-vermillion)' : 'var(--ff-charcoal)'}; border-bottom: ${active ? '1px solid var(--ff-vermillion)' : '1px solid transparent'}; padding-bottom: 4px;`}
+          >
+            {item.label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+  <button
+    class="mobile-menu-toggle"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    style="display: none; background: transparent; border: 0; padding: 8px; cursor: pointer; flex-direction: column; gap: 5px;"
+  >
+    <span style="width: 22px; height: 2px; background: var(--ff-charcoal); display: block;"></span>
+    <span style="width: 22px; height: 2px; background: var(--ff-charcoal); display: block;"></span>
+    <span style="width: 22px; height: 2px; background: var(--ff-charcoal); display: block;"></span>
+  </button>
+</nav>
+
+<div id="mobile-menu" hidden style="display: none; padding: 24px 0; border-bottom: 1px solid var(--border);">
+  <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px;">
+    {NAV_ITEMS.map((item) => (
+      <li><a href={item.href} style="font-size: 18px; font-family: var(--font-serif); color: var(--ff-slate-blue);">{item.label}</a></li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu') as HTMLElement | null;
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.style.display = open ? 'none' : 'block';
+      menu.hidden = open;
+    });
+  }
+</script>

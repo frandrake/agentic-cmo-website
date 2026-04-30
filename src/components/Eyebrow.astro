@@ -1,0 +1,11 @@
+---
+export interface Props {
+  vermillion?: boolean;
+  charcoal?: boolean;
+}
+const { vermillion = false, charcoal = false } = Astro.props;
+const color = vermillion ? 'var(--ff-vermillion)' : charcoal ? 'var(--ff-charcoal)' : 'var(--ff-steel-blue)';
+---
+<span style={`display: inline-block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: ${color};`}>
+  <slot />
+</span>
