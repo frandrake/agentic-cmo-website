@@ -1,10 +1,10 @@
 # Cloudflare Pages redirects. See https://developers.cloudflare.com/pages/configuration/redirects/
 
-# Activate This deep links from QR codes in the print book point to /activate/#at-NN.
-# Forward those to /prompts/ where the prompts live.
-/activate/*  /prompts/  301
+# Friendly aliases — exact matches first (more performant).
+/buy       /#buy  301
+/the-book  /      301
+/book      /      301
 
-# Friendly aliases.
-/buy  /#buy  301
-/the-book  /  301
-/book  /  301
+# Activate This deep links from QR codes in the print book point to /activate/#at-NN.
+# Forward those to /prompts/. Splat rules go last.
+/activate/*  /prompts/  301

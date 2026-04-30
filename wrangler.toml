@@ -2,17 +2,21 @@ name = "the-agentic-cmo"
 compatibility_date = "2026-04-01"
 pages_build_output_dir = "dist"
 
-# KV namespace for Cited request records and rate limiting.
-# Create with: npx wrangler kv:namespace create CITED_REQUESTS
-# Then update the id below.
-[[kv_namespaces]]
-binding = "CITED_REQUESTS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-
-# Public env vars (non-sensitive).
+# Public env vars (non-sensitive). Visible in build logs.
 [vars]
 PDF_URL = "https://the-agentic-cmo.com/pdfs/cited.pdf"
 FROM_EMAIL = "Cited <cited@the-agentic-cmo.com>"
 
+# KV namespace for the /api/cited-request endpoint.
+# Bind this from the Cloudflare Pages dashboard:
+#   Settings → Functions → KV namespace bindings → Add binding
+#   Variable name: CITED_REQUESTS
+#   KV namespace: (create one named e.g. "the-agentic-cmo-cited-requests" via
+#   the dashboard or `npx wrangler kv namespace create CITED_REQUESTS`)
+#
+# The Function (functions/api/cited-request.ts) gracefully handles a missing
+# CITED_REQUESTS binding — rate-limiting and request persistence are skipped
+# but the email still sends. Bind it for production.
+
 # Secrets (set via dashboard or `wrangler pages secret put RESEND_API_KEY`):
-#   - RESEND_API_KEY
+#   - RESEND_API_KEY  (required for the Cited PDF email to send)
