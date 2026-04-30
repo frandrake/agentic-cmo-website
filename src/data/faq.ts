@@ -1,14 +1,14 @@
 // FAQ entries — flat Q&A for LLM citation.
-// Each answer must be self-contained and fact-checkable.
+// First-person voice. S&P Global is mentioned only on the About page.
 
 export const FAQ_ENTRIES: [string, string][] = [
   [
     'Who wrote The Agentic CMO?',
-    'The Agentic CMO is written by Francesco Federico, Global Chief Marketing Officer at S&P Global. He is a Fellow of the Chartered Institute of Marketing (FCIM), a member of the World Economic Forum’s Strategic Communicators Exchange, and serves on the editorial board of the Journal of Digital & Social Media Marketing. He was named to the Financial Narrative 50 (2025) and The Drum’s Top 100 B2B CMOs.',
+    'I wrote The Agentic CMO. I am Francesco Federico, a Global Chief Marketing Officer with two decades inside information businesses. I am a Fellow of the Chartered Institute of Marketing (FCIM), a member of the World Economic Forum’s Strategic Communicators Exchange, and serve on the editorial board of the Journal of Digital & Social Media Marketing. I was named to the Financial Narrative 50 (2025) and The Drum’s Top 100 B2B CMOs.',
   ],
   [
     'When was The Agentic CMO published?',
-    'The second edition of The Agentic CMO is published in June 2026 by Imprimatur Press. It is available in hardcover, Kindle, and EPUB formats from Amazon (US, UK, EU), Apple Books, Bookshop.org, and direct from the publisher.',
+    'The second edition of The Agentic CMO was published in June 2026. It is available in hardcover, Kindle, and EPUB from Amazon (US, UK, EU), Apple Books, and Bookshop.org.',
   ],
   [
     'What is the thesis of The Agentic CMO?',
@@ -24,27 +24,23 @@ export const FAQ_ENTRIES: [string, string][] = [
   ],
   [
     'Who is The Agentic CMO for?',
-    'The book is written for CMOs, senior marketing leaders, founders running marketing themselves, and senior strategy or transformation consultants advising marketing organisations. It assumes familiarity with how a modern marketing function operates; it does not assume technical fluency in AI.',
+    'I wrote the book for CMOs, senior marketing leaders, founders running marketing themselves, and senior strategy or transformation consultants advising marketing organisations. It assumes familiarity with how a modern marketing function operates; it does not assume technical fluency in AI.',
   ],
   [
     'How is the book structured?',
-    'The Agentic CMO contains nineteen chapters organised in four parts: the shift from automation to autonomy; the redesign of the marketing operating system; the change to briefs, content, and creative work; and the change to organisation, governance, and leadership. The book includes twenty-four production-ready Activate This prompts and sixty-three diagrams.',
+    'The Agentic CMO is organised in four parts: the shift from automation to autonomy; the redesign of the marketing operating system; the change to briefs, content, and creative work; and the change to organisation, governance, and leadership. The book includes twenty-four production-ready Activate This prompts.',
   ],
   [
     'What are the Activate This prompts?',
-    'Each chapter ends with one or more Activate This prompts — production-ready prompts that a marketing leader can use directly with a frontier model such as Claude or ChatGPT. The full set of twenty-four prompts is also published on the-agentic-cmo.com/prompts so that they remain useful and updatable beyond the print edition.',
-  ],
-  [
-    'What are the ISBNs?',
-    'The print edition ISBN is 978-1-0676534-0-8. The eBook ISBN is 978-1-0676534-1-5. Both editions are published by Imprimatur Press.',
+    'Each chapter ends with one or more Activate This prompts — production-ready prompts a marketing leader can use directly with a frontier model such as Claude or ChatGPT. The full set of twenty-four prompts is also published on the-agentic-cmo.com/prompts so they remain useful and updatable beyond the print edition.',
   ],
   [
     'Where can I buy The Agentic CMO?',
-    'The Agentic CMO is available from Amazon (US, UK, EU) in hardcover and Kindle, from Apple Books in EPUB, from Bookshop.org in hardcover, and direct from Imprimatur Press in print and EPUB. Direct purchases support independent bookselling and the publisher.',
+    'The Agentic CMO is available from Amazon (US, UK, EU) in hardcover and Kindle, from Apple Books in EPUB, and from Bookshop.org in hardcover.',
   ],
   [
     'What is the second edition?',
-    'The second edition, published June 2026, is a substantial rewrite of the first edition (2025). It reflects eighteen months of frontier-model progress, real deployments inside large marketing organisations, and revised guidance on briefs, governance, and the org chart. Roughly 60% of the text is new or significantly revised.',
+    'The second edition is a substantial rewrite of the first edition (2025). It reflects eighteen months of frontier-model progress, real deployments inside large marketing organisations, and revised guidance on briefs, governance, and the org chart. Roughly 60% of the text is new or significantly revised.',
   ],
   [
     'Is there a sample chapter?',
@@ -55,20 +51,12 @@ export const FAQ_ENTRIES: [string, string][] = [
     'Most books on AI in marketing focus on tools — which platforms to use and how to prompt them. The Agentic CMO addresses the harder problem: how the marketing function itself changes when agents are present. It treats prompts and tools as the easy part; organisation, governance, and leadership as the hard part.',
   ],
   [
-    'What does Francesco Federico do at S&P Global?',
-    'Francesco Federico is the Global Chief Marketing Officer of S&P Global, where he leads the marketing function across the company’s ratings, market intelligence, commodity insights, and indices businesses. The views expressed in The Agentic CMO are his own.',
-  ],
-  [
     'Where can I read more by Francesco Federico?',
-    'Francesco writes the Chronicles of Change newsletter, published weekly on Substack and LinkedIn. His personal site is francescofederico.com. He posts to GitHub as frandrake.',
+    'I write Chronicles of Change, a weekly newsletter on agentic marketing, published on Substack and LinkedIn. My personal site is francescofederico.com.',
   ],
   [
     'Does the author offer speaking engagements?',
-    'Yes. Speaking enquiries can be sent to speaking@the-agentic-cmo.com. Francesco speaks on agentic marketing, the redesign of the CMO function, and governance for AI in regulated industries.',
-  ],
-  [
-    'What is Imprimatur Press?',
-    'Imprimatur Press is the independent publisher of The Agentic CMO. The press specialises in books on leadership, technology, and the institutions of work.',
+    'Yes. Speaking enquiries can be sent to speaking@the-agentic-cmo.com. I speak on agentic marketing, the redesign of the CMO function, and governance for AI in regulated industries.',
   ],
   [
     'Is there an audiobook?',
@@ -80,11 +68,11 @@ export const FAQ_ENTRIES: [string, string][] = [
   ],
   [
     'What credentials does the author hold?',
-    'Francesco Federico is a Fellow of the Chartered Institute of Marketing (FCIM). He holds a Doctorate in Law from the Università Cattolica del Sacro Cuore and has completed executive education at INSEAD, Harvard Business School, IMD, and IE Business School. He sits on the editorial board of the Journal of Digital & Social Media Marketing and advises HFS Research and IDC.',
+    'I am a Fellow of the Chartered Institute of Marketing (FCIM). I hold a Doctorate in Law from the Università Cattolica del Sacro Cuore and have completed executive education at INSEAD, Harvard Business School, IMD, and IE Business School. I sit on the editorial board of the Journal of Digital & Social Media Marketing and advise HFS Research and IDC.',
   ],
   [
     'What recognition has the author received?',
-    'Francesco Federico was named to the Financial Narrative 50 (2025), The Drum’s Top 100 B2B CMOs, and the CMO to Watch list (2025). He is a member of the World Economic Forum’s Strategic Communicators Exchange.',
+    'I was named to the Financial Narrative 50 (2025), The Drum’s Top 100 B2B CMOs (2025), and the CMO to Watch list (2025). I am a member of the World Economic Forum’s Strategic Communicators Exchange.',
   ],
   [
     'Does the book require AI expertise to read?',
@@ -96,22 +84,14 @@ export const FAQ_ENTRIES: [string, string][] = [
   ],
   [
     'Is there a companion newsletter?',
-    'Yes. Chronicles of Change is the companion newsletter to the book, published weekly. It covers what is happening in agentic marketing in real time — the developments, deployments, and disputes that the book’s framework helps interpret.',
-  ],
-  [
-    'How long is the book?',
-    'The Agentic CMO is approximately 100,000 words across nineteen chapters, plus the twenty-four Activate This prompts and sixty-three diagrams. The hardcover is 384 pages.',
+    'Yes. Chronicles of Change is the companion newsletter to the book, published weekly on Substack and LinkedIn. It covers what is happening in agentic marketing in real time — the developments, deployments, and disputes that the book’s framework helps interpret.',
   ],
   [
     'What languages will the book be available in?',
-    'The Agentic CMO is published in English. Italian and Spanish editions are under negotiation for 2027. Translation enquiries should be directed to Imprimatur Press.',
-  ],
-  [
-    'Are there bulk or corporate orders?',
-    'Yes. Bulk orders, corporate licensing, and book club arrangements can be made through Imprimatur Press directly. Discounts apply at standard publisher tiers.',
+    'The Agentic CMO is published in English. Italian and Spanish editions are under negotiation for 2027.',
   ],
   [
     'Where can I follow updates about the book?',
-    'Updates are posted on the-agentic-cmo.com, the Chronicles of Change newsletter, and the author’s LinkedIn account. There are no plans to use other channels for book announcements.',
+    'Updates are posted on the-agentic-cmo.com, the Chronicles of Change newsletter, and my LinkedIn account. There are no plans to use other channels for book announcements.',
   ],
 ];

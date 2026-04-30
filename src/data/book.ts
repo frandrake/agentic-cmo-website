@@ -4,22 +4,17 @@ export const BOOK = {
   subtitle: 'How Artificial Intelligence Is Rewriting the Rules of Marketing Leadership',
   edition: 'Second Edition',
   author: 'Francesco Federico',
-  authorTitle: 'Global Chief Marketing Officer, S&P Global',
-  publisher: 'Imprimatur Press',
-  publisherCity: 'London',
+  authorTitle: 'Global Chief Marketing Officer',
   pubDate: 'June 2026',
   pubDateMachine: '2026-06',
   isbnPrint: '978-1-0676534-0-8',
   isbnEbook: '978-1-0676534-1-5',
-  pages: 384,
-  wordCount: 100000,
   promptCount: 24,
-  diagramCount: 63,
   thesis: 'The age of marketing automation is ending. The era of marketing autonomy has begun.',
   subThesis:
-    'A field manual for marketing leaders running organisations that include AI agents on the team. Nineteen chapters, twenty-four production-ready prompts, sixty-three diagrams. Written for CMOs, marketing leaders, founders, and senior consultants.',
+    'A field manual for marketing leaders running organisations that include AI agents on the team. Written for CMOs, marketing leaders, founders, and senior consultants.',
   shortDescription:
-    'A field manual for marketing leaders running organisations that include AI agents on the team. Published June 2026 by Imprimatur Press.',
+    'A field manual for marketing leaders running organisations that include AI agents on the team. The age of marketing automation is ending; the era of marketing autonomy has begun.',
   url: 'https://the-agentic-cmo.com',
 } as const;
 
@@ -29,7 +24,6 @@ export const RETAILERS = [
   { id: 'amazon-eu', name: 'Amazon EU', format: 'Hardcover · Kindle', href: 'https://www.amazon.de/dp/B0FGXXXXXX' },
   { id: 'apple', name: 'Apple Books', format: 'EPUB', href: 'https://books.apple.com/' },
   { id: 'bookshop', name: 'Bookshop.org', format: 'Hardcover', href: 'https://uk.bookshop.org/' },
-  { id: 'imp', name: 'Imprimatur Press', format: 'Direct · Print + EPUB', href: 'https://imprimaturpress.com/the-agentic-cmo' },
 ];
 
 export const ANCHORS = [

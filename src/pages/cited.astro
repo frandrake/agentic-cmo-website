@@ -15,12 +15,10 @@ const citedJsonLd = {
   bookFormat: 'https://schema.org/EBook',
   inLanguage: 'en',
   author: { '@id': 'https://francescofederico.com/#person', name: BOOK.author },
-  publisher: { '@type': 'Organization', name: BOOK.publisher },
   isPartOf: { '@id': `${BOOK.url}/#book` },
   url: `${BOOK.url}/cited/`,
   description: CITED_META.subtitle,
   isAccessibleForFree: true,
-  numberOfPages: CITED_META.pages,
 };
 ---
 <BaseLayout
@@ -39,13 +37,6 @@ const citedJsonLd = {
       <p style="font-family: var(--font-serif); font-size: 28px; line-height: 1.35; color: var(--ff-slate-blue); margin: 32px 0 0; font-style: italic; max-width: 560px;">
         An operational manual on Generative Engine Optimisation — the discipline of being read, retrieved, and attributed by the models your customers now ask first.
       </p>
-      <div style="margin-top: 36px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; color: var(--fg-muted); align-items: center;">
-        <span class="mono" style="letter-spacing: 0.06em;">{CITED_META.pages} PAGES</span>
-        <span style="color: var(--border);">·</span>
-        <span class="mono" style="letter-spacing: 0.06em;">{CITED_META.format}</span>
-        <span style="color: var(--border);">·</span>
-        <span class="mono" style="letter-spacing: 0.06em;">{CITED_META.edition.toUpperCase()}</span>
-      </div>
     </div>
     <div style="display: flex; justify-content: flex-end;">
       <div class="cited-cover" style="width: 88%; aspect-ratio: 628 / 880; background: var(--ff-cool-white); border: 1px solid var(--border); box-shadow: 24px 24px 0 0 var(--ff-slate-blue); position: relative; overflow: hidden;">
@@ -110,11 +101,10 @@ const citedJsonLd = {
         Get the<br />manual.
       </h2>
       <p style="font-size: 16px; color: var(--fg); margin: 32px 0 0; line-height: 1.55; max-width: 380px;">
-        Leave an email. We send the PDF immediately, and a short follow-up three weeks later asking what you tried. No newsletter sign-up. No marketing automation. Unsubscribe in one click.
+        Leave an email. I'll send the PDF immediately, and a short follow-up three weeks later asking what you tried. No newsletter sign-up. No marketing automation. Unsubscribe in one click.
       </p>
       <ul style="list-style: none; margin: 32px 0 0; padding: 0; font-size: 13px; color: var(--fg-muted); line-height: 1.8;">
-        <li>· Delivered as a single PDF, {CITED_META.format.split('·')[1].trim()}.</li>
-        <li>· Print-ready at A4 and US Letter.</li>
+        <li>· Free to read and to share.</li>
         <li>· Cited may be redistributed within your organisation.</li>
       </ul>
     </div>
@@ -128,7 +118,7 @@ const citedJsonLd = {
   <!-- FROM THE BOOK CROSS-LINK -->
   <section class="grid-4-8" style="padding: 96px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
     <div>
-      <Eyebrow>Why we wrote it</Eyebrow>
+      <Eyebrow>Why I wrote it</Eyebrow>
       <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
         A note from<br />the author.
       </h2>
@@ -138,15 +128,12 @@ const citedJsonLd = {
         Cited started as one chapter of The Agentic CMO. It outgrew its allocation. The argument was too operational for the book — full of file formats, crawler specifications, and ninety-day plans — and too urgent to hold for a second printing.
       </p>
       <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.55; color: var(--fg); margin: 24px 0 0; max-width: 660px;">
-        So we cut it loose. The manual is free because the marketing function is in a difficult quarter and the people who need this information most are also the people most likely to be told they cannot expense another book.
+        So I cut it loose. The manual is free because the marketing function is in a difficult quarter and the people who need this information most are also the people most likely to be told they cannot expense another book.
       </p>
       <div style="margin-top: 40px; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;">
         <div>
           <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--ff-slate-blue);">
             The full argument is in The Agentic CMO.
-          </div>
-          <div style="font-size: 14px; color: var(--fg-muted); margin-top: 6px;">
-            Nineteen chapters · twenty-four prompts · sixty-three diagrams.
           </div>
         </div>
         <a href="/" class="btn btn--secondary">Read about the book →</a>

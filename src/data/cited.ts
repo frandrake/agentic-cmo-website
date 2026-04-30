@@ -3,16 +3,13 @@
 export const CITED_META = {
   title: 'Cited.',
   subtitle: 'An operational manual on Generative Engine Optimisation',
-  pages: 156,
-  edition: 'First edition · Spring 2026',
   imprint: 'A Field Manual from The Agentic CMO',
-  format: 'PDF · 1.5 MB',
   pdfPath: '/pdfs/cited.pdf',
 };
 
 // Real chapter list, derived from the Cited manuscript.
 export const CITED_CHAPTERS = [
-  { n: '01', title: 'The click is gone', body: 'Why generative engines do not rank pages and why most SEO teams are optimising for the wrong unit of work.' },
+  { n: '01', title: 'The click is gone', body: 'Why generative engines do not rank pages, and why most SEO teams are optimising for the wrong unit of work.' },
   { n: '02', title: 'What carries over', body: 'The disciplines that survive the transition. Crawl-budget thinking, semantic structure, and the architecture of a discoverable corpus.' },
   { n: '03', title: 'What is new', body: 'Citation mechanics, retrieval traces, and the four moves that make a passage retrievable by a frontier model.' },
   { n: '04', title: 'Technical primer', body: 'A working vocabulary for marketing leaders. Embeddings, retrieval, grounding, and the consent surface in plain language.' },

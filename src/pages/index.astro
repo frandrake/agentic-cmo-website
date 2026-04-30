@@ -4,7 +4,6 @@ import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
 import BookCover from '../components/BookCover.astro';
-import NewsletterInline from '../components/NewsletterInline.tsx';
 import { BOOK, RETAILERS, ANCHORS } from '../data/book';
 
 const homeJsonLd = {
@@ -19,19 +18,15 @@ const homeJsonLd = {
       bookFormat: 'https://schema.org/Hardcover',
       isbn: BOOK.isbnPrint,
       datePublished: BOOK.pubDateMachine,
-      numberOfPages: BOOK.pages,
       inLanguage: 'en',
-      publisher: { '@type': 'Organization', name: BOOK.publisher, address: BOOK.publisherCity },
       author: {
         '@type': 'Person',
         '@id': 'https://francescofederico.com/#person',
         name: BOOK.author,
-        jobTitle: 'Global Chief Marketing Officer',
-        worksFor: { '@type': 'Organization', name: 'S&P Global' },
+        jobTitle: BOOK.authorTitle,
         url: 'https://francescofederico.com',
         sameAs: [
           'https://www.linkedin.com/in/francescofederico/',
-          'https://github.com/frandrake',
           'https://francescofederico.substack.com',
         ],
       },
@@ -49,7 +44,6 @@ const homeJsonLd = {
       url: BOOK.url,
       name: BOOK.title,
       description: BOOK.shortDescription,
-      publisher: { '@type': 'Organization', name: BOOK.publisher },
       inLanguage: 'en-GB',
     },
   ],
@@ -57,7 +51,7 @@ const homeJsonLd = {
 ---
 <BaseLayout
   title={BOOK.title}
-  description={`${BOOK.thesis} A new book by ${BOOK.author}, Global CMO at S&P Global. ${BOOK.pubDate} — ${BOOK.publisher}.`}
+  description={`${BOOK.thesis} A new book by ${BOOK.author}. ${BOOK.pubDate}.`}
   jsonLd={homeJsonLd}
 >
   <!-- COVER-LED HERO -->
@@ -68,13 +62,13 @@ const homeJsonLd = {
     <div>
       <Eyebrow vermillion>A new book by Francesco Federico</Eyebrow>
       <h1 style="font-size: 72px; line-height: 1.02; font-weight: 700; color: var(--ff-slate-blue); margin: 24px 0 0; letter-spacing: -0.025em; text-wrap: balance; font-family: var(--font-serif);">
-        The Agentic<br />CMO.
+        The <span style="color: var(--ff-vermillion);">Agentic</span><br />CMO.
       </h1>
       <p style="font-family: var(--font-serif); font-size: 24px; font-style: italic; line-height: 1.4; color: var(--ff-slate-blue); margin: 32px 0 0; max-width: 520px;">
         {BOOK.thesis}
       </p>
       <p style="font-size: 15px; color: var(--fg-muted); margin: 20px 0 0; max-width: 480px; line-height: 1.6;">
-        Second edition. {BOOK.pubDate}. {BOOK.publisher}. Nineteen chapters. Twenty-four prompts. Sixty-three diagrams.
+        Second edition. {BOOK.pubDate}.
       </p>
       <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
         <a href="#buy" class="btn btn--accent btn--lg">Buy the book →</a>
@@ -90,10 +84,10 @@ const homeJsonLd = {
     <div style="position: sticky; top: 24px;">
       <Eyebrow>What's inside</Eyebrow>
       <h2 style="font-size: 40px; color: var(--ff-slate-blue); margin: 16px 0 16px; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
-        Nineteen chapters. Twenty-four prompts. Sixty-three diagrams.
+        Five anchor concepts.
       </h2>
       <p style="font-size: 15px; color: var(--fg-muted); line-height: 1.6; margin: 8px 0 24px;">
-        Five anchor concepts run through the book. They are how a CMO thinks about a function whose participants now include agents.
+        Five ideas run through the book. They are how I think about a function whose participants now include agents.
       </p>
       <a href="/prompts/" style="font-size: 14px; color: var(--ff-vermillion);">Read the prompts →</a>
     </div>
@@ -123,7 +117,7 @@ const homeJsonLd = {
       <Eyebrow>About the author</Eyebrow>
       <h2 style="font-size: 48px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.05; font-weight: 700; font-family: var(--font-serif); letter-spacing: -0.015em;">Francesco Federico.</h2>
       <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.5; color: var(--fg); margin: 32px 0 0; max-width: 620px;">
-        Global Chief Marketing Officer at S&amp;P Global. Fellow of the Chartered Institute of Marketing. Member of the World Economic Forum's Strategic Communicators Exchange.
+        Global Chief Marketing Officer. Fellow of the Chartered Institute of Marketing. Member of the World Economic Forum's Strategic Communicators Exchange.
       </p>
       <ul class="cred-grid" style="list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 620px;">
         <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
@@ -149,27 +143,6 @@ const homeJsonLd = {
     </div>
   </section>
 
-  <Rule />
-
-  <!-- NEWSLETTER -->
-  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: center;">
-    <div>
-      <Eyebrow vermillion>Chronicles of Change</Eyebrow>
-      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
-        The thinking that leads<br />to the book.
-      </h2>
-    </div>
-    <div>
-      <p style="font-size: 17px; color: var(--fg); margin: 0 0 24px; max-width: 560px; line-height: 1.55;">
-        Weekly notes on agentic marketing — what is happening, what is being deployed, and what the framework in the book makes of it. No promotions. No referrals. One email.
-      </p>
-      <NewsletterInline client:visible />
-      <div style="margin-top: 16px; font-size: 12px; color: var(--fg-muted);">
-        Also published on Substack and LinkedIn.
-      </div>
-    </div>
-  </section>
-
   <Rule strong />
 
   <!-- BUY BLOCK -->
@@ -180,7 +153,7 @@ const homeJsonLd = {
         Print, Kindle,<br />and EPUB.
       </h2>
       <p style="font-size: 15px; color: var(--fg-muted); margin: 24px 0 0; line-height: 1.6; max-width: 320px;">
-        Direct purchases through {BOOK.publisher} support independent publishing. All retailers ship internationally.
+        All retailers ship internationally.
       </p>
     </div>
     <div>
@@ -189,7 +162,7 @@ const homeJsonLd = {
           <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
             <a
               href={r.href}
-              rel={r.id === 'imp' ? '' : 'sponsored noopener'}
+              rel="sponsored noopener"
               style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
               onmouseover="this.style.background='#F1F2F4'"
               onmouseout="this.style.background='transparent'"
@@ -207,6 +180,53 @@ const homeJsonLd = {
             </a>
           </li>
         ))}
+      </ul>
+    </div>
+  </section>
+
+  <Rule strong />
+
+  <!-- KEEP READING (Chronicles of Change cross-sell) -->
+  <section class="grid-4-8" style="padding: 96px 0 32px; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <Eyebrow vermillion>Keep reading</Eyebrow>
+      <h2 style="font-size: 40px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        Chronicles<br />of Change.
+      </h2>
+      <p style="font-size: 15px; color: var(--fg-muted); margin: 24px 0 0; line-height: 1.6; max-width: 320px;">
+        Weekly notes on agentic marketing — what is happening, what is being deployed, and what the framework in the book makes of it. No promotions. One email.
+      </p>
+    </div>
+    <div>
+      <ul class="retailer-grid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border);">
+        <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+          <a href="https://francescofederico.substack.com" rel="noopener" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
+            onmouseover="this.style.background='#F1F2F4'"
+            onmouseout="this.style.background='transparent'">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <span class="eyebrow-block eyebrow-vermillion">Recommended</span>
+              <span aria-hidden="true" style="font-size: 14px; color: var(--fg-muted);">↗</span>
+            </div>
+            <div>
+              <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); margin-bottom: 6px;">Read on Substack</div>
+              <div style="font-size: 13px; color: var(--fg-muted);">Subscribe by email · weekly</div>
+            </div>
+          </a>
+        </li>
+        <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+          <a href="https://www.linkedin.com/in/francescofederico/" rel="noopener" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
+            onmouseover="this.style.background='#F1F2F4'"
+            onmouseout="this.style.background='transparent'">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <span class="eyebrow-block">Mirror</span>
+              <span aria-hidden="true" style="font-size: 14px; color: var(--fg-muted);">↗</span>
+            </div>
+            <div>
+              <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); margin-bottom: 6px;">Read on LinkedIn</div>
+              <div style="font-size: 13px; color: var(--fg-muted);">Newsletter follows · weekly</div>
+            </div>
+          </a>
+        </li>
       </ul>
     </div>
   </section>

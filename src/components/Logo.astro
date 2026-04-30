@@ -1,12 +1,20 @@
 ---
 export interface Props {
   inverse?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 }
-const { inverse = false } = Astro.props;
+const { inverse = false, size = 'md' } = Astro.props;
+const fontSize = size === 'lg' ? 28 : size === 'sm' ? 18 : 24;
+const baseColor = inverse ? 'var(--ff-cool-white)' : 'var(--ff-slate-blue)';
 ---
 <div style="display: flex; align-items: center; gap: 14px;">
-  <span aria-hidden="true" style="width: 28px; height: 2px; background: var(--ff-vermillion); display: inline-block; flex-shrink: 0;"></span>
-  <span style={`font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: ${inverse ? 'var(--ff-cool-white)' : 'var(--ff-slate-blue)'}; letter-spacing: -0.01em;`}>
-    The Agentic CMO
+  <span
+    aria-hidden="true"
+    style="width: 28px; height: 2px; background: var(--ff-vermillion); display: inline-block; flex-shrink: 0;"
+  ></span>
+  <span
+    style={`font-family: var(--font-serif); font-size: ${fontSize}px; font-weight: 700; color: ${baseColor}; letter-spacing: -0.015em; line-height: 1;`}
+  >
+    The <span style="color: var(--ff-vermillion);">Agentic</span> CMO
   </span>
 </div>
