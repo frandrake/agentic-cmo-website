@@ -1,27 +1,37 @@
 ---
 export interface Props {
-  title: string;     // award name, e.g. "Financial Narrative 50"
-  subtitle?: string; // optional, e.g. "B2B CMOs"
-  year: string;      // e.g. "2025"
-  href?: string;     // optional canonical link to the public list
-  publisher?: string; // small attribution line, e.g. "The Drum"
+  title: string;
+  subtitle?: string;
+  year: string;
+  href?: string;
+  publisher?: string;
 }
 const { title, subtitle, year, href, publisher } = Astro.props;
-
-const inner = `
-  <div class="award-badge__top">
-    <span class="award-badge__rule" aria-hidden="true"></span>
-    <span class="award-badge__eyebrow">${publisher ? publisher : 'Recognition'} · ${year}</span>
-  </div>
-  <div class="award-badge__title">
-    ${title}${subtitle ? `<span class="award-badge__subtitle">${subtitle}</span>` : ''}
-  </div>
-`;
+const eyebrow = `${publisher ?? 'Recognition'} · ${year}`;
 ---
+
 {href ? (
-  <a href={href} rel="noopener" class="award-badge" set:html={inner}></a>
+  <a href={href} rel="noopener" class="award-badge">
+    <div class="award-badge__top">
+      <span class="award-badge__rule" aria-hidden="true"></span>
+      <span class="award-badge__eyebrow">{eyebrow}</span>
+    </div>
+    <div class="award-badge__title">
+      {title}
+      {subtitle && <span class="award-badge__subtitle">{subtitle}</span>}
+    </div>
+  </a>
 ) : (
-  <div class="award-badge" set:html={inner}></div>
+  <div class="award-badge">
+    <div class="award-badge__top">
+      <span class="award-badge__rule" aria-hidden="true"></span>
+      <span class="award-badge__eyebrow">{eyebrow}</span>
+    </div>
+    <div class="award-badge__title">
+      {title}
+      {subtitle && <span class="award-badge__subtitle">{subtitle}</span>}
+    </div>
+  </div>
 )}
 
 <style>
