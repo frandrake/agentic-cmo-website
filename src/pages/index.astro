@@ -151,32 +151,33 @@ const homeJsonLd = {
     <div>
       <Eyebrow>Buy the book</Eyebrow>
       <h2 style="font-size: 40px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
-        Print, Kindle,<br />and EPUB.
+        Hardcover, Paperback,<br />and Kindle.
       </h2>
       <p style="font-size: 15px; color: var(--fg-muted); margin: 24px 0 0; line-height: 1.6; max-width: 320px;">
-        All retailers ship internationally.
+        Available worldwide on Amazon.
       </p>
     </div>
     <div>
-      <ul class="retailer-grid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border);">
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
         {RETAILERS.map((r) => (
-          <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+          <li style="border-bottom: 1px solid var(--border);">
             <a
               href={r.href}
               rel="sponsored noopener"
-              style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
+              target="_blank"
+              style="display: flex; flex-direction: column; justify-content: space-between; padding: 40px 36px; min-height: 180px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
               onmouseover="this.style.background='#F1F2F4'"
               onmouseout="this.style.background='transparent'"
             >
               <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                <span class={r.primary ? 'eyebrow-block eyebrow-vermillion' : 'eyebrow-block'}>
-                  {r.primary ? 'Recommended' : 'Retailer'}
+                <span class="eyebrow-block eyebrow-vermillion">
+                  Pre-order now
                 </span>
-                <span aria-hidden="true" style="font-size: 14px; color: var(--fg-muted);">↗</span>
+                <span aria-hidden="true" style="font-size: 16px; color: var(--ff-vermillion);">↗</span>
               </div>
               <div>
-                <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); margin-bottom: 6px;">{r.name}</div>
-                <div style="font-size: 13px; color: var(--fg-muted);">{r.format}</div>
+                <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--ff-slate-blue); margin-bottom: 6px;">{r.name}</div>
+                <div style="font-size: 14px; color: var(--fg-muted);">{r.format}</div>
               </div>
             </a>
           </li>

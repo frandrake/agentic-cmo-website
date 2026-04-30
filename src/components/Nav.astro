@@ -6,12 +6,19 @@ export interface Props {
 }
 const { currentPath } = Astro.props;
 
-const NAV_ITEMS = [
-  { href: '/', label: 'Home', match: (p: string) => p === '/' },
-  { href: '/prompts/', label: 'Prompts', match: (p: string) => p.startsWith('/prompts') },
-  { href: '/cited/', label: 'Cited.', match: (p: string) => p.startsWith('/cited') },
-  { href: '/about/', label: 'About', match: (p: string) => p.startsWith('/about') },
-  { href: '/#buy', label: 'Buy the book', match: (_p: string) => false },
+interface NavItem {
+  href: string;
+  label: string;
+  match: (p: string) => boolean;
+  accent?: boolean;
+}
+
+const NAV_ITEMS: NavItem[] = [
+  { href: '/', label: 'Home', match: (p) => p === '/' },
+  { href: '/prompts/', label: 'Prompts', match: (p) => p.startsWith('/prompts') },
+  { href: '/cited/', label: 'Cited.', match: (p) => p.startsWith('/cited'), accent: true },
+  { href: '/about/', label: 'About', match: (p) => p.startsWith('/about') },
+  { href: '/#buy', label: 'Buy the book', match: () => false },
 ];
 ---
 
@@ -22,11 +29,14 @@ const NAV_ITEMS = [
   <ul class="nav-list" style="list-style: none; display: flex; gap: 36px; margin: 0; padding: 0;">
     {NAV_ITEMS.map((item) => {
       const active = item.match(currentPath);
+      const color = item.accent ? 'var(--ff-vermillion)' : (active ? 'var(--ff-vermillion)' : 'var(--ff-charcoal)');
+      const weight = item.accent ? 600 : 400;
+      const borderColor = active ? 'var(--ff-vermillion)' : 'transparent';
       return (
         <li>
           <a
             href={item.href}
-            style={`font-size: 14px; color: ${active ? 'var(--ff-vermillion)' : 'var(--ff-charcoal)'}; border-bottom: ${active ? '1px solid var(--ff-vermillion)' : '1px solid transparent'}; padding-bottom: 4px;`}
+            style={`font-size: 14px; color: ${color}; font-weight: ${weight}; border-bottom: 1px solid ${borderColor}; padding-bottom: 4px;`}
           >
             {item.label}
           </a>
@@ -50,7 +60,14 @@ const NAV_ITEMS = [
 <div id="mobile-menu" hidden style="display: none; padding: 24px 0; border-bottom: 1px solid var(--border);">
   <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px;">
     {NAV_ITEMS.map((item) => (
-      <li><a href={item.href} style="font-size: 18px; font-family: var(--font-serif); color: var(--ff-slate-blue);">{item.label}</a></li>
+      <li>
+        <a
+          href={item.href}
+          style={`font-size: 18px; font-family: var(--font-serif); color: ${item.accent ? 'var(--ff-vermillion)' : 'var(--ff-slate-blue)'}; font-weight: ${item.accent ? 600 : 400};`}
+        >
+          {item.label}
+        </a>
+      </li>
     ))}
   </ul>
 </div>

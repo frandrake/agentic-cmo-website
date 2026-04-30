@@ -20,11 +20,13 @@ export const BOOK = {
 } as const;
 
 export const RETAILERS = [
-  { id: 'amazon-us', name: 'Amazon US', format: 'Hardcover · Paperback · Kindle', href: 'https://www.amazon.com/dp/B0FGXXXXXX', primary: true },
-  { id: 'amazon-uk', name: 'Amazon UK', format: 'Hardcover · Paperback · Kindle', href: 'https://www.amazon.co.uk/dp/B0FGXXXXXX' },
-  { id: 'amazon-eu', name: 'Amazon EU', format: 'Hardcover · Paperback · Kindle', href: 'https://www.amazon.de/dp/B0FGXXXXXX' },
-  { id: 'apple', name: 'Apple Books', format: 'EPUB', href: 'https://books.apple.com/' },
-  { id: 'bookshop', name: 'Bookshop.org', format: 'Hardcover · Paperback', href: 'https://uk.bookshop.org/' },
+  {
+    id: 'amazon-uk',
+    name: 'Amazon',
+    format: 'Hardcover · Paperback · Kindle',
+    href: 'https://www.amazon.co.uk/Agentic-CMO-Artificial-Intelligence-Leadership-ebook/dp/B0D9H67LW6/',
+    primary: true,
+  },
 ];
 
 export const ANCHORS = [
