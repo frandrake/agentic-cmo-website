@@ -1,0 +1,83 @@
+---
+export interface Props {
+  title: string;     // award name, e.g. "Financial Narrative 50"
+  subtitle?: string; // optional, e.g. "B2B CMOs"
+  year: string;      // e.g. "2025"
+  href?: string;     // optional canonical link to the public list
+  publisher?: string; // small attribution line, e.g. "The Drum"
+}
+const { title, subtitle, year, href, publisher } = Astro.props;
+
+const inner = `
+  <div class="award-badge__top">
+    <span class="award-badge__rule" aria-hidden="true"></span>
+    <span class="award-badge__eyebrow">${publisher ? publisher : 'Recognition'} · ${year}</span>
+  </div>
+  <div class="award-badge__title">
+    ${title}${subtitle ? `<span class="award-badge__subtitle">${subtitle}</span>` : ''}
+  </div>
+`;
+---
+{href ? (
+  <a href={href} rel="noopener" class="award-badge" set:html={inner}></a>
+) : (
+  <div class="award-badge" set:html={inner}></div>
+)}
+
+<style>
+  .award-badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px 24px 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--ff-vermillion);
+    min-height: 180px;
+    color: var(--ff-charcoal);
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  a.award-badge:hover {
+    background: #F1F2F4;
+    border-bottom-color: var(--ff-charcoal);
+  }
+  .award-badge__top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .award-badge__rule {
+    width: 18px;
+    height: 1px;
+    background: var(--ff-vermillion);
+    flex-shrink: 0;
+  }
+  .award-badge__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ff-steel-blue);
+    font-family: var(--font-sans);
+  }
+  .award-badge__title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ff-slate-blue);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-top: 24px;
+  }
+  .award-badge__subtitle {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--ff-charcoal);
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+</style>

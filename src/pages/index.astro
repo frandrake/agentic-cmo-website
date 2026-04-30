@@ -4,6 +4,7 @@ import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
 import BookCover from '../components/BookCover.astro';
+import AwardBadge from '../components/AwardBadge.astro';
 import { BOOK, RETAILERS, ANCHORS } from '../data/book';
 
 const homeJsonLd = {
@@ -120,24 +121,28 @@ const homeJsonLd = {
       <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.5; color: var(--fg); margin: 32px 0 0; max-width: 620px;">
         Global Chief Marketing Officer. Fellow of the Chartered Institute of Marketing. Member of the World Economic Forum's Strategic Communicators Exchange.
       </p>
-      <ul class="cred-grid" style="list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 620px;">
-        <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
-          <span style="font-size: 14px; color: var(--ff-charcoal);">Financial Narrative 50</span>
-          <MonoNum>2025</MonoNum>
-        </li>
-        <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
-          <span style="font-size: 14px; color: var(--ff-charcoal);">The Drum Top 100 B2B CMOs</span>
-          <MonoNum>2025</MonoNum>
-        </li>
-        <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
-          <span style="font-size: 14px; color: var(--ff-charcoal);">CMO to Watch</span>
-          <MonoNum>2025</MonoNum>
-        </li>
-        <li style="padding: 16px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline;">
-          <span style="font-size: 14px; color: var(--ff-charcoal);">FCIM · WEF SCE</span>
-          <MonoNum>Standing</MonoNum>
-        </li>
-      </ul>
+      <div class="award-row" style="margin: 40px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 720px;">
+        <AwardBadge
+          title="Financial Narrative 50"
+          year="2025"
+          publisher="Financial Narrative"
+          href="https://financialnarrative.org/page/financial-narrative-50"
+        />
+        <AwardBadge
+          title="Top 100 B2B CMOs"
+          year="2025"
+          publisher="The Drum"
+          href="https://www.thedrum.com/lists/b2b-cmo-100"
+        />
+        <AwardBadge
+          title="CMO to Watch"
+          year="2025"
+          publisher="Recognition"
+        />
+      </div>
+      <p style="margin: 24px 0 0; font-size: 13px; color: var(--fg-muted); max-width: 620px;">
+        Standing membership: Fellow of the Chartered Institute of Marketing (FCIM) · World Economic Forum Strategic Communicators Exchange.
+      </p>
       <div style="margin-top: 40px;">
         <a href="/about/" class="btn btn--secondary">Read the full bio →</a>
       </div>
@@ -240,6 +245,7 @@ const homeJsonLd = {
     .grid-4-8 { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 0 !important; }
     .retailer-grid { grid-template-columns: 1fr !important; }
     .cred-grid { grid-template-columns: 1fr !important; }
+    .award-row { grid-template-columns: 1fr !important; }
     h1 { font-size: 48px !important; }
     h2 { font-size: 28px !important; }
   }
