@@ -4,7 +4,7 @@
 export const FAQ_ENTRIES: [string, string][] = [
   [
     'Who wrote The Agentic CMO?',
-    'I wrote The Agentic CMO. I am Francesco Federico, a Global Chief Marketing Officer with two decades inside information businesses. I am a Fellow of the Chartered Institute of Marketing (FCIM), a member of the World Economic Forum’s Strategic Communicators Exchange, and serve on the editorial board of the Journal of Digital & Social Media Marketing. I was named to the Financial Narrative 50 (2025) and The Drum’s Top 100 B2B CMOs.',
+    'I wrote The Agentic CMO. I am Francesco Federico, a Global Chief Marketing Officer with two decades inside information businesses. I am a Fellow of the Chartered Institute of Marketing (FCIM), a member of the World Economic Forum’s Strategic Communicators Exchange, and serve on the editorial board of the Journal of Digital & Social Media Marketing. I was named to the Financial Narrative 50 (2025), The Drum’s Top 100 B2B CMOs (2025), and the CMO Alliance CMO to Watch list in 2025 and 2026.',
   ],
   [
     'When was The Agentic CMO published?',
@@ -72,7 +72,7 @@ export const FAQ_ENTRIES: [string, string][] = [
   ],
   [
     'What recognition has the author received?',
-    'I was named to the Financial Narrative 50 (2025), The Drum’s Top 100 B2B CMOs (2025), and the CMO to Watch list (2025). I am a member of the World Economic Forum’s Strategic Communicators Exchange.',
+    'I was named to the Financial Narrative 50 (2025), The Drum’s Top 100 B2B CMOs (2025), and the CMO Alliance CMO to Watch list in 2025 and 2026. I am a member of the World Economic Forum’s Strategic Communicators Exchange.',
   ],
   [
     'Does the book require AI expertise to read?',
