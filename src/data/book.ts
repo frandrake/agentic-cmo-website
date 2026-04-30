@@ -7,8 +7,9 @@ export const BOOK = {
   authorTitle: 'Global Chief Marketing Officer',
   pubDate: 'June 2026',
   pubDateMachine: '2026-06',
-  isbnPrint: '978-1-0676534-0-8',
-  isbnEbook: '978-1-0676534-1-5',
+  isbnHardcover: '978-1-0676534-3-9',
+  isbnPaperback: '978-1-0676534-1-5',
+  isbnEbook: '978-1-0676534-4-6',
   promptCount: 24,
   thesis: 'The age of marketing automation is ending. The era of marketing autonomy has begun.',
   subThesis:
@@ -19,11 +20,11 @@ export const BOOK = {
 } as const;
 
 export const RETAILERS = [
-  { id: 'amazon-us', name: 'Amazon US', format: 'Hardcover · Kindle', href: 'https://www.amazon.com/dp/B0FGXXXXXX', primary: true },
-  { id: 'amazon-uk', name: 'Amazon UK', format: 'Hardcover · Kindle', href: 'https://www.amazon.co.uk/dp/B0FGXXXXXX' },
-  { id: 'amazon-eu', name: 'Amazon EU', format: 'Hardcover · Kindle', href: 'https://www.amazon.de/dp/B0FGXXXXXX' },
+  { id: 'amazon-us', name: 'Amazon US', format: 'Hardcover · Paperback · Kindle', href: 'https://www.amazon.com/dp/B0FGXXXXXX', primary: true },
+  { id: 'amazon-uk', name: 'Amazon UK', format: 'Hardcover · Paperback · Kindle', href: 'https://www.amazon.co.uk/dp/B0FGXXXXXX' },
+  { id: 'amazon-eu', name: 'Amazon EU', format: 'Hardcover · Paperback · Kindle', href: 'https://www.amazon.de/dp/B0FGXXXXXX' },
   { id: 'apple', name: 'Apple Books', format: 'EPUB', href: 'https://books.apple.com/' },
-  { id: 'bookshop', name: 'Bookshop.org', format: 'Hardcover', href: 'https://uk.bookshop.org/' },
+  { id: 'bookshop', name: 'Bookshop.org', format: 'Hardcover · Paperback', href: 'https://uk.bookshop.org/' },
 ];
 
 export const ANCHORS = [

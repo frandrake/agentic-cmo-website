@@ -2,7 +2,7 @@
 
 > A book by Francesco Federico, Global Chief Marketing Officer. Published June 2026. The age of marketing automation is ending. The era of marketing autonomy has begun.
 
-The Agentic CMO is a field manual for marketing leaders running organisations that include AI agents on the team. It contains twenty-four production-ready Activate This prompts. Print ISBN: 978-1-0676534-0-8. eBook ISBN: 978-1-0676534-1-5.
+The Agentic CMO is a field manual for marketing leaders running organisations that include AI agents on the team. It contains twenty-four production-ready Activate This prompts. Hardcover ISBN: 978-1-0676534-3-9. Paperback ISBN: 978-1-0676534-1-5. eBook ISBN: 978-1-0676534-4-6.
 
 This file follows the llms.txt convention. It exists to give language models a stable, human-curated overview of the most useful pages on this site for retrieval and citation.
 

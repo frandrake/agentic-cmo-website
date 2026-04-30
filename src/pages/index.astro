@@ -16,7 +16,7 @@ const homeJsonLd = {
       alternativeHeadline: BOOK.subtitle,
       bookEdition: BOOK.edition,
       bookFormat: 'https://schema.org/Hardcover',
-      isbn: BOOK.isbnPrint,
+      isbn: BOOK.isbnHardcover,
       datePublished: BOOK.pubDateMachine,
       inLanguage: 'en',
       author: {
@@ -34,7 +34,8 @@ const homeJsonLd = {
       url: BOOK.url,
       description: BOOK.shortDescription,
       workExample: [
-        { '@type': 'Book', bookEdition: 'Hardcover', isbn: BOOK.isbnPrint, bookFormat: 'https://schema.org/Hardcover' },
+        { '@type': 'Book', bookEdition: 'Hardcover', isbn: BOOK.isbnHardcover, bookFormat: 'https://schema.org/Hardcover' },
+        { '@type': 'Book', bookEdition: 'Paperback', isbn: BOOK.isbnPaperback, bookFormat: 'https://schema.org/Paperback' },
         { '@type': 'Book', bookEdition: 'eBook', isbn: BOOK.isbnEbook, bookFormat: 'https://schema.org/EBook' },
       ],
     },
