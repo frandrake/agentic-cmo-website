@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
-import ContactRow from '../components/ContactRow.astro';
 import { BOOK } from '../data/book';
 
 const aboutJsonLd = {
@@ -27,7 +26,6 @@ const aboutJsonLd = {
     ],
     alumniOf: [
       { '@type': 'EducationalOrganization', name: 'Università Cattolica del Sacro Cuore' },
-      { '@type': 'EducationalOrganization', name: 'INSEAD' },
       { '@type': 'EducationalOrganization', name: 'Harvard Business School' },
       { '@type': 'EducationalOrganization', name: 'IMD Business School' },
       { '@type': 'EducationalOrganization', name: 'IE Business School' },
@@ -38,26 +36,24 @@ const aboutJsonLd = {
       { '@type': 'EducationalOccupationalCredential', name: 'Doctor of Law', educationalLevel: 'Doctorate' },
       { '@type': 'EducationalOccupationalCredential', name: 'Fellow of the Chartered Institute of Marketing (FCIM)' },
     ],
-    description: `Francesco Federico is the Global Chief Marketing Officer of S&P Global and the author of ${BOOK.title} (${BOOK.publisher}, ${BOOK.pubDate}). He writes the Chronicles of Change newsletter on agentic marketing.`,
+    description: `Francesco Federico is the Global Chief Marketing Officer of S&P Global and the author of ${BOOK.title} (${BOOK.pubDate}). He writes the Chronicles of Change newsletter on agentic marketing.`,
   },
 };
 
-const PROFESSIONAL: [string, string][] = [
-  ['Global CMO, S&P Global', 'Current'],
-  ['Fellow, Chartered Institute of Marketing', 'FCIM'],
-  ['Strategic Communicators Exchange, World Economic Forum', 'Member'],
-  ['Editorial board, Journal of Digital & Social Media Marketing', 'Standing'],
-  ['Advisor, HFS Research', 'Standing'],
-  ['Advisor, IDC', 'Standing'],
+const ROLES: [string, string][] = [
+  ['Global Chief Marketing Officer, S&P Global', 'Current'],
+  ['JLL', 'Prior'],
+  ['Vodafone', 'Prior'],
+  ['Acer', 'Prior'],
+  ['Founder — Digital Natives, Shreppy, TripShake', 'Prior'],
 ];
 const EDUCATION: [string, string][] = [
   ['Doctorate in Law, Università Cattolica del Sacro Cuore', 'Milan'],
-  ['Executive education, INSEAD', 'Fontainebleau'],
   ['Executive education, Harvard Business School', 'Boston'],
   ['Executive education, IMD Business School', 'Lausanne'],
   ['Executive education, IE Business School', 'Madrid'],
 ];
-const RECOGNITION: [string, string][] = [
+const AWARDS: [string, string][] = [
   ['Financial Narrative 50', '2025'],
   ['The Drum — Top 100 B2B CMOs', '2025'],
   ['CMO to Watch · CMO Alliance', '2025 · 2026'],
@@ -67,6 +63,7 @@ const OTHER_WORK = [
   { label: 'Chronicles of Change · LinkedIn', meta: 'Same newsletter on LinkedIn', href: BOOK.newsletterLinkedInUrl },
   { label: 'francescofederico.com', meta: 'Personal site · longer essays and projects', href: 'https://francescofederico.com' },
 ];
+const LINKEDIN_URL = 'https://www.linkedin.com/in/francescofederico/';
 ---
 <BaseLayout
   title="About the author"
@@ -102,16 +99,31 @@ const OTHER_WORK = [
       <Eyebrow>Bio</Eyebrow>
       <div style="margin-top: 16px; font-family: var(--font-serif); font-size: 21px; line-height: 1.55; color: var(--fg); max-width: 660px;">
         <p style="margin: 0 0 24px;">
-          Francesco Federico is the Global Chief Marketing Officer of S&amp;P Global, where he leads the marketing function across the company's Ratings, Market Intelligence, Energy, and Indices businesses. He has spent two decades inside information businesses — companies whose product is, in the end, a particular kind of judgment.
+          It started in Milan. A six-year-old in front of an IBM PS/2 — his father, an engineer, watching on — working out what the machine could do. Then longer hours alone, going further. That curiosity never left.
         </p>
         <p style="margin: 0 0 24px;">
-          That work is what led him here. The arrival of capable AI agents inside marketing functions is not, in his reading, an automation story. It is a redesign of the function itself — of the brief, the team, the audit trail, the relationship with agencies, and the posture of the leader. The Agentic CMO is the field manual he wishes he had been handed eighteen months ago.
+          His first company, <em>Shreppy</em>, built a semantic recommendation engine before "personalisation at scale" was a phrase anyone in marketing used. It was acquired by Telecom Italia. <em>TripShake</em>, a travel Q&amp;A platform, partnered with Booking.com, Expedia, and Mr and Mrs Smith long before anyone called it the platform economy. A consulting practice, <em>Digital Natives</em>, completed the entrepreneurial chapter.
         </p>
         <p style="margin: 0 0 24px;">
-          He is a Fellow of the Chartered Institute of Marketing and a member of the World Economic Forum's Strategic Communicators Exchange. He sits on the editorial board of the Journal of Digital &amp; Social Media Marketing, and advises HFS Research and IDC. He was named to the Financial Narrative 50 in 2025 and The Drum's Top 100 B2B CMOs the same year.
+          Corporate life came next — deliberately. Same problems, greater scale.
+        </p>
+        <p style="margin: 0 0 24px;">
+          At Vodafone, he launched the first <em>My Vodafone</em> self-care app and scaled it across <strong>nine European countries</strong>. At Acer, a dynamic pricing algorithm lifted online sales by <strong>35%</strong> and cut costs by <strong>10%</strong>. At JLL, he built a real estate marketplace now processing billions in transactions, then implemented conversational AI that delivered a <strong>60%</strong> conversion improvement.
+        </p>
+        <p style="margin: 0 0 24px;">
+          The through-line never changed: <em>find the constraint, apply technology, measure the result.</em>
+        </p>
+        <p style="margin: 0 0 24px;">
+          Today, Francesco is Global Chief Marketing Officer at S&amp;P Global — leading the integration of agentic AI into enterprise marketing at scale, from organisational design and governance to production multi-agent systems. He is a Fellow of the Chartered Institute of Marketing, a member of the World Economic Forum's Strategic Communicators Exchange, and sits on the editorial board of the Journal of Digital &amp; Social Media Marketing. He advises HFS Research and IDC on the future of AI-driven enterprise operations.
+        </p>
+        <p style="margin: 0 0 24px;">
+          <em>The Agentic CMO</em> is the book he couldn't find when he needed it. A senior practitioner's operating manual for building organisations where human and artificial intelligence work as a unified force — not a vendor's roadmap, not a strategic framework detached from implementation reality.
+        </p>
+        <p style="margin: 0 0 24px;">
+          <em>Chronicles of Change</em>, his weekly newsletter, extends that work. Written for practitioners running the marketing function. <em>Not for observers commenting on it.</em>
         </p>
         <p style="margin: 0;">
-          He writes Chronicles of Change, a weekly newsletter on agentic marketing, and occasionally publishes longer essays at <a href="https://francescofederico.com" style="color: var(--ff-vermillion);">francescofederico.com</a>. He lives between London and Milan.
+          He holds a Doctorate in Law from Università Cattolica del Sacro Cuore and executive education from Harvard, IMD, and IE Business School.
         </p>
       </div>
     </div>
@@ -119,22 +131,18 @@ const OTHER_WORK = [
 
   <Rule />
 
-  <!-- CREDENTIALS -->
+  <!-- PROFESSIONAL JOURNEY -->
   <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
     <div style="position: sticky; top: 24px;">
-      <Eyebrow>Credentials and recognition</Eyebrow>
-      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
-        A note on<br />provenance.
+      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        Professional<br />Journey.
       </h2>
-      <p style="font-size: 14px; color: var(--fg-muted); margin: 20px 0 0; line-height: 1.6;">
-        The book's arguments rest on the work below. Listed not as ornament but for the reader who wants to know where a claim is coming from.
-      </p>
     </div>
     <div>
       <div style="margin-bottom: 56px;">
-        <div style="font-size: 14px; font-weight: 600; color: var(--ff-charcoal); padding-bottom: 12px; border-bottom: 2px solid var(--ff-charcoal); letter-spacing: 0.04em;">Professional</div>
+        <div style="font-size: 14px; font-weight: 600; color: var(--ff-charcoal); padding-bottom: 12px; border-bottom: 2px solid var(--ff-charcoal); letter-spacing: 0.04em;">Roles</div>
         <ul style="list-style: none; margin: 0; padding: 0;">
-          {PROFESSIONAL.map(([k, v]) => (
+          {ROLES.map(([k, v]) => (
             <li class="cred-row"><span>{k}</span><MonoNum>{v}</MonoNum></li>
           ))}
         </ul>
@@ -147,10 +155,10 @@ const OTHER_WORK = [
           ))}
         </ul>
       </div>
-      <div style="margin-bottom: 0;">
-        <div style="font-size: 14px; font-weight: 600; color: var(--ff-charcoal); padding-bottom: 12px; border-bottom: 2px solid var(--ff-charcoal); letter-spacing: 0.04em;">Recognition</div>
+      <div>
+        <div style="font-size: 14px; font-weight: 600; color: var(--ff-charcoal); padding-bottom: 12px; border-bottom: 2px solid var(--ff-charcoal); letter-spacing: 0.04em;">Awards</div>
         <ul style="list-style: none; margin: 0; padding: 0;">
-          {RECOGNITION.map(([k, v]) => (
+          {AWARDS.map(([k, v]) => (
             <li class="cred-row"><span>{k}</span><MonoNum>{v}</MonoNum></li>
           ))}
         </ul>
@@ -163,15 +171,14 @@ const OTHER_WORK = [
   <!-- OTHER WORK -->
   <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
     <div>
-      <Eyebrow>Other work</Eyebrow>
-      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+      <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
         Where else<br />to find me.
       </h2>
     </div>
     <ul style="list-style: none; margin: 0; padding: 0;">
       {OTHER_WORK.map((row, i) => (
         <li class={i === 0 ? 'other-work-row first' : 'other-work-row'}>
-          <a href={row.href}>
+          <a href={row.href} target="_blank" rel="noopener">
             <div>
               <div class="ow-label">{row.label}</div>
               <div class="ow-meta">{row.meta}</div>
@@ -185,19 +192,18 @@ const OTHER_WORK = [
 
   <Rule strong />
 
-  <!-- CONTACT -->
-  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+  <!-- CONNECT -->
+  <section class="grid-4-8" style="padding: 80px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: center;">
     <div>
-      <Eyebrow>Contact</Eyebrow>
+      <Eyebrow>Connect</Eyebrow>
       <h2 style="font-size: 36px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
-        One inbox.<br />No forms.
+        On LinkedIn.
       </h2>
     </div>
     <div>
-      <ContactRow label="General" addr="francesco@the-agentic-cmo.com" />
-      <ContactRow label="Speaking" addr="speaking@the-agentic-cmo.com" subject="Speaking enquiry" />
-      <ContactRow label="Press" addr="press@the-agentic-cmo.com" subject="Press enquiry" />
-      <ContactRow label="Bulk orders" addr="orders@imprimaturpress.com" subject="Bulk order — The Agentic CMO" />
+      <a href={LINKEDIN_URL} target="_blank" rel="noopener" class="btn btn--accent btn--lg">
+        Connect on LinkedIn →
+      </a>
     </div>
   </section>
 </BaseLayout>
