@@ -131,8 +131,7 @@ function renderEmailHtml(pdfUrl: string) {
   <p style="margin: 24px 0;">
     <a href="${pdfUrl}" style="display: inline-block; background: #E63946; color: #F8F9FA; padding: 14px 28px; text-decoration: none; font-weight: 500; border: 2px solid #E63946;">Download Cited (PDF) →</a>
   </p>
-  <p style="font-size: 14px; color: #5A5C60;">It is also redistributable within your organisation. If you find it useful, the full argument is in <a href="https://the-agentic-cmo.com/" style="color: #E63946;">The Agentic CMO</a>, published June 2026 by Imprimatur Press.</p>
-  <p style="font-size: 14px; color: #5A5C60;">In three weeks I'll send a single follow-up asking what you tried with it. That is the entire conversation — unsubscribe at any time by replying with the word "stop".</p>
+  <p style="font-size: 14px; color: #5A5C60;">Cited is redistributable within your organisation. If you find it useful, the full argument is in <a href="https://the-agentic-cmo.com/" style="color: #E63946;">The Agentic CMO</a>, published June 2026.</p>
   <hr style="border: 0; border-top: 1px solid #D8D9DA; margin: 32px 0;">
   <p style="font-size: 12px; color: #5A5C60;">Francesco Federico · Global CMO, S&amp;P Global · <a href="https://the-agentic-cmo.com/" style="color: #5A5C60;">the-agentic-cmo.com</a></p>
 </body></html>`;
@@ -144,11 +143,9 @@ function renderEmailText(pdfUrl: string) {
 You'll find the PDF here:
 ${pdfUrl}
 
-It is also redistributable within your organisation. If you find it useful, the full argument is in The Agentic CMO, published June 2026 by Imprimatur Press: https://the-agentic-cmo.com/
-
-In three weeks I'll send a single follow-up asking what you tried with it. That is the entire conversation — unsubscribe at any time by replying with the word "stop".
+Cited is redistributable within your organisation. If you find it useful, the full argument is in The Agentic CMO, published June 2026: https://the-agentic-cmo.com/
 
 Francesco Federico
-Global CMO, S&P Global
+Global Chief Marketing Officer
 https://the-agentic-cmo.com/`;
 }
