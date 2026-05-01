@@ -5,9 +5,10 @@ interface Props {
   prompts: Prompt[];
   themes: readonly string[];
   chapters: string[];
+  buyUrl: string;
 }
 
-export default function PromptList({ prompts, themes, chapters }: Props) {
+export default function PromptList({ prompts, themes, chapters, buyUrl }: Props) {
   const [theme, setTheme] = useState<string>('All');
   const [chapter, setChapter] = useState<string>('All');
   const [query, setQuery] = useState('');
@@ -58,7 +59,7 @@ export default function PromptList({ prompts, themes, chapters }: Props) {
           <p style={{ fontFamily: 'var(--font-serif)', fontSize: 17, fontStyle: 'italic', color: 'var(--ff-slate-blue)', margin: '12px 0 16px', lineHeight: 1.4 }}>
             These prompts are the field manual. The book is the argument.
           </p>
-          <a href="/#buy" className="btn btn--accent btn--sm">Buy the book →</a>
+          <a href={buyUrl} target="_blank" rel="noopener" className="btn btn--accent btn--sm">Buy the book →</a>
         </div>
       </aside>
 

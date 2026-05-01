@@ -28,7 +28,8 @@ const homeJsonLd = {
         url: 'https://francescofederico.com',
         sameAs: [
           'https://www.linkedin.com/in/francescofederico/',
-          'https://francescofederico.substack.com',
+          BOOK.newsletterSubstackUrl,
+          BOOK.newsletterLinkedInUrl,
         ],
       },
       image: `${BOOK.url}/assets/book-cover.png`,
@@ -53,7 +54,7 @@ const homeJsonLd = {
 ---
 <BaseLayout
   title={BOOK.title}
-  description={`${BOOK.thesis} A new book by ${BOOK.author}. ${BOOK.pubDate}.`}
+  description={`${BOOK.thesis} The new book by ${BOOK.author}. ${BOOK.pubDate}.`}
   jsonLd={homeJsonLd}
 >
   <!-- COVER-LED HERO -->
@@ -62,7 +63,7 @@ const homeJsonLd = {
       <BookCover />
     </div>
     <div>
-      <Eyebrow vermillion>A new book by Francesco Federico</Eyebrow>
+      <Eyebrow vermillion>The new book by Francesco Federico</Eyebrow>
       <h1 style="font-size: 72px; line-height: 1.02; font-weight: 700; color: var(--ff-slate-blue); margin: 24px 0 0; letter-spacing: -0.025em; text-wrap: balance; font-family: var(--font-serif);">
         The <span style="color: var(--ff-vermillion);">Agentic</span><br />CMO.
       </h1>
@@ -73,7 +74,7 @@ const homeJsonLd = {
         Second edition. {BOOK.pubDate}.
       </p>
       <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="#buy" class="btn btn--accent btn--lg">Buy the book →</a>
+        <a href={BOOK.buyUrl} target="_blank" rel="noopener" class="btn btn--accent btn--lg">Buy the book →</a>
         <a href="/cited/" class="btn btn--secondary btn--lg">Get Cited. (free)</a>
       </div>
     </div>
@@ -88,10 +89,9 @@ const homeJsonLd = {
       <h2 style="font-size: 40px; color: var(--ff-slate-blue); margin: 16px 0 16px; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
         Five anchor concepts.
       </h2>
-      <p style="font-size: 15px; color: var(--fg-muted); line-height: 1.6; margin: 8px 0 24px;">
-        Five ideas run through the book. They are how I think about a function whose participants now include agents.
+      <p style="font-size: 15px; color: var(--fg-muted); line-height: 1.6; margin: 8px 0 0;">
+        Five ideas run through the book. They're how I think about a marketing function whose colleagues are now partly machine.
       </p>
-      <a href="/prompts/" style="font-size: 14px; color: var(--ff-vermillion);">Read the prompts →</a>
     </div>
     <ol style="list-style: none; margin: 0; padding: 0;">
       {ANCHORS.map((a, i) => (
@@ -108,6 +108,29 @@ const homeJsonLd = {
 
   <Rule />
 
+  <!-- PROMPTS CTA — make the book immediately actionable -->
+  <section class="grid-4-8" style="padding: 96px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div style="position: sticky; top: 24px;">
+      <Eyebrow vermillion>From thinking to doing</Eyebrow>
+      <h2 style="font-size: 40px; color: var(--ff-slate-blue); margin: 16px 0 16px; line-height: 1.1; font-weight: 600; font-family: var(--font-serif);">
+        Twenty-four<br />production-ready prompts.
+      </h2>
+    </div>
+    <div>
+      <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.5; color: var(--fg); margin: 0; max-width: 660px;">
+        Each chapter ends with one or more <span style="color: var(--ff-vermillion);">Activate This</span> prompts — production-ready instructions you can copy directly into Claude or ChatGPT and run on Monday morning. Briefs become contracts; the prompts are the contracts.
+      </p>
+      <p style="font-size: 15px; color: var(--fg-muted); margin: 24px 0 0; line-height: 1.6; max-width: 620px;">
+        The full set lives at <a href="/prompts/" style="color: var(--ff-vermillion);">/prompts</a>, free to use with or without the book. Filterable by theme and chapter, copy in one click, open straight into a fresh Claude or ChatGPT session.
+      </p>
+      <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="/prompts/" class="btn btn--accent">Read the prompts →</a>
+      </div>
+    </div>
+  </section>
+
+  <Rule />
+
   <!-- ABOUT PREVIEW -->
   <section class="grid-4-8" style="padding: 96px 0; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
     <div>
@@ -119,9 +142,12 @@ const homeJsonLd = {
       <Eyebrow>About the author</Eyebrow>
       <h2 style="font-size: 48px; color: var(--ff-slate-blue); margin: 16px 0 0; line-height: 1.05; font-weight: 700; font-family: var(--font-serif); letter-spacing: -0.015em;">Francesco Federico.</h2>
       <p style="font-family: var(--font-serif); font-size: 22px; line-height: 1.5; color: var(--fg); margin: 32px 0 0; max-width: 620px;">
-        Global Chief Marketing Officer. Fellow of the Chartered Institute of Marketing. Member of the World Economic Forum's Strategic Communicators Exchange.
+        Global Chief Marketing Officer, Author of The Agentic CMO, Cited. and the weekly newsletter Chronicles of Change.
       </p>
-      <div class="award-row" style="margin: 40px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 720px;">
+      <div style="margin-top: 40px;">
+        <Eyebrow>Awards</Eyebrow>
+      </div>
+      <div class="award-row" style="margin: 16px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 720px;">
         <AwardBadge
           title="Financial Narrative 50"
           year="2025"
@@ -141,9 +167,6 @@ const homeJsonLd = {
           href="https://www.cmoalliance.com/cmos-to-watch-in-2026/"
         />
       </div>
-      <p style="margin: 24px 0 0; font-size: 13px; color: var(--fg-muted); max-width: 620px;">
-        Standing membership: Fellow of the Chartered Institute of Marketing (FCIM) · World Economic Forum Strategic Communicators Exchange.
-      </p>
       <div style="margin-top: 40px;">
         <a href="/about/" class="btn btn--secondary">Read the full bio →</a>
       </div>
@@ -160,7 +183,7 @@ const homeJsonLd = {
         Hardcover, Paperback,<br />and Kindle.
       </h2>
       <p style="font-size: 15px; color: var(--fg-muted); margin: 24px 0 0; line-height: 1.6; max-width: 320px;">
-        Available worldwide on Amazon.
+        Available worldwide.
       </p>
     </div>
     <div>
@@ -208,30 +231,28 @@ const homeJsonLd = {
     <div>
       <ul class="retailer-grid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border);">
         <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-          <a href="https://francescofederico.substack.com" rel="noopener" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
+          <a href={BOOK.newsletterSubstackUrl} rel="noopener" target="_blank" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
             onmouseover="this.style.background='#F1F2F4'"
             onmouseout="this.style.background='transparent'">
             <div style="display: flex; justify-content: space-between; align-items: baseline;">
-              <span class="eyebrow-block eyebrow-vermillion">Recommended</span>
+              <span class="eyebrow-block eyebrow-vermillion">Substack</span>
               <span aria-hidden="true" style="font-size: 14px; color: var(--fg-muted);">↗</span>
             </div>
             <div>
               <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); margin-bottom: 6px;">Read on Substack</div>
-              <div style="font-size: 13px; color: var(--fg-muted);">Subscribe by email · weekly</div>
             </div>
           </a>
         </li>
         <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-          <a href="https://www.linkedin.com/in/francescofederico/" rel="noopener" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
+          <a href={BOOK.newsletterLinkedInUrl} rel="noopener" target="_blank" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
             onmouseover="this.style.background='#F1F2F4'"
             onmouseout="this.style.background='transparent'">
             <div style="display: flex; justify-content: space-between; align-items: baseline;">
-              <span class="eyebrow-block">Mirror</span>
+              <span class="eyebrow-block">LinkedIn</span>
               <span aria-hidden="true" style="font-size: 14px; color: var(--fg-muted);">↗</span>
             </div>
             <div>
               <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); margin-bottom: 6px;">Read on LinkedIn</div>
-              <div style="font-size: 13px; color: var(--fg-muted);">Newsletter follows · weekly</div>
             </div>
           </a>
         </li>

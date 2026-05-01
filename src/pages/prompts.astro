@@ -6,6 +6,8 @@ import PromptList from '../components/PromptList.tsx';
 import { PROMPTS, THEMES, CHAPTER_NUMBERS } from '../data/prompts';
 import { BOOK } from '../data/book';
 
+const buyUrl = BOOK.buyUrl;
+
 const promptsJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -48,7 +50,7 @@ const promptsJsonLd = {
 
   <Rule strong margin="16px 0 0" />
 
-  <PromptList client:load prompts={PROMPTS} themes={THEMES} chapters={CHAPTER_NUMBERS} />
+  <PromptList client:load prompts={PROMPTS} themes={THEMES} chapters={CHAPTER_NUMBERS} buyUrl={buyUrl} />
 </BaseLayout>
 
 <style>

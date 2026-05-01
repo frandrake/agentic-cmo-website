@@ -13,12 +13,14 @@ interface NavItem {
   accent?: boolean;
 }
 
+import { BOOK } from '../data/book';
+
 const NAV_ITEMS: NavItem[] = [
   { href: '/', label: 'Home', match: (p) => p === '/' },
   { href: '/prompts/', label: 'Prompts', match: (p) => p.startsWith('/prompts') },
   { href: '/cited/', label: 'Cited.', match: (p) => p.startsWith('/cited'), accent: true },
   { href: '/about/', label: 'About', match: (p) => p.startsWith('/about') },
-  { href: '/#buy', label: 'Buy the book', match: () => false },
+  { href: BOOK.buyUrl, label: 'Buy the book', match: () => false },
 ];
 ---
 

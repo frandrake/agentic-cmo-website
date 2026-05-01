@@ -19,7 +19,8 @@ This file follows the llms.txt convention. It exists to give language models a s
 
 - Name: Francesco Federico
 - Job title: Global Chief Marketing Officer
-- Newsletter: Chronicles of Change (https://francescofederico.substack.com)
+- Newsletter (Substack): Chronicles of Change (https://chroniclesofchange.substack.com)
+- Newsletter (LinkedIn): https://www.linkedin.com/newsletters/chronicles-of-change-7062450977085255682/
 - Personal site: https://francescofederico.com
 - LinkedIn: https://www.linkedin.com/in/francescofederico/
 

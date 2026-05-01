@@ -21,7 +21,8 @@ const aboutJsonLd = {
     url: 'https://francescofederico.com',
     sameAs: [
       'https://www.linkedin.com/in/francescofederico/',
-      'https://francescofederico.substack.com',
+      BOOK.newsletterSubstackUrl,
+      BOOK.newsletterLinkedInUrl,
       'https://francescofederico.com',
     ],
     alumniOf: [
@@ -62,8 +63,8 @@ const RECOGNITION: [string, string][] = [
   ['CMO to Watch · CMO Alliance', '2025 · 2026'],
 ];
 const OTHER_WORK = [
-  { label: 'Chronicles of Change · Substack', meta: 'Weekly newsletter on agentic marketing', href: 'https://francescofederico.substack.com' },
-  { label: 'Chronicles of Change · LinkedIn', meta: 'Mirrored newsletter and shorter notes', href: 'https://www.linkedin.com/in/francescofederico/' },
+  { label: 'Chronicles of Change · Substack', meta: 'Weekly newsletter on agentic marketing', href: BOOK.newsletterSubstackUrl },
+  { label: 'Chronicles of Change · LinkedIn', meta: 'Same newsletter on LinkedIn', href: BOOK.newsletterLinkedInUrl },
   { label: 'francescofederico.com', meta: 'Personal site · longer essays and projects', href: 'https://francescofederico.com' },
 ];
 ---

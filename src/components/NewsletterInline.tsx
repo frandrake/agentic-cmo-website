@@ -8,7 +8,7 @@ export default function NewsletterInline({ tone = 'light' }: { tone?: 'light' | 
     e.preventDefault();
     if (!email || !/.+@.+\..+/.test(email)) return;
     // Open the Substack subscribe URL with the email pre-filled.
-    const url = `https://francescofederico.substack.com/subscribe?email=${encodeURIComponent(email)}`;
+    const url = `https://chroniclesofchange.substack.com/subscribe?email=${encodeURIComponent(email)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
     setState('sent');
     setTimeout(() => { setState('idle'); setEmail(''); }, 3500);

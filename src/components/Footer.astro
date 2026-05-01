@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
     <div>
       <Logo />
       <p style="margin-top: 16px; font-size: 13px; color: var(--fg-muted); max-width: 360px; line-height: 1.6;">
-        A book by Francesco Federico, Global Chief Marketing Officer. Published {BOOK.pubDate}.
+        A book by Francesco Federico. First published in 2025, Second Edition, June 2026.
       </p>
     </div>
     <div>
@@ -18,7 +18,7 @@ const year = new Date().getFullYear();
         <li><a href="/prompts/" style="font-size: 13px; color: var(--ff-charcoal);">Prompts</a></li>
         <li><a href="/cited/" style="font-size: 13px; color: var(--ff-charcoal);">Cited.</a></li>
         <li><a href="/about/" style="font-size: 13px; color: var(--ff-charcoal);">About</a></li>
-        <li><a href="/#buy" style="font-size: 13px; color: var(--ff-charcoal);">Buy the book</a></li>
+        <li><a href={BOOK.buyUrl} target="_blank" rel="noopener" style="font-size: 13px; color: var(--ff-charcoal);">Buy the book</a></li>
       </ul>
     </div>
     <div>
@@ -33,15 +33,14 @@ const year = new Date().getFullYear();
     <div>
       <span class="eyebrow-block">Elsewhere</span>
       <ul style="list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px;">
-        <li><a href="https://francescofederico.substack.com" style="font-size: 13px; color: var(--ff-charcoal);">Chronicles of Change · Substack</a></li>
-        <li><a href="https://www.linkedin.com/in/francescofederico/" style="font-size: 13px; color: var(--ff-charcoal);">Chronicles of Change · LinkedIn</a></li>
-        <li><a href="https://francescofederico.com" style="font-size: 13px; color: var(--ff-charcoal);">francescofederico.com</a></li>
+        <li><a href={BOOK.newsletterSubstackUrl} target="_blank" rel="noopener" style="font-size: 13px; color: var(--ff-charcoal);">Chronicles of Change · Substack</a></li>
+        <li><a href={BOOK.newsletterLinkedInUrl} target="_blank" rel="noopener" style="font-size: 13px; color: var(--ff-charcoal);">Chronicles of Change · LinkedIn</a></li>
+        <li><a href="https://francescofederico.com" target="_blank" rel="noopener" style="font-size: 13px; color: var(--ff-charcoal);">francescofederico.com</a></li>
       </ul>
     </div>
   </div>
-  <div style="margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; font-size: 12px; color: var(--fg-muted); flex-wrap: wrap; gap: 12px;">
-    <span>© {year} Francesco Federico</span>
-    <span class="mono" style="letter-spacing: 0.08em;">the-agentic-cmo.com · № 02</span>
+  <div style="margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--fg-muted);">
+    © {year} Francesco Federico · All Rights Reserved
   </div>
 </footer>
 

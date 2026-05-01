@@ -17,6 +17,9 @@ export const BOOK = {
   shortDescription:
     'A field manual for marketing leaders running organisations that include AI agents on the team. The age of marketing automation is ending; the era of marketing autonomy has begun.',
   url: 'https://the-agentic-cmo.com',
+  buyUrl: 'https://www.amazon.co.uk/dp/B0D9H67LW6',
+  newsletterSubstackUrl: 'https://chroniclesofchange.substack.com',
+  newsletterLinkedInUrl: 'https://www.linkedin.com/newsletters/chronicles-of-change-7062450977085255682/',
 } as const;
 
 export const RETAILERS = [
@@ -24,7 +27,7 @@ export const RETAILERS = [
     id: 'amazon-uk',
     name: 'Amazon',
     format: 'Hardcover · Paperback · Kindle',
-    href: 'https://www.amazon.co.uk/Agentic-CMO-Artificial-Intelligence-Leadership-ebook/dp/B0D9H67LW6/',
+    href: BOOK.buyUrl,
     primary: true,
   },
 ];
