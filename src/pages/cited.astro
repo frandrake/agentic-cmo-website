@@ -4,8 +4,12 @@ import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
 import CitedForm from '../components/CitedForm.tsx';
+import SchemaScript from '../components/SchemaScript.astro';
+import { schemaCited } from '../lib/schema';
 import { CITED_META, CITED_CHAPTERS, CITED_FOR_WHOM } from '../data/cited';
 import { BOOK } from '../data/book';
+
+const schema = schemaCited();
 
 const citedJsonLd = {
   '@context': 'https://schema.org',
@@ -26,6 +30,7 @@ const citedJsonLd = {
   description="A free operational manual on Generative Engine Optimisation. The discipline of being read, retrieved, and attributed by the models your customers now ask first."
   ogImage="/assets/cited-cover.png"
   jsonLd={citedJsonLd}
+  schema={schema}
 >
   <!-- HERO -->
   <section class="cited-hero" style="padding: 80px 0 64px; display: grid; grid-template-columns: 7fr 5fr; gap: 80px; align-items: center;">

@@ -5,7 +5,11 @@ import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
 import BookCover from '../components/BookCover.astro';
 import AwardBadge from '../components/AwardBadge.astro';
+import SchemaScript from '../components/SchemaScript.astro';
+import { schemaHomepage } from '../lib/schema';
 import { BOOK, RETAILERS, ANCHORS } from '../data/book';
+
+const schema = schemaHomepage();
 
 const homeJsonLd = {
   '@context': 'https://schema.org',
@@ -56,6 +60,7 @@ const homeJsonLd = {
   title={BOOK.title}
   description={`${BOOK.thesis} The new book by ${BOOK.author}. ${BOOK.pubDate}.`}
   jsonLd={homeJsonLd}
+  schema={schema}
 >
   <!-- COVER-LED HERO -->
   <section class="hero hero-cover" style="padding: 80px 0; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: center;">

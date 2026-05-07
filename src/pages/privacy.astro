@@ -2,13 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
+import SchemaScript from '../components/SchemaScript.astro';
+import { schemaPrivacy } from '../lib/schema';
 import { BOOK } from '../data/book';
 
+const schema = schemaPrivacy();
 const lastUpdated = '30 April 2026';
 ---
 <BaseLayout
   title="Privacy"
   description="How the-agentic-cmo.com handles personal data. Plain-language statement, UK GDPR compliant."
+  schema={schema}
 >
   <section class="grid-5-7" style="padding: 64px 0 48px; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: end;">
     <div>
