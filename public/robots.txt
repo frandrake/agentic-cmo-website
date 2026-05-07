@@ -16,7 +16,13 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
 User-agent: anthropic-ai
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
@@ -47,4 +53,5 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
+Sitemap: https://the-agentic-cmo.com/sitemap.xml
 Sitemap: https://the-agentic-cmo.com/sitemap-index.xml
