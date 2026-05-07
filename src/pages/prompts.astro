@@ -3,8 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import PromptList from '../components/PromptList.tsx';
+import SchemaScript from '../components/SchemaScript.astro';
+import { schemaPrompts } from '../lib/schema';
 import { PROMPTS, THEMES, CHAPTER_NUMBERS } from '../data/prompts';
 import { BOOK } from '../data/book';
+
+const schema = schemaPrompts();
 
 const buyUrl = BOOK.buyUrl;
 
@@ -30,6 +34,7 @@ const promptsJsonLd = {
   title="The Activate This prompts"
   description="The full set of production-ready prompts from The Agentic CMO. Filter by theme or chapter, copy in one click, or open directly in Claude or ChatGPT."
   jsonLd={promptsJsonLd}
+  schema={schema}
 >
   <section class="prompts-header" style="padding: 64px 0 48px; display: grid; grid-template-columns: 7fr 5fr; gap: 80px; align-items: end;">
     <div>
