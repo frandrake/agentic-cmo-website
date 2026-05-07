@@ -4,26 +4,11 @@ import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
 import CitedForm from '../components/CitedForm.tsx';
-import SchemaScript from '../components/SchemaScript.astro';
 import { schemaCited } from '../lib/schema';
 import { CITED_META, CITED_CHAPTERS, CITED_FOR_WHOM } from '../data/cited';
 import { BOOK } from '../data/book';
 
 const schema = schemaCited();
-
-const citedJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Book',
-  name: 'Cited.',
-  alternativeHeadline: CITED_META.subtitle,
-  bookFormat: 'https://schema.org/EBook',
-  inLanguage: 'en',
-  author: { '@id': 'https://francescofederico.com/#person', name: BOOK.author },
-  isPartOf: { '@id': `${BOOK.url}/#book` },
-  url: `${BOOK.url}/cited/`,
-  description: CITED_META.subtitle,
-  isAccessibleForFree: true,
-};
 ---
 <BaseLayout
   title="Cited. — The GEO Operating Manual by Francesco Federico"
@@ -31,7 +16,6 @@ const citedJsonLd = {
   canonicalUrl="https://the-agentic-cmo.com/cited"
   ogType="book"
   ogImage="/assets/cited-cover.png"
-  jsonLd={citedJsonLd}
   schema={schema}
 >
   <!-- HERO -->
