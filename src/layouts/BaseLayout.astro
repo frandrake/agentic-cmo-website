@@ -8,7 +8,11 @@ import { BOOK } from '../data/book';
 export interface Props {
   title: string;
   description?: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
   ogImage?: string;
+  ogType?: string;
   jsonLd?: object | object[];
   schema?: object | object[];
   canonical?: string;
@@ -18,16 +22,19 @@ export interface Props {
 const {
   title,
   description = BOOK.shortDescription,
-  ogImage = '/assets/book-cover.png',
+  canonicalUrl,
+  ogTitle,
+  ogDescription,
+  ogImage = 'https://www.francescofederico.com/images/sp-global-francesco-federico-transparent.png',
+  ogType = 'website',
   jsonLd,
   schema,
   canonical,
   noindex = false,
 } = Astro.props;
 
-const fullTitle = title === BOOK.title ? `${BOOK.title} — Francesco Federico` : `${title} · ${BOOK.title}`;
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
-const ogUrl = canonicalUrl;
+const resolvedCanonical = canonicalUrl ?? canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
+const resolvedOgImage = /^https?:\/\//.test(ogImage) ? ogImage : new URL(ogImage, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -35,9 +42,9 @@ const ogUrl = canonicalUrl;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{fullTitle}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
+    <link rel="canonical" href={resolvedCanonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Chronicles of Change" href="https://chroniclesofchange.substack.com/feed" />
@@ -47,19 +54,19 @@ const ogUrl = canonicalUrl;
     <link rel="preload" href="/fonts/Inter-VariableFont_opsz_wght.ttf" as="font" type="font/ttf" crossorigin />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="book" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
-    <meta property="og:url" content={ogUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={ogTitle ?? title} />
+    <meta property="og:description" content={ogDescription ?? description} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:site_name" content={BOOK.title} />
     <meta property="og:locale" content="en_GB" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta name="twitter:title" content={ogTitle ?? title} />
+    <meta name="twitter:description" content={ogDescription ?? description} />
+    <meta name="twitter:image" content={resolvedOgImage} />
 
     <!-- LLM-friendly meta -->
     <meta name="author" content={BOOK.author} />
