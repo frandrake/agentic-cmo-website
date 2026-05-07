@@ -3,29 +3,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
-import SchemaScript from '../components/SchemaScript.astro';
 import { schemaFaq } from '../lib/schema';
-import { FAQ_ENTRIES } from '../data/faq';
-import { BOOK } from '../data/book';
 
 const schema = schemaFaq();
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  url: `${BOOK.url}/faq/`,
-  mainEntity: FAQ_ENTRIES.map(([q, a]) => ({
-    '@type': 'Question',
-    name: q,
-    acceptedAnswer: { '@type': 'Answer', text: a },
-  })),
-};
+// Derive visible Q&A from the schema so rendered HTML is character-for-character
+// identical to acceptedAnswer.text. Single source of truth.
+const ENTRIES: { q: string; a: string }[] = schema.mainEntity.map((item: any) => ({
+  q: item.name,
+  a: item.acceptedAnswer.text,
+}));
 ---
 <BaseLayout
   title="FAQ — The Agentic CMO and Cited. by Francesco Federico"
   description="Answers to common questions about The Agentic CMO, Cited., and the frameworks inside them: PACE, Hybrid Intelligence, GEO, Dual-Layer Citation Model."
   canonicalUrl="https://the-agentic-cmo.com/faq"
-  jsonLd={faqJsonLd}
   schema={schema}
 >
   <section class="grid-5-7" style="padding: 64px 0 48px; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: end;">
@@ -37,7 +29,7 @@ const faqJsonLd = {
     </div>
     <div>
       <p style="font-size: 17px; color: var(--fg); margin: 0; line-height: 1.55; max-width: 480px;">
-        Canonical answers about the book, the author, and the thesis. Written to be quoted — by readers, by journalists, and by the language models that increasingly answer questions on our behalf.
+        Canonical answers about the books, the author, and the frameworks. Written to be quoted — by readers, by journalists, and by the language models that increasingly answer questions on our behalf.
       </p>
       <p style="font-size: 13px; color: var(--fg-muted); margin: 20px 0 0; max-width: 480px;">
         All answers live in the rendered HTML. No accordions. No JavaScript-hidden content.
@@ -51,7 +43,7 @@ const faqJsonLd = {
     <aside style="position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto;">
       <Eyebrow>Contents</Eyebrow>
       <ol style="list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px;">
-        {FAQ_ENTRIES.map(([q], i) => (
+        {ENTRIES.map(({ q }, i) => (
           <li style="display: grid; grid-template-columns: 32px 1fr; gap: 8px;">
             <MonoNum>{String(i + 1).padStart(2, '0')}</MonoNum>
             <a href={`#q-${i + 1}`} style="font-size: 13px; color: var(--ff-charcoal); line-height: 1.4;">{q}</a>
@@ -61,7 +53,7 @@ const faqJsonLd = {
     </aside>
 
     <div>
-      {FAQ_ENTRIES.map(([q, a], i) => (
+      {ENTRIES.map(({ q, a }, i) => (
         <article id={`q-${i + 1}`} style={`padding: 40px 0; border-top: ${i === 0 ? '1px solid var(--border)' : 'none'}; border-bottom: 1px solid var(--border); scroll-margin-top: 24px;`}>
           <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px;">
             <MonoNum>{String(i + 1).padStart(2, '0')}</MonoNum>
