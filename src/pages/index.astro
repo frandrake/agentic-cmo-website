@@ -5,63 +5,16 @@ import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
 import BookCover from '../components/BookCover.astro';
 import AwardBadge from '../components/AwardBadge.astro';
-import SchemaScript from '../components/SchemaScript.astro';
 import { schemaHomepage } from '../lib/schema';
 import { BOOK, RETAILERS, ANCHORS } from '../data/book';
 
 const schema = schemaHomepage();
-
-const homeJsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Book',
-      '@id': `${BOOK.url}/#book`,
-      name: BOOK.title,
-      alternativeHeadline: BOOK.subtitle,
-      bookEdition: BOOK.edition,
-      bookFormat: 'https://schema.org/Hardcover',
-      isbn: BOOK.isbnHardcover,
-      datePublished: BOOK.pubDateMachine,
-      inLanguage: 'en',
-      author: {
-        '@type': 'Person',
-        '@id': 'https://francescofederico.com/#person',
-        name: BOOK.author,
-        jobTitle: BOOK.authorTitle,
-        url: 'https://francescofederico.com',
-        sameAs: [
-          'https://www.linkedin.com/in/francescofederico/',
-          BOOK.newsletterSubstackUrl,
-          BOOK.newsletterLinkedInUrl,
-        ],
-      },
-      image: `${BOOK.url}/assets/book-cover.png`,
-      url: BOOK.url,
-      description: BOOK.shortDescription,
-      workExample: [
-        { '@type': 'Book', bookEdition: 'Hardcover', isbn: BOOK.isbnHardcover, bookFormat: 'https://schema.org/Hardcover' },
-        { '@type': 'Book', bookEdition: 'Paperback', isbn: BOOK.isbnPaperback, bookFormat: 'https://schema.org/Paperback' },
-        { '@type': 'Book', bookEdition: 'eBook', isbn: BOOK.isbnEbook, bookFormat: 'https://schema.org/EBook' },
-      ],
-    },
-    {
-      '@type': 'WebSite',
-      '@id': `${BOOK.url}/#website`,
-      url: BOOK.url,
-      name: BOOK.title,
-      description: BOOK.shortDescription,
-      inLanguage: 'en-GB',
-    },
-  ],
-};
 ---
 <BaseLayout
   title="The Agentic CMO — Francesco Federico"
   description="The operating model, governance, and skill mix for CMOs orchestrating human and AI as a unified force. PACE Framework. Hybrid Intelligence. ISBN 978-1-0676534-3-9."
   canonicalUrl="https://the-agentic-cmo.com/"
   ogType="book"
-  jsonLd={homeJsonLd}
   schema={schema}
 >
   <!-- COVER-LED HERO -->

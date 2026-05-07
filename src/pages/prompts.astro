@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import PromptList from '../components/PromptList.tsx';
-import SchemaScript from '../components/SchemaScript.astro';
 import { schemaPrompts } from '../lib/schema';
 import { PROMPTS, THEMES, CHAPTER_NUMBERS } from '../data/prompts';
 import { BOOK } from '../data/book';
@@ -11,30 +10,11 @@ import { BOOK } from '../data/book';
 const schema = schemaPrompts();
 
 const buyUrl = BOOK.buyUrl;
-
-const promptsJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'The 24 Activate This prompts',
-  description: 'Production-ready prompts from The Agentic CMO, free to use with frontier models such as Claude or ChatGPT.',
-  url: `${BOOK.url}/prompts/`,
-  isPartOf: { '@id': `${BOOK.url}/#website` },
-  about: { '@id': `${BOOK.url}/#book` },
-  hasPart: PROMPTS.map((p) => ({
-    '@type': 'CreativeWork',
-    name: p.title,
-    description: p.context,
-    url: `${BOOK.url}/prompts/#${p.id}`,
-    isPartOf: { '@id': `${BOOK.url}/#book` },
-    keywords: [p.theme, p.chapterTitle].join(', '),
-  })),
-};
 ---
 <BaseLayout
   title="27 AI Prompts from The Agentic CMO — Francesco Federico"
   description="The 27 implementation prompts from The Agentic CMO by Francesco Federico — structured AI prompts for marketing leaders building agentic capabilities."
   canonicalUrl="https://the-agentic-cmo.com/prompts"
-  jsonLd={promptsJsonLd}
   schema={schema}
 >
   <section class="prompts-header" style="padding: 64px 0 48px; display: grid; grid-template-columns: 7fr 5fr; gap: 80px; align-items: end;">

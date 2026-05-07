@@ -20,7 +20,7 @@ export default function CitedForm() {
         body: JSON.stringify({ email, role, problem }),
       });
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
         throw new Error(data.error || 'Could not send the manual. Try again in a moment.');
       }
       setState('sent');

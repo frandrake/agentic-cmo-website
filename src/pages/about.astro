@@ -3,46 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Rule from '../components/Rule.astro';
 import MonoNum from '../components/MonoNum.astro';
-import SchemaScript from '../components/SchemaScript.astro';
 import { schemaAbout } from '../lib/schema';
 import { BOOK } from '../data/book';
 
 const schema = schemaAbout();
-
-const aboutJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfilePage',
-  url: `${BOOK.url}/about/`,
-  mainEntity: {
-    '@type': 'Person',
-    '@id': 'https://francescofederico.com/#person',
-    name: BOOK.author,
-    jobTitle: 'Global Chief Marketing Officer',
-    worksFor: { '@type': 'Organization', name: 'S&P Global' },
-    nationality: { '@type': 'Country', name: 'Italy' },
-    homeLocation: { '@type': 'City', name: 'London' },
-    url: 'https://francescofederico.com',
-    sameAs: [
-      'https://www.linkedin.com/in/francescofederico/',
-      BOOK.newsletterSubstackUrl,
-      BOOK.newsletterLinkedInUrl,
-      'https://francescofederico.com',
-    ],
-    alumniOf: [
-      { '@type': 'EducationalOrganization', name: 'Università Cattolica del Sacro Cuore' },
-      { '@type': 'EducationalOrganization', name: 'Harvard Business School' },
-      { '@type': 'EducationalOrganization', name: 'IMD Business School' },
-      { '@type': 'EducationalOrganization', name: 'IE Business School' },
-    ],
-    award: ['Financial Narrative 50 (2025)', 'The Drum Top 100 B2B CMOs (2025)', 'CMO to Watch (2025)', 'CMO to Watch (2026)'],
-    knowsAbout: ['Agentic AI', 'Marketing Leadership', 'Generative Engine Optimisation', 'B2B Marketing', 'Brand Strategy', 'Marketing Technology'],
-    hasCredential: [
-      { '@type': 'EducationalOccupationalCredential', name: 'Doctor of Law', educationalLevel: 'Doctorate' },
-      { '@type': 'EducationalOccupationalCredential', name: 'Fellow of the Chartered Institute of Marketing (FCIM)' },
-    ],
-    description: `Francesco Federico is the Global Chief Marketing Officer of S&P Global and the author of ${BOOK.title} (${BOOK.pubDate}). He writes the Chronicles of Change newsletter on agentic marketing.`,
-  },
-};
 
 const ROLES: [string, string][] = [
   ['Global Chief Marketing Officer, S&P Global', 'Current'],
@@ -74,7 +38,6 @@ const LINKEDIN_URL = 'https://www.linkedin.com/in/francescofederico/';
   description="Chief Marketing Officer at S&P Global, Fellow of the Chartered Institute of Marketing, and author of The Agentic CMO and Cited."
   canonicalUrl="https://the-agentic-cmo.com/about"
   ogImage="/assets/author.png"
-  jsonLd={aboutJsonLd}
   schema={schema}
 >
   <!-- HEADER -->
