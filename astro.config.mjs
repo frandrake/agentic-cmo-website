@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://the-agentic-cmo.com',
   output: 'static',
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   integrations: [
     react(),
     sitemap({

@@ -5,15 +5,6 @@
 /the-book  /      301
 /book      /      301
 
-# Strip trailing slashes on sub-pages so there is exactly one canonical URL
-# per page (matches the canonicalUrl set in src/pages/*.astro and the sitemap).
-# Root `/` is unaffected.
-/about/    /about    301
-/cited/    /cited    301
-/faq/      /faq      301
-/privacy/  /privacy  301
-/prompts/  /prompts  301
-
 # Activate This deep links from QR codes in the print book point to /activate/#at-NN.
-# Forward those to /prompts. Splat rules go last.
-/activate/*  /prompts  301
+# Forward those to /prompts/. Splat rules go last.
+/activate/*  /prompts/  301
