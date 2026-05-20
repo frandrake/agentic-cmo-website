@@ -30,6 +30,24 @@ export const RETAILERS = [
     href: BOOK.buyUrl,
     primary: true,
   },
+  {
+    id: 'barnes-noble',
+    name: 'Barnes & Noble',
+    format: 'Hardcover · Paperback · Nook',
+    href: 'https://www.barnesandnoble.com/w/the-agentic-cmo-francesco-federico/1147690575',
+  },
+  {
+    id: 'kobo',
+    name: 'Rakuten Kobo',
+    format: 'eBook',
+    href: 'https://www.kobo.com/us/en/ebook/the-agentic-cmo',
+  },
+  {
+    id: 'apple-books',
+    name: 'Apple Books',
+    format: 'eBook',
+    href: 'https://books.apple.com/us/book/the-agentic-cmo/id6747595154',
+  },
 ];
 
 export const ANCHORS = [
