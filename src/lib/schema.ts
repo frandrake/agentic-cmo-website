@@ -5,10 +5,10 @@ export const PERSON = {
   "@id": "https://the-agentic-cmo.com/#person",
   "name": "Francesco Federico",
   "honorificSuffix": "JD, FCIM",
-  "url": "https://the-agentic-cmo.com/about",
+  "url": "https://the-agentic-cmo.com/about/",
   "image": {
     "@type": "ImageObject",
-    "url": "https://www.francescofederico.com/images/sp-global-francesco-federico-transparent.png",
+    "url": "https://the-agentic-cmo.com/assets/author.png",
     "caption": "Francesco Federico, Chief Marketing Officer at S&P Global"
   },
   "jobTitle": "Chief Marketing Officer",
@@ -88,10 +88,10 @@ export const BOOK_AGENTIC_CMO = {
 
 export const BOOK_CITED = {
   "@type": "Book",
-  "@id": "https://the-agentic-cmo.com/cited#book",
+  "@id": "https://the-agentic-cmo.com/cited/#book",
   "name": "Cited.",
   "author": { "@id": "https://the-agentic-cmo.com/#person" },
-  "url": "https://the-agentic-cmo.com/cited",
+  "url": "https://the-agentic-cmo.com/cited/",
   "inLanguage": "en",
   "isbn": "979-8235761650",
   "description": "The GEO (Generative Engine Optimisation) operating manual for marketing practitioners on earning citation in AI-synthesised answers. Introduces the Dual-Layer Citation Model, Entity Bible, Prompt Battery, and 90-Day GEO Playbook.",
@@ -154,35 +154,35 @@ export const DEFINED_TERMS_AGENTIC_CMO = [
   }
 ] as const;
 
-// DefinedTerms anchored on /cited
+// DefinedTerms anchored on /cited/
 export const DEFINED_TERMS_CITED = [
   {
     "@type": "DefinedTerm",
-    "@id": "https://the-agentic-cmo.com/cited#dual-layer-citation",
+    "@id": "https://the-agentic-cmo.com/cited/#dual-layer-citation",
     "name": "Dual-Layer Citation Model",
     "description": "Two pathways to AI citation: Indirect Layer (JSON-LD → knowledge graph → organic ranking → AI Overview) and Direct Layer (visible text → chunking → fragment selection). Introduced in Cited. by Francesco Federico.",
-    "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/cited#book" }
+    "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/cited/#book" }
   },
   {
     "@type": "DefinedTerm",
-    "@id": "https://the-agentic-cmo.com/cited#entity-bible",
+    "@id": "https://the-agentic-cmo.com/cited/#entity-bible",
     "name": "Entity Bible",
     "description": "Governance document managing brand entity across 8 platforms: Wikidata, Wikipedia, Crunchbase, G2, LinkedIn, GitHub, ORCID, financial registries. Entity fragmentation carries a 2.8x citation penalty. Introduced in Cited. by Francesco Federico.",
-    "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/cited#book" }
+    "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/cited/#book" }
   },
   {
     "@type": "DefinedTerm",
-    "@id": "https://the-agentic-cmo.com/cited#prompt-battery",
+    "@id": "https://the-agentic-cmo.com/cited/#prompt-battery",
     "name": "Prompt Battery",
     "description": "300-cell weekly citation tracker: 50 prompts × 6 AI engines × 5 intent bands (Unbranded, Branded, Competitor, Problem, Long-tail). Introduced in Cited. by Francesco Federico.",
-    "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/cited#book" }
+    "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/cited/#book" }
   },
   {
     "@type": "DefinedTerm",
-    "@id": "https://the-agentic-cmo.com/cited#90-day-playbook",
+    "@id": "https://the-agentic-cmo.com/cited/#90-day-playbook",
     "name": "90-Day GEO Playbook",
     "description": "Four-phase GEO implementation: Week 1 audit, Days 8–30 foundations, Days 31–90 experimentation, Day 91+ governance. Introduced in Cited. by Francesco Federico.",
-    "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/cited#book" }
+    "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/cited/#book" }
   }
 ] as const;
 
@@ -222,17 +222,17 @@ export function schemaCited() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://the-agentic-cmo.com/cited#webpage",
-        "url": "https://the-agentic-cmo.com/cited",
+        "@id": "https://the-agentic-cmo.com/cited/#webpage",
+        "url": "https://the-agentic-cmo.com/cited/",
         "name": "Cited. — The GEO Operating Manual by Francesco Federico",
         "description": "The practical GEO manual for marketers on earning citation in AI-synthesised answers. Dual-Layer Citation Model. Entity Bible. Prompt Battery. ISBN 979-8235761650.",
         "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" },
-        "mainEntity": { "@id": "https://the-agentic-cmo.com/cited#book" },
+        "mainEntity": { "@id": "https://the-agentic-cmo.com/cited/#book" },
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://the-agentic-cmo.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Cited.", "item": "https://the-agentic-cmo.com/cited" }
+            { "@type": "ListItem", "position": 2, "name": "Cited.", "item": "https://the-agentic-cmo.com/cited/" }
           ]
         }
       },
@@ -249,8 +249,8 @@ export function schemaAbout() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://the-agentic-cmo.com/about#webpage",
-        "url": "https://the-agentic-cmo.com/about",
+        "@id": "https://the-agentic-cmo.com/about/#webpage",
+        "url": "https://the-agentic-cmo.com/about/",
         "name": "Francesco Federico — Author of The Agentic CMO and Cited.",
         "description": "Chief Marketing Officer at S&P Global, Fellow of the Chartered Institute of Marketing, and author of The Agentic CMO and Cited.",
         "about": { "@id": "https://the-agentic-cmo.com/#person" },
@@ -259,7 +259,7 @@ export function schemaAbout() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://the-agentic-cmo.com/" },
-            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://the-agentic-cmo.com/about" }
+            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://the-agentic-cmo.com/about/" }
           ]
         }
       },
@@ -273,7 +273,7 @@ export function schemaFaq() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "name": "FAQ — The Agentic CMO and Cited. by Francesco Federico",
-    "url": "https://the-agentic-cmo.com/faq",
+    "url": "https://the-agentic-cmo.com/faq/",
     "description": "Answers to common questions about The Agentic CMO, Cited., and the frameworks inside them: PACE, Hybrid Intelligence, GEO, Dual-Layer Citation Model.",
     "mainEntity": [
       { "@type": "Question", "name": "What is The Agentic CMO?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO is a book by Francesco Federico that sets out the operating model, governance frameworks, and skill mix marketing leaders need to orchestrate human and artificial intelligence as a unified force. It argues the CMO must evolve from Campaign Commander to Portfolio Manager, allocating capital across autonomous AI agent fleets with financial-fund rigour. ISBN 978-1-0676534-3-9 (hardcover)." } },
@@ -282,7 +282,7 @@ export function schemaFaq() {
       { "@type": "Question", "name": "What is Hybrid Intelligence?", "acceptedAnswer": { "@type": "Answer", "text": "Hybrid Intelligence, introduced in The Agentic CMO, is a sociotechnical AI configuration meeting three falsifiable conditions: (1) Bidirectional Learning — the machine learns from human judgment and humans visibly change decisions based on machine patterns; (2) Failure-Mode Complementarity — human and machine fail on different inputs; (3) Explicit Arbitration — a documented protocol specifying who decides when human and machine disagree." } },
       { "@type": "Question", "name": "What is the AI Autonomy Spectrum?", "acceptedAnswer": { "@type": "Answer", "text": "The AI Autonomy Spectrum, introduced in The Agentic CMO, is a four-level taxonomy: Rule-Based (deterministic if/then logic, makes no decisions), Predictive (ranks and scores, recommends to humans), Generative (produces content on a prompt), and Agentic (plans, decides, and executes multi-step work toward a goal autonomously)." } },
       { "@type": "Question", "name": "What is the Position Sizing Formula?", "acceptedAnswer": { "@type": "Answer", "text": "The Position Sizing Formula, introduced in The Agentic CMO, applies Modern Portfolio Theory to AI agent capital allocation: Capital_i = k × (EV_i/σ_i) × S_i × (1/G_i). EV is Expected Value, σ is Variance, S is Strategic Fit, and G is Governance Load. A mandatory 17% dry powder reserve is required for mid-year portfolio shifts." } },
-      { "@type": "Question", "name": "What are the 27 AI prompts in The Agentic CMO?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO includes 27 structured AI prompts for marketing leaders implementing the book's frameworks. They are available at https://the-agentic-cmo.com/prompts." } },
+      { "@type": "Question", "name": "What are the 24 AI prompts in The Agentic CMO?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO includes 24 structured AI prompts for marketing leaders implementing the book's frameworks. They are available at https://the-agentic-cmo.com/prompts/." } },
       { "@type": "Question", "name": "What is Cited.?", "acceptedAnswer": { "@type": "Answer", "text": "Cited. is a practical GEO (Generative Engine Optimisation) operating manual for marketing practitioners by Francesco Federico. It explains how generative search engines technically work, why 93% of AI Mode interactions produce zero clicks, and what marketers must do to earn citation in AI-synthesised answers rather than optimising for clicks. ISBN 979-8235761650." } },
       { "@type": "Question", "name": "What is GEO — Generative Engine Optimisation?", "acceptedAnswer": { "@type": "Answer", "text": "GEO is the discipline of optimising content, entity presence, and technical architecture so that brands are retrieved and cited by large language models and AI-powered search engines. It differs from SEO in that success is measured by citation share and content extractability rather than click-through rate and keyword ranking." } },
       { "@type": "Question", "name": "What is the Dual-Layer Citation Model?", "acceptedAnswer": { "@type": "Answer", "text": "The Dual-Layer Citation Model, introduced in Cited. by Francesco Federico, distinguishes two citation pathways. The Indirect Layer: JSON-LD schema → knowledge graph → organic ranking → AI Overview. The Direct Layer: visible text → chunking (150–300 tokens) → fragment selection. Research shows authority signals outweigh schema 3.5 to 1 in predicting citation outcomes." } },
@@ -301,28 +301,28 @@ export function schemaPrompts() {
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": "https://the-agentic-cmo.com/prompts#webpage",
-        "url": "https://the-agentic-cmo.com/prompts",
-        "name": "27 AI Prompts from The Agentic CMO — Francesco Federico",
-        "description": "The 27 implementation prompts from The Agentic CMO by Francesco Federico — structured AI prompts for marketing leaders building agentic capabilities.",
+        "@id": "https://the-agentic-cmo.com/prompts/#webpage",
+        "url": "https://the-agentic-cmo.com/prompts/",
+        "name": "24 AI Prompts from The Agentic CMO — Francesco Federico",
+        "description": "The 24 implementation prompts from The Agentic CMO by Francesco Federico — structured AI prompts for marketing leaders building agentic capabilities.",
         "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" },
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://the-agentic-cmo.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Prompts", "item": "https://the-agentic-cmo.com/prompts" }
+            { "@type": "ListItem", "position": 2, "name": "Prompts", "item": "https://the-agentic-cmo.com/prompts/" }
           ]
         }
       },
       {
         "@type": "Article",
-        "@id": "https://the-agentic-cmo.com/prompts#article",
-        "headline": "27 AI Prompts from The Agentic CMO",
+        "@id": "https://the-agentic-cmo.com/prompts/#article",
+        "headline": "24 AI Prompts from The Agentic CMO",
         "author": { "@id": "https://the-agentic-cmo.com/#person" },
-        "url": "https://the-agentic-cmo.com/prompts",
+        "url": "https://the-agentic-cmo.com/prompts/",
         "inLanguage": "en",
         "isPartOf": { "@id": "https://the-agentic-cmo.com/#book" },
-        "description": "27 structured AI prompts for marketing leaders implementing the frameworks in The Agentic CMO by Francesco Federico.",
+        "description": "24 structured AI prompts for marketing leaders implementing the frameworks in The Agentic CMO by Francesco Federico.",
         "about": { "@id": "https://the-agentic-cmo.com/#book" }
       }
     ]
@@ -333,7 +333,7 @@ export function schemaPrivacy() {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url": "https://the-agentic-cmo.com/privacy",
+    "url": "https://the-agentic-cmo.com/privacy/",
     "name": "Privacy Policy — the-agentic-cmo.com",
     "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" }
   };

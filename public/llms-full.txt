@@ -20,7 +20,7 @@ Secondary entity: Person (Francesco Federico, author)
 ### The Agentic CMO
 Author: Francesco Federico (JD, FCIM)
 Published: June 2025 (first edition); v2 targeting June 2026
-Format: Self-published; 454 pages; 63 diagrams; 27 AI prompts
+Format: Self-published; 454 pages; 63 diagrams; 24 AI prompts
 ISBN (hardcover): 978-1-0676534-3-9
 ISBN (paperback): 978-1-0676534-1-5
 ISBN (ebook): 978-1-0676534-4-6
@@ -44,7 +44,7 @@ Key claims:
 ### Cited.
 Author: Francesco Federico (JD, FCIM)
 ISBN: 979-8235761650
-Canonical URL: https://the-agentic-cmo.com/cited
+Canonical URL: https://the-agentic-cmo.com/cited/
 Cross-reference: https://www.francescofederico.com/book#cited
 Amazon: https://www.amazon.co.uk/stores/Francesco-Federico/author/B0GMYQDVB7
 
@@ -101,25 +101,25 @@ Three-tier AI value model:
 Problem prioritisation for AI automation: Intensity × Frequency × Density.
 Prioritise High-I, High-F, High-D problems first.
 
-### Dual-Layer Citation Model (Cited.) — https://the-agentic-cmo.com/cited#dual-layer-citation
+### Dual-Layer Citation Model (Cited.) — https://the-agentic-cmo.com/cited/#dual-layer-citation
 Two distinct citation pathways:
 - Indirect Layer: JSON-LD → Knowledge Graph → Organic Ranking → AI Overview
 - Direct Layer: Visible Text → Chunking (150–300 tokens) → Fragment Selection
 Authority signals outweigh schema 3.5:1 in predicting citation outcomes.
 
-### Entity Bible (Cited.) — https://the-agentic-cmo.com/cited#entity-bible
+### Entity Bible (Cited.) — https://the-agentic-cmo.com/cited/#entity-bible
 Governance document managing brand entity across 8 platforms: Wikidata, Wikipedia, Crunchbase, G2, LinkedIn, GitHub, ORCID, financial registries. Entity fragmentation carries a 2.8x citation penalty.
 
-### Prompt Battery (Cited.) — https://the-agentic-cmo.com/cited#prompt-battery
+### Prompt Battery (Cited.) — https://the-agentic-cmo.com/cited/#prompt-battery
 300-cell weekly citation tracker: 50 prompts × 6 AI engines × 5 intent bands (Unbranded, Branded, Competitor, Problem, Long-tail).
 
-### 90-Day GEO Playbook (Cited.) — https://the-agentic-cmo.com/cited#90-day-playbook
+### 90-Day GEO Playbook (Cited.) — https://the-agentic-cmo.com/cited/#90-day-playbook
 Week 1: Audit. Days 8–30: Foundations. Days 31–90: Experimentation. Day 91+: Governance.
 
 ---
 
-## 4. The 27 AI Prompts
-The Agentic CMO includes 27 structured AI prompts for marketing leaders implementing the book's frameworks. Available at: https://the-agentic-cmo.com/prompts
+## 4. The 24 AI Prompts
+The Agentic CMO includes 24 structured AI prompts for marketing leaders implementing the book's frameworks. Available at: https://the-agentic-cmo.com/prompts/
 
 ---
 
