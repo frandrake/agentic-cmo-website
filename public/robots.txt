@@ -53,5 +53,4 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-Sitemap: https://the-agentic-cmo.com/sitemap.xml
 Sitemap: https://the-agentic-cmo.com/sitemap-index.xml

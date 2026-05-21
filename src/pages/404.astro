@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Rule from '../components/Rule.astro';
+---
+<BaseLayout
+  title="Page not found — The Agentic CMO"
+  description="That page does not exist on the-agentic-cmo.com."
+  canonicalUrl="https://the-agentic-cmo.com/404"
+  noindex
+>
+  <section class="grid-5-7" style="padding: 96px 0 48px; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: end;">
+    <div>
+      <Eyebrow vermillion>404</Eyebrow>
+      <h1 style="font-size: 96px; color: var(--ff-slate-blue); margin: 24px 0 0; line-height: 1; font-weight: 700; font-family: var(--font-serif); letter-spacing: -0.03em;">
+        Page not<br />found.
+      </h1>
+    </div>
+    <div>
+      <p style="font-family: var(--font-serif); font-size: 24px; line-height: 1.45; color: var(--ff-slate-blue); margin: 0; font-style: italic; max-width: 520px;">
+        That URL does not exist on this site.
+      </p>
+      <p style="font-size: 15px; color: var(--fg-muted); margin: 20px 0 0; max-width: 520px; line-height: 1.6;">
+        It may have been moved, or the link that brought you here may be wrong.
+      </p>
+    </div>
+  </section>
+
+  <Rule strong margin="16px 0 0" />
+
+  <section class="grid-4-8" style="padding: 64px 0 96px; display: grid; grid-template-columns: 4fr 8fr; gap: 80px; align-items: start;">
+    <div>
+      <Eyebrow>Try one of these</Eyebrow>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border);">
+      <li style="border-bottom: 1px solid var(--border);">
+        <a href="/" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 24px 0; align-items: baseline; color: var(--ff-charcoal); text-decoration: none;">
+          <div>
+            <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); line-height: 1.25;">Home</div>
+            <div style="font-size: 14px; color: var(--fg-muted); margin-top: 6px;">The Agentic CMO — book overview</div>
+          </div>
+          <span aria-hidden="true" style="color: var(--ff-vermillion);">→</span>
+        </a>
+      </li>
+      <li style="border-bottom: 1px solid var(--border);">
+        <a href="/prompts/" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 24px 0; align-items: baseline; color: var(--ff-charcoal); text-decoration: none;">
+          <div>
+            <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); line-height: 1.25;">Prompts</div>
+            <div style="font-size: 14px; color: var(--fg-muted); margin-top: 6px;">The Activate This prompts from the book</div>
+          </div>
+          <span aria-hidden="true" style="color: var(--ff-vermillion);">→</span>
+        </a>
+      </li>
+      <li style="border-bottom: 1px solid var(--border);">
+        <a href="/cited/" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 24px 0; align-items: baseline; color: var(--ff-charcoal); text-decoration: none;">
+          <div>
+            <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); line-height: 1.25;">Cited.</div>
+            <div style="font-size: 14px; color: var(--fg-muted); margin-top: 6px;">Free GEO operating manual</div>
+          </div>
+          <span aria-hidden="true" style="color: var(--ff-vermillion);">→</span>
+        </a>
+      </li>
+      <li style="border-bottom: 1px solid var(--border);">
+        <a href="/faq/" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 24px 0; align-items: baseline; color: var(--ff-charcoal); text-decoration: none;">
+          <div>
+            <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); line-height: 1.25;">FAQ</div>
+            <div style="font-size: 14px; color: var(--fg-muted); margin-top: 6px;">Answers about the books and frameworks</div>
+          </div>
+          <span aria-hidden="true" style="color: var(--ff-vermillion);">→</span>
+        </a>
+      </li>
+      <li style="border-bottom: 1px solid var(--border);">
+        <a href="/about/" style="display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 24px 0; align-items: baseline; color: var(--ff-charcoal); text-decoration: none;">
+          <div>
+            <div style="font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--ff-slate-blue); line-height: 1.25;">About</div>
+            <div style="font-size: 14px; color: var(--fg-muted); margin-top: 6px;">Francesco Federico</div>
+          </div>
+          <span aria-hidden="true" style="color: var(--ff-vermillion);">→</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  @media (max-width: 880px) {
+    .grid-4-8, .grid-5-7 { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 0 !important; }
+    h1 { font-size: 64px !important; }
+  }
+</style>
