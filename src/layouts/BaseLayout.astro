@@ -17,6 +17,7 @@ export interface Props {
   schema?: object | object[];
   canonical?: string;
   noindex?: boolean;
+  googleSiteVerification?: string;
 }
 
 const {
@@ -31,6 +32,7 @@ const {
   schema,
   canonical,
   noindex = false,
+  googleSiteVerification,
 } = Astro.props;
 
 const resolvedCanonical = canonicalUrl ?? canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
@@ -55,7 +57,13 @@ const resolvedOgImage = /^https?:\/\//.test(ogImage) ? ogImage : new URL(ogImage
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={resolvedCanonical} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
+
+    {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
+
+    <!-- Global GEO-Optimization -->
+    <link rel="alternate" hreflang="en" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="x-default" href={resolvedCanonical} />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Chronicles of Change" href="https://chroniclesofchange.substack.com/feed" />
 

@@ -8,3 +8,6 @@
 # Activate This deep links from QR codes in the print book point to /activate/#at-NN.
 # Forward those to /prompts/. Splat rules go last.
 /activate/*  /prompts/  301
+
+# Standard sitemap auto-discovery redirect
+/sitemap.xml  /sitemap-index.xml  301
