@@ -10,6 +10,12 @@ plus a manual design review against the skill's anti-pattern rules, WCAG contras
 > This is an **audit only** — no site source was changed. Findings are documented for follow-up
 > `/impeccable` passes (see *Recommended Actions*).
 
+> **Update (2026-06-04, follow-up branch):** the P1/P2 accessibility items have since been fixed —
+> `--ff-steel-blue` text raised to 5.27:1 and link/eyebrow vermillion to 5.42:1 (both clear WCAG AA),
+> the Cited form now has visible `:focus-visible` rings plus `aria-live` status announcements, and a
+> global `prefers-reduced-motion` fallback was added. Remaining items (em-dash density, WOFF2 fonts,
+> inline-style → token refactor) are still open.
+
 ---
 
 ## Audit Health Score
