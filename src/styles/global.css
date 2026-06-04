@@ -43,7 +43,9 @@
   --ff-charcoal:     #2B2D30;
   --ff-vermillion:   #E63946;
   --ff-vermillion-d: #C22A36;
-  --ff-steel-blue:   #7D8E9E;
+  /* Steel blue is used only for small text (eyebrows, labels, mono numbers).
+     Darkened from #7D8E9E (3.2:1) to clear WCAG AA 4.5:1 on --bg. */
+  --ff-steel-blue:   #586A7E;
   --ff-light-gray:   #D8D9DA;
 
   /* Semantic */
@@ -59,8 +61,10 @@
   --border:          var(--ff-light-gray);
   --border-strong:   var(--ff-charcoal);
   --border-brand:    var(--ff-slate-blue);
-  --link:            var(--ff-vermillion);
-  --link-hover:      var(--ff-vermillion-d);
+  /* Link uses the darker vermillion so body-size link text clears AA 4.5:1
+     (bright --ff-vermillion is 3.95:1, fine only for large/display text). */
+  --link:            var(--ff-vermillion-d);
+  --link-hover:      var(--ff-vermillion);
   --focus-ring:      var(--ff-vermillion);
 
   /* Type families */
@@ -257,7 +261,7 @@ code, pre, kbd, samp {
   font-weight: 500;
   color: var(--ff-steel-blue);
 }
-.eyebrow-vermillion { color: var(--ff-vermillion); }
+.eyebrow-vermillion { color: var(--ff-vermillion-d); }
 
 /* MonoNum */
 .mono-num {
@@ -282,6 +286,17 @@ code, pre, kbd, samp {
   }
   .nav-list { display: none !important; }
   .mobile-menu-toggle { display: flex !important; }
+}
+
+/* Respect reduced-motion: neutralize smooth scroll, page-fade, and transitions */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Print */

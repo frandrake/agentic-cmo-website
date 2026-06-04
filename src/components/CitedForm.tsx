@@ -32,7 +32,7 @@ export default function CitedForm() {
 
   if (state === 'sent') {
     return (
-      <div style={{ border: '2px solid var(--ff-vermillion)', padding: '48px 40px', background: 'var(--bg)' }}>
+      <div role="status" aria-live="polite" style={{ border: '2px solid var(--ff-vermillion)', padding: '48px 40px', background: 'var(--bg)' }}>
         <span className="eyebrow-block eyebrow-vermillion">Confirmed</span>
         <h3 style={{ fontSize: 36, color: 'var(--ff-slate-blue)', margin: '16px 0 0', fontFamily: 'var(--font-serif)', fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.015em' }}>
           Check your inbox.
@@ -74,12 +74,12 @@ export default function CitedForm() {
       </div>
 
       {state === 'error' && (
-        <p style={{ marginTop: 16, color: 'var(--ff-vermillion)', fontSize: 13 }}>{errorMsg}</p>
+        <p role="alert" style={{ marginTop: 16, color: 'var(--ff-vermillion-d)', fontSize: 13 }}>{errorMsg}</p>
       )}
 
       <div style={{ marginTop: 36, paddingTop: 24, borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
         <p style={{ margin: 0, fontSize: 12, color: 'var(--fg-muted)', maxWidth: 360, lineHeight: 1.5 }}>
-          I use your email only to send the manual. See <a href="/privacy/" style={{ color: 'var(--ff-vermillion)' }}>the privacy note</a>. No third-party sharing.
+          I use your email only to send the manual. See <a href="/privacy/" style={{ color: 'var(--ff-vermillion-d)' }}>the privacy note</a>. No third-party sharing.
         </p>
         <button type="submit" disabled={state === 'sending'} className="btn btn--accent btn--lg">
           {state === 'sending' ? 'Sending…' : 'Send me the manual →'}
@@ -87,6 +87,11 @@ export default function CitedForm() {
       </div>
 
       <style>{`
+        .cited-field:focus-visible {
+          border-bottom-color: var(--ff-vermillion-d);
+          outline: 2px solid var(--focus-ring);
+          outline-offset: 4px;
+        }
         @media (max-width: 720px) {
           .form-row { grid-template-columns: 1fr !important; }
         }
@@ -111,14 +116,13 @@ function FormInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       {...props}
+      className="cited-field"
       style={{
         fontFamily: 'var(--font-sans)', fontSize: 15, padding: '12px 0',
         borderRadius: 0, border: 'none', borderBottom: '2px solid var(--ff-charcoal)',
         background: 'transparent', color: 'var(--fg)', width: '100%',
-        outline: 'none', transition: 'border-color 0.2s ease',
+        transition: 'border-color 0.2s ease',
       }}
-      onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--ff-vermillion)')}
-      onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--ff-charcoal)')}
     />
   );
 }
@@ -127,11 +131,12 @@ function FormSelect({ children, ...props }: React.SelectHTMLAttributes<HTMLSelec
   return (
     <select
       {...props}
+      className="cited-field"
       style={{
         fontFamily: 'var(--font-sans)', fontSize: 15, padding: '12px 0',
         borderRadius: 0, border: 'none', borderBottom: '2px solid var(--ff-charcoal)',
         background: 'transparent', color: 'var(--fg)', width: '100%',
-        outline: 'none', appearance: 'none',
+        appearance: 'none',
         backgroundImage:
           'linear-gradient(45deg, transparent 50%, var(--ff-charcoal) 50%), linear-gradient(135deg, var(--ff-charcoal) 50%, transparent 50%)',
         backgroundPosition: 'calc(100% - 14px) 50%, calc(100% - 8px) 50%',
