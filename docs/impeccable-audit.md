@@ -10,11 +10,16 @@ plus a manual design review against the skill's anti-pattern rules, WCAG contras
 > This is an **audit only** — no site source was changed. Findings are documented for follow-up
 > `/impeccable` passes (see *Recommended Actions*).
 
-> **Update (2026-06-04, follow-up branch):** the P1/P2 accessibility items have since been fixed —
-> `--ff-steel-blue` text raised to 5.27:1 and link/eyebrow vermillion to 5.42:1 (both clear WCAG AA),
-> the Cited form now has visible `:focus-visible` rings plus `aria-live` status announcements, and a
-> global `prefers-reduced-motion` fallback was added. Remaining items (em-dash density, WOFF2 fonts,
-> inline-style → token refactor) are still open.
+> **Update (2026-06-04, follow-up branches):** most findings have since been addressed.
+> **#13 (accessibility):** `--ff-steel-blue` text raised to 5.27:1 and link/eyebrow vermillion to
+> 5.42:1 (both clear WCAG AA), the Cited form gained `:focus-visible` rings plus `aria-live` status,
+> and a global `prefers-reduced-motion` fallback was added.
+> **Remaining-passes branch:** fonts converted to WOFF2 (~60% smaller payload); the `#F1F2F4`
+> surface centralized into tokens with the inline JS hovers replaced by CSS; the two most generic
+> homepage section eyebrows dropped to vary the kicker cadence; and `PRODUCT.md` / `DESIGN.md` project
+> context added. **Deliberately left as-is:** em-dash density (intentional authored voice — owner's
+> call), Inter as the body face, and the legitimate numbered chapter/concept sequences (the detector
+> flags these but they are real sequences, not scaffolding).
 
 ---
 
