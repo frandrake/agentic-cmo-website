@@ -155,9 +155,8 @@ const schema = schemaHomepage();
               href={r.href}
               rel="sponsored noopener"
               target="_blank"
+              class="surface-hover-link"
               style="display: flex; flex-direction: column; justify-content: space-between; padding: 40px 36px; min-height: 180px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
-              onmouseover="this.style.background='#F1F2F4'"
-              onmouseout="this.style.background='transparent'"
             >
               <div style="display: flex; justify-content: flex-end; align-items: baseline;">
                 <span aria-hidden="true" style="font-size: 16px; color: var(--ff-vermillion);">↗</span>
@@ -189,9 +188,7 @@ const schema = schemaHomepage();
     <div>
       <ul class="retailer-grid" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border);">
         <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-          <a href={BOOK.newsletterSubstackUrl} rel="noopener" target="_blank" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
-            onmouseover="this.style.background='#F1F2F4'"
-            onmouseout="this.style.background='transparent'">
+          <a href={BOOK.newsletterSubstackUrl} rel="noopener" target="_blank" class="surface-hover-link" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;">
             <div style="display: flex; justify-content: space-between; align-items: baseline;">
               <span class="eyebrow-block eyebrow-vermillion">Substack</span>
               <span aria-hidden="true" style="font-size: 14px; color: var(--fg-muted);">↗</span>
@@ -202,9 +199,7 @@ const schema = schemaHomepage();
           </a>
         </li>
         <li style="border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-          <a href={BOOK.newsletterLinkedInUrl} rel="noopener" target="_blank" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;"
-            onmouseover="this.style.background='#F1F2F4'"
-            onmouseout="this.style.background='transparent'">
+          <a href={BOOK.newsletterLinkedInUrl} rel="noopener" target="_blank" class="surface-hover-link" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px 28px; min-height: 152px; color: var(--ff-charcoal); text-decoration: none; transition: background 0.2s ease;">
             <div style="display: flex; justify-content: space-between; align-items: baseline;">
               <span class="eyebrow-block">LinkedIn</span>
               <span aria-hidden="true" style="font-size: 14px; color: var(--fg-muted);">↗</span>
@@ -220,6 +215,7 @@ const schema = schemaHomepage();
 </BaseLayout>
 
 <style>
+  .surface-hover-link:hover { background: var(--surface-hover); }
   @media (max-width: 880px) {
     .hero-cover { grid-template-columns: 1fr !important; gap: 32px !important; padding: 32px 0 48px !important; }
     .grid-4-8 { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 0 !important; }
