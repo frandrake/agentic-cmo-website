@@ -8,32 +8,32 @@
   font-style: normal;
   font-weight: 200 900;
   font-display: swap;
-  src: url('/fonts/CrimsonPro-VariableFont_wght.ttf') format('truetype-variations'),
-       url('/fonts/CrimsonPro-VariableFont_wght.ttf') format('truetype');
+  src: url('/fonts/CrimsonPro-VariableFont_wght.woff2') format('woff2'),
+       url('/fonts/CrimsonPro-VariableFont_wght.ttf') format('truetype-variations');
 }
 @font-face {
   font-family: 'Crimson Pro';
   font-style: italic;
   font-weight: 200 900;
   font-display: swap;
-  src: url('/fonts/CrimsonPro-Italic-VariableFont_wght.ttf') format('truetype-variations'),
-       url('/fonts/CrimsonPro-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('/fonts/CrimsonPro-Italic-VariableFont_wght.woff2') format('woff2'),
+       url('/fonts/CrimsonPro-Italic-VariableFont_wght.ttf') format('truetype-variations');
 }
 @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype-variations'),
-       url('/fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype');
+  src: url('/fonts/Inter-VariableFont_opsz_wght.woff2') format('woff2'),
+       url('/fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype-variations');
 }
 @font-face {
   font-family: 'Inter';
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype-variations'),
-       url('/fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+  src: url('/fonts/Inter-Italic-VariableFont_opsz_wght.woff2') format('woff2'),
+       url('/fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype-variations');
 }
 
 :root {
@@ -47,11 +47,14 @@
      Darkened from #7D8E9E (3.2:1) to clear WCAG AA 4.5:1 on --bg. */
   --ff-steel-blue:   #586A7E;
   --ff-light-gray:   #D8D9DA;
+  --ff-mist:         #F1F2F4;
 
   /* Semantic */
   --bg:              var(--ff-cool-white);
   --bg-inverse:      var(--ff-slate-blue);
   --bg-code:         var(--ff-charcoal);
+  --surface-sunken:  var(--ff-mist);
+  --surface-hover:   var(--ff-mist);
   --fg:              var(--ff-charcoal);
   --fg-muted:        #5A5C60;
   --fg-display:      var(--ff-slate-blue);
