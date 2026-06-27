@@ -4,9 +4,9 @@ The book site for *The Agentic CMO* (Second Edition) by Francesco Federico. Astr
 
 ## Stack
 
-- **Astro 5** in static output mode, with the Cloudflare adapter (provides Pages Functions for the email API)
+- **Astro 5** in static output mode (no adapter; Cloudflare Pages serves `dist/` and runs the `functions/` directory as Pages Functions for the email API)
 - **React 18** for two islands: `CitedForm` (PDF gate) and `PromptList` (filtered prompts)
-- **Tailwind v4 (Vite plugin)** available; styling primarily done via design tokens in `src/styles/global.css`
+- **Design tokens** in `src/styles/global.css` (CSS custom properties; no Tailwind)
 - **Resend** for transactional email delivery of the Cited PDF
 - **Cloudflare KV** for storing email captures and rate-limiting
 
@@ -89,8 +89,9 @@ The Milanese Futurist palette and typography are defined in `src/styles/global.c
 
 ## Assets
 
-- `/public/assets/book-cover.png` — Agentic CMO cover
-- `/public/assets/cited-cover.png` — Cited cover
-- `/public/assets/author.png` — author portrait
-- `/public/pdfs/cited.pdf` — the manual delivered by the form
-- `/public/fonts/` — Crimson Pro and Inter variable fonts
+- `/public/assets/book-cover.png`: Agentic CMO cover
+- `/public/assets/cited-cover.png`: Cited cover
+- `/public/assets/author.jpg`: author portrait (optimised; used by the on-page `<img>` and Person schema)
+- `/public/assets/og/`: 1200x630 Open Graph cards (`agentic-cmo`, `cited`, `author`)
+- `/public/pdfs/cited.pdf`: the manual delivered by the form
+- `/public/fonts/`: Crimson Pro and Inter variable fonts

@@ -8,7 +8,7 @@ export const PERSON = {
   "url": "https://the-agentic-cmo.com/about/",
   "image": {
     "@type": "ImageObject",
-    "url": "https://the-agentic-cmo.com/assets/author.png",
+    "url": "https://the-agentic-cmo.com/assets/author.jpg",
     "caption": "Francesco Federico, Chief Marketing Officer at S&P Global"
   },
   "jobTitle": "Chief Marketing Officer",
@@ -67,7 +67,7 @@ export const BOOK_AGENTIC_CMO = {
   "name": "The Agentic CMO",
   "author": { "@id": "https://the-agentic-cmo.com/#person" },
   "url": "https://the-agentic-cmo.com/",
-  "datePublished": "2025-06",
+  "datePublished": "2026-06",
   "inLanguage": "en",
   "isbn": "978-1-0676534-3-9",
   "numberOfPages": 454,
@@ -128,7 +128,7 @@ export const DEFINED_TERMS_AGENTIC_CMO = [
     "@type": "DefinedTerm",
     "@id": "https://the-agentic-cmo.com/#ai-autonomy-spectrum",
     "name": "AI Autonomy Spectrum",
-    "description": "Four-level taxonomy: Rule-Based, Predictive, Generative, Agentic — each characterised by increasing autonomy. Introduced in The Agentic CMO by Francesco Federico.",
+    "description": "Four-level taxonomy (Rule-Based, Predictive, Generative, Agentic), each characterised by increasing autonomy. Introduced in The Agentic CMO by Francesco Federico.",
     "inDefinedTermSet": { "@id": "https://the-agentic-cmo.com/#book" }
   },
   {
@@ -204,7 +204,7 @@ export function schemaHomepage() {
         "@type": "WebPage",
         "@id": "https://the-agentic-cmo.com/#webpage",
         "url": "https://the-agentic-cmo.com/",
-        "name": "The Agentic CMO — Francesco Federico",
+        "name": "The Agentic CMO · Francesco Federico",
         "description": "The operating model, governance, and skill mix for CMOs orchestrating human and AI as a unified force. PACE Framework. Hybrid Intelligence. ISBN 978-1-0676534-3-9.",
         "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" },
         "mainEntity": { "@id": "https://the-agentic-cmo.com/#book" }
@@ -224,7 +224,7 @@ export function schemaCited() {
         "@type": "WebPage",
         "@id": "https://the-agentic-cmo.com/cited/#webpage",
         "url": "https://the-agentic-cmo.com/cited/",
-        "name": "Cited. — The GEO Operating Manual by Francesco Federico",
+        "name": "Cited. · The GEO Operating Manual by Francesco Federico",
         "description": "The practical GEO manual for marketers on earning citation in AI-synthesised answers. Dual-Layer Citation Model. Entity Bible. Prompt Battery. ISBN 979-8235761650.",
         "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" },
         "mainEntity": { "@id": "https://the-agentic-cmo.com/cited/#book" },
@@ -251,7 +251,7 @@ export function schemaAbout() {
         "@type": "WebPage",
         "@id": "https://the-agentic-cmo.com/about/#webpage",
         "url": "https://the-agentic-cmo.com/about/",
-        "name": "Francesco Federico — Author of The Agentic CMO and Cited.",
+        "name": "Francesco Federico · Author of The Agentic CMO and Cited.",
         "description": "Chief Marketing Officer at S&P Global, Fellow of the Chartered Institute of Marketing, and author of The Agentic CMO and Cited.",
         "about": { "@id": "https://the-agentic-cmo.com/#person" },
         "mainEntity": { "@id": "https://the-agentic-cmo.com/#person" },
@@ -272,25 +272,25 @@ export function schemaFaq() {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "name": "FAQ — The Agentic CMO and Cited. by Francesco Federico",
+    "name": "FAQ · The Agentic CMO and Cited. by Francesco Federico",
     "url": "https://the-agentic-cmo.com/faq/",
     "description": "Answers to common questions about The Agentic CMO, Cited., and the frameworks inside them: PACE, Hybrid Intelligence, GEO, Dual-Layer Citation Model.",
     "mainEntity": [
       { "@type": "Question", "name": "What is The Agentic CMO?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO is a book by Francesco Federico that sets out the operating model, governance frameworks, and skill mix marketing leaders need to orchestrate human and artificial intelligence as a unified force. It argues the CMO must evolve from Campaign Commander to Portfolio Manager, allocating capital across autonomous AI agent fleets with financial-fund rigour. ISBN 978-1-0676534-3-9 (hardcover)." } },
       { "@type": "Question", "name": "Who is The Agentic CMO written for?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO is written for Chief Marketing Officers, Vice Presidents of Marketing, Chief Digital Officers, and senior marketing transformation leaders responsible for integrating autonomous AI systems into their marketing functions." } },
-      { "@type": "Question", "name": "What is the PACE Framework?", "acceptedAnswer": { "@type": "Answer", "text": "The PACE Framework is an engineering-to-marketing translation model introduced in The Agentic CMO. PACE stands for: Perception (real-time signal ingestion — ad auctions, CRM events, brand trackers), Action (observable changes executed by agents — bid lifts, creative rotation), Cognition (policy selection and objective weighting), and Evolution (continuous model update governed by brand guardrails)." } },
-      { "@type": "Question", "name": "What is Hybrid Intelligence?", "acceptedAnswer": { "@type": "Answer", "text": "Hybrid Intelligence, introduced in The Agentic CMO, is a sociotechnical AI configuration meeting three falsifiable conditions: (1) Bidirectional Learning — the machine learns from human judgment and humans visibly change decisions based on machine patterns; (2) Failure-Mode Complementarity — human and machine fail on different inputs; (3) Explicit Arbitration — a documented protocol specifying who decides when human and machine disagree." } },
+      { "@type": "Question", "name": "What is the PACE Framework?", "acceptedAnswer": { "@type": "Answer", "text": "The PACE Framework is an engineering-to-marketing translation model introduced in The Agentic CMO. PACE stands for: Perception (real-time signal ingestion: ad auctions, CRM events, brand trackers), Action (observable changes executed by agents: bid lifts, creative rotation), Cognition (policy selection and objective weighting), and Evolution (continuous model update governed by brand guardrails)." } },
+      { "@type": "Question", "name": "What is Hybrid Intelligence?", "acceptedAnswer": { "@type": "Answer", "text": "Hybrid Intelligence, introduced in The Agentic CMO, is a sociotechnical AI configuration meeting three falsifiable conditions: (1) Bidirectional Learning, where the machine learns from human judgment and humans visibly change decisions based on machine patterns; (2) Failure-Mode Complementarity, where human and machine fail on different inputs; (3) Explicit Arbitration, a documented protocol specifying who decides when human and machine disagree." } },
       { "@type": "Question", "name": "What is the AI Autonomy Spectrum?", "acceptedAnswer": { "@type": "Answer", "text": "The AI Autonomy Spectrum, introduced in The Agentic CMO, is a four-level taxonomy: Rule-Based (deterministic if/then logic, makes no decisions), Predictive (ranks and scores, recommends to humans), Generative (produces content on a prompt), and Agentic (plans, decides, and executes multi-step work toward a goal autonomously)." } },
       { "@type": "Question", "name": "What is the Position Sizing Formula?", "acceptedAnswer": { "@type": "Answer", "text": "The Position Sizing Formula, introduced in The Agentic CMO, applies Modern Portfolio Theory to AI agent capital allocation: Capital_i = k × (EV_i/σ_i) × S_i × (1/G_i). EV is Expected Value, σ is Variance, S is Strategic Fit, and G is Governance Load. A mandatory 17% dry powder reserve is required for mid-year portfolio shifts." } },
       { "@type": "Question", "name": "What are the 24 AI prompts in The Agentic CMO?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO includes 24 structured AI prompts for marketing leaders implementing the book's frameworks. They are available at https://the-agentic-cmo.com/prompts/." } },
       { "@type": "Question", "name": "What is Cited.?", "acceptedAnswer": { "@type": "Answer", "text": "Cited. is a practical GEO (Generative Engine Optimisation) operating manual for marketing practitioners by Francesco Federico. It explains how generative search engines technically work, why 93% of AI Mode interactions produce zero clicks, and what marketers must do to earn citation in AI-synthesised answers rather than optimising for clicks. ISBN 979-8235761650." } },
-      { "@type": "Question", "name": "What is GEO — Generative Engine Optimisation?", "acceptedAnswer": { "@type": "Answer", "text": "GEO is the discipline of optimising content, entity presence, and technical architecture so that brands are retrieved and cited by large language models and AI-powered search engines. It differs from SEO in that success is measured by citation share and content extractability rather than click-through rate and keyword ranking." } },
+      { "@type": "Question", "name": "What is GEO (Generative Engine Optimisation)?", "acceptedAnswer": { "@type": "Answer", "text": "GEO is the discipline of optimising content, entity presence, and technical architecture so that brands are retrieved and cited by large language models and AI-powered search engines. It differs from SEO in that success is measured by citation share and content extractability rather than click-through rate and keyword ranking." } },
       { "@type": "Question", "name": "What is the Dual-Layer Citation Model?", "acceptedAnswer": { "@type": "Answer", "text": "The Dual-Layer Citation Model, introduced in Cited. by Francesco Federico, distinguishes two citation pathways. The Indirect Layer: JSON-LD schema → knowledge graph → organic ranking → AI Overview. The Direct Layer: visible text → chunking (150–300 tokens) → fragment selection. Research shows authority signals outweigh schema 3.5 to 1 in predicting citation outcomes." } },
-      { "@type": "Question", "name": "What is the Entity Bible?", "acceptedAnswer": { "@type": "Answer", "text": "The Entity Bible, introduced in Cited. by Francesco Federico, is a governance document managing a brand's presence across eight canonical platforms: Wikidata, Wikipedia, Crunchbase, G2, LinkedIn, GitHub, ORCID, and major financial registries. Entity fragmentation — inconsistent details across these platforms — carries a 2.8x citation penalty in AI retrieval systems." } },
-      { "@type": "Question", "name": "What is a Prompt Battery?", "acceptedAnswer": { "@type": "Answer", "text": "A Prompt Battery, introduced in Cited. by Francesco Federico, is a 300-cell weekly citation tracker: 50 prompts tested across 6 AI engines (Google AIO, ChatGPT Search, Perplexity, Copilot, Claude, and one secondary engine) across 5 intent bands — Unbranded, Branded, Competitor, Problem, and Long-tail. It provides honest citation measurement independent of vendor composite scores." } },
+      { "@type": "Question", "name": "What is the Entity Bible?", "acceptedAnswer": { "@type": "Answer", "text": "The Entity Bible, introduced in Cited. by Francesco Federico, is a governance document managing a brand's presence across eight canonical platforms: Wikidata, Wikipedia, Crunchbase, G2, LinkedIn, GitHub, ORCID, and major financial registries. Entity fragmentation, meaning inconsistent details across these platforms, carries a 2.8x citation penalty in AI retrieval systems." } },
+      { "@type": "Question", "name": "What is a Prompt Battery?", "acceptedAnswer": { "@type": "Answer", "text": "A Prompt Battery, introduced in Cited. by Francesco Federico, is a 300-cell weekly citation tracker: 50 prompts tested across 6 AI engines (Google AIO, ChatGPT Search, Perplexity, Copilot, Claude, and one secondary engine) across 5 intent bands: Unbranded, Branded, Competitor, Problem, and Long-tail. It provides honest citation measurement independent of vendor composite scores." } },
       { "@type": "Question", "name": "Who is Francesco Federico?", "acceptedAnswer": { "@type": "Answer", "text": "Francesco Federico is Chief Marketing Officer at S&P Global and the author of The Agentic CMO and Cited. He has held senior marketing executive roles at Vodafone, Acer, and JLL over a twenty-year career. He is a Fellow of the Chartered Institute of Marketing (FCIM) and a member of the World Economic Forum Strategic Communicators Exchange. His main professional website is https://www.francescofederico.com." } },
       { "@type": "Question", "name": "Where can I buy The Agentic CMO and Cited.?", "acceptedAnswer": { "@type": "Answer", "text": "Both books are available on Amazon. The Agentic CMO hardcover ISBN is 978-1-0676534-3-9. Cited. ISBN is 979-8235761650. Visit the author's Amazon page at https://www.amazon.co.uk/stores/Francesco-Federico/author/B0GMYQDVB7." } },
-      { "@type": "Question", "name": "What is the difference between generative AI and agentic AI?", "acceptedAnswer": { "@type": "Answer", "text": "Generative AI operates in a request-response mode: it produces output when prompted. Agentic AI operates in a continuous loop — it perceives signals, makes decisions, executes actions, and learns from outcomes without waiting for each explicit prompt. The Agentic CMO's AI Autonomy Spectrum distinguishes four levels: Rule-Based, Predictive, Generative, and Agentic." } }
+      { "@type": "Question", "name": "What is the difference between generative AI and agentic AI?", "acceptedAnswer": { "@type": "Answer", "text": "Generative AI operates in a request-response mode: it produces output when prompted. Agentic AI operates in a continuous loop: it perceives signals, makes decisions, executes actions, and learns from outcomes without waiting for each explicit prompt. The Agentic CMO's AI Autonomy Spectrum distinguishes four levels: Rule-Based, Predictive, Generative, and Agentic." } }
     ]
   };
 }
@@ -303,8 +303,8 @@ export function schemaPrompts() {
         "@type": "WebPage",
         "@id": "https://the-agentic-cmo.com/prompts/#webpage",
         "url": "https://the-agentic-cmo.com/prompts/",
-        "name": "24 AI Prompts from The Agentic CMO — Francesco Federico",
-        "description": "The 24 implementation prompts from The Agentic CMO by Francesco Federico — structured AI prompts for marketing leaders building agentic capabilities.",
+        "name": "24 AI Prompts from The Agentic CMO · Francesco Federico",
+        "description": "The 24 implementation prompts from The Agentic CMO by Francesco Federico: structured AI prompts for marketing leaders building agentic capabilities.",
         "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" },
         "breadcrumb": {
           "@type": "BreadcrumbList",
@@ -334,7 +334,7 @@ export function schemaPrivacy() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "url": "https://the-agentic-cmo.com/privacy/",
-    "name": "Privacy Policy — the-agentic-cmo.com",
+    "name": "Privacy Policy · the-agentic-cmo.com",
     "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" }
   };
 }

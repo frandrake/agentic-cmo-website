@@ -26,7 +26,7 @@ const {
   canonicalUrl,
   ogTitle,
   ogDescription,
-  ogImage = '/assets/author.png',
+  ogImage = '/assets/og/agentic-cmo.jpg',
   ogType = 'website',
   jsonLd,
   schema,
@@ -62,7 +62,7 @@ const resolvedOgImage = /^https?:\/\//.test(ogImage) ? ogImage : new URL(ogImage
     {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
 
     <!-- Global GEO-Optimization -->
-    <link rel="alternate" hreflang="en" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="en-GB" href={resolvedCanonical} />
     <link rel="alternate" hreflang="x-default" href={resolvedCanonical} />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Chronicles of Change" href="https://chroniclesofchange.substack.com/feed" />
@@ -76,6 +76,8 @@ const resolvedOgImage = /^https?:\/\//.test(ogImage) ? ogImage : new URL(ogImage
     <meta property="og:title" content={ogTitle ?? title} />
     <meta property="og:description" content={ogDescription ?? description} />
     <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:site_name" content={BOOK.title} />
     <meta property="og:locale" content="en_GB" />

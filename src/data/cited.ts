@@ -17,7 +17,7 @@ export const CITED_CHAPTERS = [
   { n: '06', title: 'The six engines', body: 'Profiles of the six generative engines that matter for B2B marketing in 2026. What each indexes, what each cites, and where each falls short.' },
   { n: '07', title: 'Crawler portfolio', body: 'A working knowledge of the crawlers that read your site for AI training and retrieval. GPTBot, ClaudeBot, PerplexityBot, Google-Extended, and the rest.' },
   { n: '08', title: 'YouTube and multimodal', body: 'Why YouTube is now an AI training surface, and what to do about it. Captions, chapter markers, and machine-readable transcripts.' },
-  { n: '09', title: 'Content extractability', body: 'The structural moves — claim density, named-entity grounding, semantic anchoring — that make a passage retrievable.' },
+  { n: '09', title: 'Content extractability', body: 'The structural moves (claim density, named-entity grounding, semantic anchoring) that make a passage retrievable.' },
   { n: '10', title: 'The entity bible', body: 'A practical playbook for entity resolution. Schema.org, Wikidata, knowledge panels, and the canonical claims you control.' },
   { n: '11', title: 'Authority without backlinks', body: 'What replaces backlinks when the engine does not click. A working definition of authority for the agentic web.' },
   { n: '12', title: 'Measurement', body: 'Citation share, prompt coverage, attribution latency. The four metrics that replace position-tracking.' },

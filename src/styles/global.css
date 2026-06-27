@@ -165,6 +165,13 @@ a:focus-visible {
   outline-offset: 2px;
   border-radius: var(--radius);
 }
+/* Inline links in body prose carry a persistent underline so they are not
+   distinguished from surrounding text by colour alone (WCAG 1.4.1). */
+p a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
 
 small, .eyebrow {
   font-size: var(--fs-eyebrow);
@@ -217,7 +224,7 @@ code, pre, kbd, samp {
   padding: 8px 16px;
   z-index: 100;
 }
-.skip-link:focus { left: 16px; top: 16px; }
+.skip-link:focus { left: 16px; top: 16px; outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 
 /* Page transitions */
 .page-fade { animation: fadeIn 0.18s ease; }
@@ -254,6 +261,9 @@ code, pre, kbd, samp {
 .btn--lg { padding: 14px 32px; font-size: 15px; }
 .btn--sm { padding: 8px 18px; font-size: 13px; }
 .btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+
+/* Mobile nav toggle keyboard focus */
+.mobile-menu-toggle:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 
 /* Eyebrow */
 .eyebrow-block {

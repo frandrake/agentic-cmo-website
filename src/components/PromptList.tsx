@@ -82,6 +82,11 @@ export default function PromptList({ prompts, themes, chapters, buyUrl }: Props)
       </div>
 
       <style>{`
+        .filter-btn:focus-visible, .prompt-row-btn:focus-visible {
+          outline: 2px solid var(--focus-ring);
+          outline-offset: 2px;
+          border-radius: 2px;
+        }
         @media (max-width: 880px) {
           .prompts-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
         }
@@ -108,6 +113,7 @@ function FilterList({ items, active, onChange, compact }: { items: string[]; act
           <li key={item}>
             <button
               type="button"
+              className="filter-btn"
               onClick={() => onChange(item)}
               style={{
                 background: 'transparent', border: 0, padding: '4px 0',
@@ -133,6 +139,7 @@ function PromptRow({ prompt, open, onToggle }: { prompt: Prompt; open: boolean; 
     <li style={{ borderBottom: '1px solid var(--border)' }}>
       <button
         type="button"
+        className="prompt-row-btn"
         onClick={onToggle}
         aria-expanded={open}
         style={{
@@ -146,7 +153,7 @@ function PromptRow({ prompt, open, onToggle }: { prompt: Prompt; open: boolean; 
         <span className="mono" style={{ fontVariantNumeric: 'tabular-nums', fontSize: 12, color: 'var(--fg-muted)', letterSpacing: '0.04em' }}>Ch. {prompt.chapterNum}</span>
         <span style={{ fontFamily: 'var(--font-serif)', fontSize: 22, fontWeight: 600, color: open ? 'var(--ff-vermillion)' : 'var(--ff-slate-blue)', lineHeight: 1.3, transition: 'color 0.2s ease' }}>
           {prompt.title}
-          <span style={{ color: 'var(--fg-muted)', fontWeight: 500, fontStyle: 'italic' }}> — {prompt.chapterTitle}</span>
+          <span style={{ color: 'var(--fg-muted)', fontWeight: 500, fontStyle: 'italic' }}> · {prompt.chapterTitle}</span>
         </span>
         <span aria-hidden="true" style={{ fontSize: 18, color: 'var(--fg-muted)', textAlign: 'right', transform: open ? 'rotate(45deg)' : 'none', transition: 'transform 0.2s ease', display: 'inline-block' }}>+</span>
       </button>
