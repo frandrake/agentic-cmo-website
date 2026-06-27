@@ -13,7 +13,10 @@ export type Prompt = {
   body: string;
 };
 
-// Generic structured body. Edit per-prompt as the full prompts are finalised.
+// TODO (content, blocking before launch): every prompt below still ships this single generic
+// placeholder as its `body`, the actual text a reader receives when they activate a prompt.
+// Replace each prompt's `body` with the real instruction from the manuscript. The `context`,
+// title, theme, and chapter fields are already final; only `body` is a stub.
 const DEFAULT_BODY = `You are the {{role}} at a {{stage}} company in the {{sector}} category. Your task is to {{outcome}} given the following constraints: {{constraints}}.\n\nProceed in three passes:\n\n1. Diagnose. State the operating assumptions you are making about {{audience}} and the current {{baseline}}.\n2. Design. Propose three options that differ on {{axis_1}} and {{axis_2}}. Score each on cost, time-to-evidence, and risk.\n3. Decide. Recommend one option. Explain what would have to be true for the second option to win, and what early signal would change your mind.\n\nReturn the answer as a single page a CMO could circulate to the executive team.`;
 
 export const PROMPTS: Prompt[] = [

@@ -26,7 +26,7 @@ const NAV_ITEMS: NavItem[] = [
 
 <div class="site-header" style="position: sticky; top: 0; z-index: 50; background: var(--bg);">
 <nav aria-label="Primary" style="display: flex; align-items: center; justify-content: space-between; padding: 28px 0; border-bottom: 1px solid var(--border);">
-  <a href="/" aria-label="The Agentic CMO — home" style="display: block; border-bottom: none;">
+  <a href="/" aria-label="The Agentic CMO home" style="display: block; border-bottom: none;">
     <Logo />
   </a>
   <ul class="nav-list" style="list-style: none; display: flex; gap: 36px; margin: 0; padding: 0;">
@@ -83,6 +83,7 @@ const NAV_ITEMS: NavItem[] = [
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
       menu.style.display = open ? 'none' : 'block';
       menu.hidden = open;
     });

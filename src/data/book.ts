@@ -59,7 +59,7 @@ export const ANCHORS = [
   {
     n: '02',
     title: 'The marketing operating system',
-    body: 'How to redesign the CMO’s function — strategy, brand, demand, ops — when agents are first-class participants.',
+    body: 'How to redesign the CMO’s function (strategy, brand, demand, ops) when agents are first-class participants.',
   },
   {
     n: '03',

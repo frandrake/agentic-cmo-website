@@ -4,7 +4,6 @@
 //   - RESEND_API_KEY: Resend API key (re_...)
 //   - FROM_EMAIL: e.g. "Cited <cited@the-agentic-cmo.com>"
 //   - PDF_URL: e.g. "https://the-agentic-cmo.com/pdfs/cited.pdf"
-//   - HMAC_SECRET: random string used for double-submit cookie / honeypot
 // Optional bindings:
 //   - CITED_REQUESTS: KV namespace for storing request records
 
@@ -12,7 +11,6 @@ interface Env {
   RESEND_API_KEY: string;
   FROM_EMAIL: string;
   PDF_URL: string;
-  HMAC_SECRET?: string;
   CITED_REQUESTS?: KVNamespace;
 }
 
@@ -35,7 +33,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   // Honeypot — silently 200 so the bot thinks it succeeded.
   if (body.website) return json({ ok: true }, 200);
 
-  const email = (body.email ?? '').trim().toLowerCase();
+  const email = (body.email ?? '').trim().toLowerCase().slice(0, 254);
   const role = (body.role ?? '').trim().slice(0, 200);
   const problem = (body.problem ?? '').trim().slice(0, 200);
 
@@ -44,41 +42,20 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   // Rate-limit by IP if KV bound — soft, single-day cap of 5 requests per IP.
+  // Only read the counter here; it is incremented after a successful send (below)
+  // so a delivery failure never consumes the visitor's daily quota.
+  const ip = request.headers.get('cf-connecting-ip') || 'unknown';
+  const rateKey = `rl:${ip}:${new Date().toISOString().slice(0, 10)}`;
+  let rateCount = 0;
   if (env.CITED_REQUESTS) {
-    const ip = request.headers.get('cf-connecting-ip') || 'unknown';
-    const key = `rl:${ip}:${new Date().toISOString().slice(0, 10)}`;
-    const count = parseInt((await env.CITED_REQUESTS.get(key)) || '0', 10);
-    if (count >= 5) {
+    rateCount = parseInt((await env.CITED_REQUESTS.get(rateKey)) || '0', 10);
+    if (rateCount >= 5) {
       return json({ error: 'Too many requests today. Try again tomorrow.' }, 429);
     }
-    await env.CITED_REQUESTS.put(key, String(count + 1), { expirationTtl: 60 * 60 * 24 * 2 });
   }
 
-  // Persist record (12-month TTL) — for analytics and follow-up cadence.
-  if (env.CITED_REQUESTS) {
-    const id = crypto.randomUUID();
-    const record = {
-      id,
-      email,
-      role,
-      problem,
-      createdAt: new Date().toISOString(),
-      ip: request.headers.get('cf-connecting-ip') || null,
-      userAgent: request.headers.get('user-agent') || null,
-      country: request.headers.get('cf-ipcountry') || null,
-    };
-    await env.CITED_REQUESTS.put(`req:${id}`, JSON.stringify(record), {
-      expirationTtl: 60 * 60 * 24 * 365,
-      metadata: { email },
-    });
-    // Also index by email so we can dedupe / look up
-    await env.CITED_REQUESTS.put(`email:${email}`, id, {
-      expirationTtl: 60 * 60 * 24 * 365,
-    });
-  }
-
-  // Send the PDF link via Resend
-  const subject = 'Cited. — your free copy';
+  // Send the PDF link via Resend before persisting anything.
+  const subject = 'Cited. Your free copy';
   const html = renderEmailHtml(env.PDF_URL);
   const text = renderEmailText(env.PDF_URL);
 
@@ -103,6 +80,32 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     const errText = await resp.text().catch(() => '');
     console.error('Resend error', resp.status, errText);
     return json({ error: 'Could not send the manual right now. Please try again or email francesco@the-agentic-cmo.com.' }, 502);
+  }
+
+  // Delivery succeeded — charge the rate-limit slot and persist the capture.
+  if (env.CITED_REQUESTS) {
+    await env.CITED_REQUESTS.put(rateKey, String(rateCount + 1), { expirationTtl: 60 * 60 * 24 * 2 });
+
+    // Record (12-month TTL) for analytics and follow-up cadence.
+    const id = crypto.randomUUID();
+    const record = {
+      id,
+      email,
+      role,
+      problem,
+      createdAt: new Date().toISOString(),
+      ip: request.headers.get('cf-connecting-ip') || null,
+      userAgent: request.headers.get('user-agent') || null,
+      country: request.headers.get('cf-ipcountry') || null,
+    };
+    await env.CITED_REQUESTS.put(`req:${id}`, JSON.stringify(record), {
+      expirationTtl: 60 * 60 * 24 * 365,
+      metadata: { email },
+    });
+    // Also index by email so we can dedupe / look up
+    await env.CITED_REQUESTS.put(`email:${email}`, id, {
+      expirationTtl: 60 * 60 * 24 * 365,
+    });
   }
 
   return json({ ok: true }, 200);

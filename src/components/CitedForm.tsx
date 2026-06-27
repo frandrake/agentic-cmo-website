@@ -4,6 +4,8 @@ export default function CitedForm() {
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
   const [problem, setProblem] = useState('Organic traffic is declining');
+  // Honeypot: humans never see this; bots that auto-fill it are silently dropped server-side.
+  const [website, setWebsite] = useState('');
   const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -17,7 +19,7 @@ export default function CitedForm() {
       const res = await fetch('/api/cited-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, role, problem }),
+        body: JSON.stringify({ email, role, problem, website }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { error?: string };
@@ -39,7 +41,7 @@ export default function CitedForm() {
         </h3>
         <p style={{ fontFamily: 'var(--font-serif)', fontSize: 20, lineHeight: 1.5, color: 'var(--fg)', margin: '24px 0 0', maxWidth: 520 }}>
           Cited is on its way to <span style={{ color: 'var(--ff-vermillion)' }}>{email}</span>. The email comes from{' '}
-          <span className="mono" style={{ fontSize: 16 }}>cited@the-agentic-cmo.com</span> — add it to your contacts so it doesn't end up in spam.
+          <span className="mono" style={{ fontSize: 16 }}>cited@the-agentic-cmo.com</span>. Add it to your contacts so it doesn't end up in spam.
         </p>
       </div>
     );
@@ -47,6 +49,20 @@ export default function CitedForm() {
 
   return (
     <form onSubmit={onSubmit} style={{ border: '2px solid var(--ff-charcoal)', padding: '40px 40px 36px', background: 'var(--bg)' }}>
+      {/* Honeypot. Off-screen and hidden from assistive tech and tab order; only bots fill it. */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+        <label>
+          Website
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+          />
+        </label>
+      </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 32, paddingBottom: 16, borderBottom: '1px solid var(--border)' }}>
         <span className="eyebrow-block">Request Cited.</span>
         <span className="mono" style={{ fontSize: 11, color: 'var(--ff-steel-blue)', letterSpacing: '0.08em' }}>FORM № 01</span>
