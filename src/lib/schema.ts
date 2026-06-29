@@ -1,3 +1,5 @@
+import { ANSWER_PAGES } from '../data/answers';
+
 // ── Shared entities ───────────────────────────────────────────
 
 export const PERSON = {
@@ -333,6 +335,57 @@ export function schemaPrompts() {
         "description": "24 structured AI prompts for marketing leaders implementing the frameworks in The Agentic CMO by Francesco Federico.",
         "about": { "@id": "https://the-agentic-cmo.com/#book" }
       }
+    ]
+  };
+}
+
+export function schemaAnswerPage(slug: string) {
+  const page = ANSWER_PAGES.find((p) => p.slug === slug);
+  if (!page) return {};
+  const url = `https://the-agentic-cmo.com/${slug}/`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        "url": url,
+        "name": page.title,
+        "description": page.description,
+        "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" },
+        "about": { "@id": "https://the-agentic-cmo.com/#book" },
+        "mentions": { "@id": "https://the-agentic-cmo.com/#person" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://the-agentic-cmo.com/" },
+            { "@type": "ListItem", "position": 2, "name": page.crumb, "item": url }
+          ]
+        }
+      },
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        "headline": page.h1Plain,
+        "author": { "@id": "https://the-agentic-cmo.com/#person" },
+        "url": url,
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://the-agentic-cmo.com/#website" },
+        "about": { "@id": "https://the-agentic-cmo.com/#book" },
+        "description": page.description
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        "url": url,
+        "mainEntity": page.faq.map((qa) => ({
+          "@type": "Question",
+          "name": qa.q,
+          "acceptedAnswer": { "@type": "Answer", "text": qa.a }
+        }))
+      },
+      BOOK_AGENTIC_CMO,
+      PERSON
     ]
   };
 }
