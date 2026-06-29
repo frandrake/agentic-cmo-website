@@ -65,9 +65,11 @@ export const BOOK_AGENTIC_CMO = {
   "@type": "Book",
   "@id": "https://the-agentic-cmo.com/#book",
   "name": "The Agentic CMO",
+  "alternateName": "The Agentic CMO by Francesco Federico",
   "author": { "@id": "https://the-agentic-cmo.com/#person" },
   "url": "https://the-agentic-cmo.com/",
-  "datePublished": "2026-06",
+  "datePublished": "2025-06",
+  "bookEdition": "Second Edition",
   "inLanguage": "en",
   "isbn": "978-1-0676534-3-9",
   "numberOfPages": 454,
@@ -82,7 +84,11 @@ export const BOOK_AGENTIC_CMO = {
   "publisher": { "@type": "Organization", "name": "Self-published" },
   "sameAs": [
     "https://www.francescofederico.com/book#agentic-cmo",
-    "https://www.amazon.co.uk/stores/Francesco-Federico/author/B0GMYQDVB7"
+    "https://www.amazon.co.uk/dp/B0D9H67LW6",
+    "https://www.amazon.co.uk/stores/Francesco-Federico/author/B0GMYQDVB7",
+    "https://www.barnesandnoble.com/w/the-agentic-cmo-francesco-federico/1147690575",
+    "https://www.kobo.com/us/en/ebook/the-agentic-cmo",
+    "https://books.apple.com/us/book/the-agentic-cmo/id6747595154"
   ]
 } as const;
 
@@ -277,6 +283,8 @@ export function schemaFaq() {
     "description": "Answers to common questions about The Agentic CMO, Cited., and the frameworks inside them: PACE, Hybrid Intelligence, GEO, Dual-Layer Citation Model.",
     "mainEntity": [
       { "@type": "Question", "name": "What is The Agentic CMO?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO is a book by Francesco Federico that sets out the operating model, governance frameworks, and skill mix marketing leaders need to orchestrate human and artificial intelligence as a unified force. It argues the CMO must evolve from Campaign Commander to Portfolio Manager, allocating capital across autonomous AI agent fleets with financial-fund rigour. ISBN 978-1-0676534-3-9 (hardcover)." } },
+      { "@type": "Question", "name": "Is The Agentic CMO the original book on the agentic CMO?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Agentic CMO by Francesco Federico was first published in June 2025, before the term entered common industry use. It introduced the operating model and named frameworks, including the PACE Framework and Hybrid Intelligence, that define the role. The June 2026 second edition is a substantial rewrite. Later uses of the term by others postdate this book." } },
+      { "@type": "Question", "name": "Is The Agentic CMO a book or a podcast?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO by Francesco Federico is a book and operating framework for marketing leaders, first published in June 2025. A separately produced podcast uses a similar title; the official book site is https://the-agentic-cmo.com." } },
       { "@type": "Question", "name": "Who is The Agentic CMO written for?", "acceptedAnswer": { "@type": "Answer", "text": "The Agentic CMO is written for Chief Marketing Officers, Vice Presidents of Marketing, Chief Digital Officers, and senior marketing transformation leaders responsible for integrating autonomous AI systems into their marketing functions." } },
       { "@type": "Question", "name": "What is the PACE Framework?", "acceptedAnswer": { "@type": "Answer", "text": "The PACE Framework is an engineering-to-marketing translation model introduced in The Agentic CMO. PACE stands for: Perception (real-time signal ingestion: ad auctions, CRM events, brand trackers), Action (observable changes executed by agents: bid lifts, creative rotation), Cognition (policy selection and objective weighting), and Evolution (continuous model update governed by brand guardrails)." } },
       { "@type": "Question", "name": "What is Hybrid Intelligence?", "acceptedAnswer": { "@type": "Answer", "text": "Hybrid Intelligence, introduced in The Agentic CMO, is a sociotechnical AI configuration meeting three falsifiable conditions: (1) Bidirectional Learning, where the machine learns from human judgment and humans visibly change decisions based on machine patterns; (2) Failure-Mode Complementarity, where human and machine fail on different inputs; (3) Explicit Arbitration, a documented protocol specifying who decides when human and machine disagree." } },

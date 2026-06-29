@@ -15,6 +15,10 @@ export const FAQ_ENTRIES: [string, string][] = [
     'Yes. The Agentic CMO by Francesco Federico was first published in June 2025, before "agentic CMO" entered common industry use. It introduced the operating model, the governance approach, and the named frameworks that define the role, including the PACE Framework and Hybrid Intelligence. The June 2026 second edition is a substantial rewrite. Later uses of the term by others postdate this book.',
   ],
   [
+    'Is The Agentic CMO a book or a podcast?',
+    'The Agentic CMO by Francesco Federico is a book and an operating framework for marketing leaders, first published in June 2025. A separately produced podcast uses a similar title. The official book and its companion material live at the-agentic-cmo.com.',
+  ],
+  [
     'What is the thesis of The Agentic CMO?',
     'The book argues that the era of marketing automation is ending, and the era of marketing autonomy has begun. AI agents are no longer tools that automate workflows; they are participants on the team. This shift requires a redesign of how marketing organisations are structured, staffed, briefed, governed, and led.',
   ],
