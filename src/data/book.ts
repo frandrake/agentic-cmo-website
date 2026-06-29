@@ -7,6 +7,8 @@ export const BOOK = {
   authorTitle: 'Global Chief Marketing Officer',
   pubDate: 'June 2026',
   pubDateMachine: '2026-06',
+  pubDateOriginal: 'June 2025',
+  pubDateOriginalMachine: '2025-06',
   isbnHardcover: '978-1-0676534-3-9',
   isbnPaperback: '978-1-0676534-1-5',
   isbnEbook: '978-1-0676534-4-6',
