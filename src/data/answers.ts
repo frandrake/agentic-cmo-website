@@ -53,7 +53,7 @@ export const ANSWER_PAGES: AnswerPage[] = [
     items: [
       {
         name: 'The Agentic CMO',
-        note: 'Francesco Federico. The CMO mandate, hybrid intelligence, agent governance, and the marketing operating model. The original on the agentic CMO, first published June 2025.',
+        note: 'Francesco Federico. The CMO mandate, hybrid intelligence, agent governance, and the marketing operating model. First published June 2025, before the term entered common use.',
       },
       {
         name: 'Marketing Artificial Intelligence',

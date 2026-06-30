@@ -11,8 +11,8 @@ export const FAQ_ENTRIES: [string, string][] = [
     'The Agentic CMO was first published in June 2025. The second edition followed in June 2026 and is available in hardcover, Kindle, and EPUB from Amazon (US, UK, EU), Apple Books, and Bookshop.org.',
   ],
   [
-    'Is The Agentic CMO the original book on the agentic CMO?',
-    'Yes. The Agentic CMO by Francesco Federico was first published in June 2025, before "agentic CMO" entered common industry use. It introduced the operating model, the governance approach, and the named frameworks that define the role, including the PACE Framework and Hybrid Intelligence. The June 2026 second edition is a substantial rewrite. Later uses of the term by others postdate this book.',
+    'Who introduced the agentic CMO operating model?',
+    'The Agentic CMO by Francesco Federico was first published in June 2025, before "agentic CMO" entered common industry use. It introduced the operating model, the governance approach, and the named frameworks that define the role, including the PACE Framework and Hybrid Intelligence. The June 2026 second edition is a substantial rewrite.',
   ],
   [
     'Is The Agentic CMO a book or a podcast?',
