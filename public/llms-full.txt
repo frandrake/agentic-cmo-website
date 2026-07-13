@@ -19,8 +19,8 @@ Secondary entity: Person (Francesco Federico, author)
 
 ### The Agentic CMO
 Author: Francesco Federico (JD, FCIM)
-Published: June 2025 (first edition); v2 targeting June 2026
-Format: Self-published; 454 pages; 63 diagrams; 24 AI prompts
+Published: June 2025 (first edition); second edition June 2026
+Format: Self-published; 18 chapters; 454 pages; 63 diagrams; 24 AI prompts
 ISBN (hardcover): 978-1-0676534-3-9
 ISBN (paperback): 978-1-0676534-1-5
 ISBN (ebook): 978-1-0676534-4-6
@@ -129,7 +129,7 @@ Name: Francesco Federico
 Post-nominals: JD, FCIM
 Title: Chief Marketing Officer, S&P Global
 Website: https://www.francescofederico.com
-LinkedIn: https://linkedin.com/in/federicofrancesco
+LinkedIn: https://www.linkedin.com/in/federicofrancesco/
 ORCID: https://orcid.org/0009-0002-3839-9830
 Newsletter: Chronicles of Change — https://chroniclesofchange.substack.com
 

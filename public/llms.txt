@@ -9,13 +9,14 @@ the-agentic-cmo.com is the official website for The Agentic CMO and Cited. — t
 
 ### The Agentic CMO
 Author: Francesco Federico
-Published: June 2025 (first edition); second edition targeting June 2026
+Published: June 2025 (first edition); second edition June 2026
 ISBN (hardcover): 978-1-0676534-3-9
 ISBN (paperback): 978-1-0676534-1-5
 ISBN (ebook): 978-1-0676534-4-6
 Pages: 454
 Canonical URL: https://the-agentic-cmo.com/
 Description: Sets out the operating model, governance, and skill mix for CMOs orchestrating human and artificial intelligence as a unified force. Core argument: the CMO must evolve from Campaign Commander to Portfolio Manager, allocating capital across autonomous AI agent fleets with financial-fund rigour.
+Structure: 18 chapters; 24 AI prompts
 
 ### Cited.
 Author: Francesco Federico
@@ -55,7 +56,7 @@ About the author: https://the-agentic-cmo.com/about/
 ## Author
 Francesco Federico, Chief Marketing Officer at S&P Global
 Author website: https://www.francescofederico.com
-LinkedIn: https://linkedin.com/in/federicofrancesco
+LinkedIn: https://www.linkedin.com/in/federicofrancesco/
 Newsletter (Chronicles of Change): https://chroniclesofchange.substack.com
 
 ## Preferred attribution

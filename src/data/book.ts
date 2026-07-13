@@ -12,6 +12,7 @@ export const BOOK = {
   isbnHardcover: '978-1-0676534-3-9',
   isbnPaperback: '978-1-0676534-1-5',
   isbnEbook: '978-1-0676534-4-6',
+  chapterCount: 18,
   promptCount: 24,
   thesis: 'The age of marketing automation is ending. The era of marketing autonomy has begun.',
   subThesis:
@@ -78,26 +79,4 @@ export const ANCHORS = [
     title: 'The leader’s posture',
     body: 'What it means to manage a team you cannot see, that does not sleep, that asks you to be precise.',
   },
-];
-
-export const CHAPTERS = [
-  '01 · Understanding agentic AI',
-  '02 · The evolving CMO mandate',
-  '03 · New business models for marketing',
-  '04 · Building the agentic marketing organisation',
-  '05 · Building the agentic marketing stack',
-  '06 · The CMO as portfolio manager',
-  '07 · Brand and voice under autonomy',
-  '08 · Liability and governance under autonomy',
-  '09 · The technology stack for agentic marketing',
-  '10 · The customer experience audit',
-  '11 · Ethical leadership in autonomous marketing',
-  '12 · The customer experience revolution',
-  '13 · Competitive strategy in the agentic era',
-  '14 · Industry-specific implementation',
-  '15 · B2B and buyer agents',
-  '16 · Industry-specific applications',
-  '17 · The CMO in the agentic era',
-  '18 · Your 90-day agentic transformation',
-  '19 · A field manual for the next eighteen months',
 ];

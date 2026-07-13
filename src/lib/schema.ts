@@ -22,10 +22,17 @@ export const PERSON = {
   "email": "mailto:francesco@francescofederico.net",
   "sameAs": [
     "https://www.francescofederico.com/",
-    "https://linkedin.com/in/federicofrancesco",
+    "https://www.linkedin.com/in/federicofrancesco/",
     "https://orcid.org/0009-0002-3839-9830",
     "https://www.amazon.co.uk/stores/Francesco-Federico/author/B0GMYQDVB7",
     "https://chroniclesofchange.substack.com"
+  ],
+  "subjectOf": [
+    {
+      "@type": "WebPage",
+      "name": "Look Forward Council",
+      "url": "https://www.spglobal.com/en/research-insights/special-reports/look-forward"
+    }
   ],
   "hasCredential": [
     {
@@ -70,12 +77,12 @@ export const BOOK_AGENTIC_CMO = {
   "alternateName": "The Agentic CMO by Francesco Federico",
   "author": { "@id": "https://the-agentic-cmo.com/#person" },
   "url": "https://the-agentic-cmo.com/",
-  "datePublished": "2025-06",
+  "datePublished": "2026-06",
   "bookEdition": "Second Edition",
   "inLanguage": "en",
   "isbn": "978-1-0676534-3-9",
   "numberOfPages": 454,
-  "description": "The operating model, governance, and skill mix for Chief Marketing Officers orchestrating human and artificial intelligence as a unified force. Introduces the PACE Framework, Hybrid Intelligence checklist, AI Autonomy Spectrum, Position Sizing Formula, and Value Stack.",
+  "description": "The second edition is an eighteen-chapter operating manual with twenty-four AI prompts on the governance and skill mix Chief Marketing Officers need to orchestrate human and artificial intelligence as a unified force. Introduces the PACE Framework, Hybrid Intelligence checklist, AI Autonomy Spectrum, Position Sizing Formula, and Value Stack.",
   "about": [
     { "@type": "Thing", "name": "Agentic AI in marketing" },
     { "@type": "Thing", "name": "CMO operating model" },
@@ -90,7 +97,8 @@ export const BOOK_AGENTIC_CMO = {
     "https://www.amazon.co.uk/stores/Francesco-Federico/author/B0GMYQDVB7",
     "https://www.barnesandnoble.com/w/the-agentic-cmo-francesco-federico/1147690575",
     "https://www.kobo.com/us/en/ebook/the-agentic-cmo",
-    "https://books.apple.com/us/book/the-agentic-cmo/id6747595154"
+    "https://books.apple.com/us/book/the-agentic-cmo/id6747595154",
+    "https://books.google.com/books/about/The_Agentic_CMO.html?id=mskQ0gEACAAJ"
   ]
 } as const;
 

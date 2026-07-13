@@ -15,7 +15,6 @@ export default defineConfig({
     sitemap({
       changefreq: 'monthly',
       priority: 0.7,
-      lastmod: new Date(),
     }),
   ],
   prefetch: {
