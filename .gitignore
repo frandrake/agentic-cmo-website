@@ -3,6 +3,12 @@ dist/
 .astro/
 .wrangler/
 
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 # Dependencies
 node_modules/
 
