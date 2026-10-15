@@ -1,13 +1,16 @@
 import { defineConfig, devices } from '@playwright/test';
 
-// Playwright drives the *built* site (astro build → astro preview), so tests
-// exercise exactly the bundle Cloudflare Pages serves — not the dev server.
+// Playwright drives the *built* site (astro build → a static server on dist/),
+// so tests exercise exactly the bundle Cloudflare Pages serves — not the dev
+// server. Not `astro preview`: since Astro 7 it detaches into a background
+// daemon when not attached to a TTY, so Playwright sees the command exit and
+// aborts with "Process from config.webServer exited early".
 //
 // We intentionally run `astro build` directly rather than `npm run build`:
 // the `build` script has a `postbuild` hook that pings IndexNow with the
 // production sitemap. `astro build` skips that hook (same trick check.yml uses).
 //
-// Note: `astro preview` serves the static `dist/` only — it does NOT execute
+// Note: the static server serves `dist/` only — it does NOT execute
 // the Cloudflare Pages Functions in `functions/`. So `/api/cited-request` does
 // not run under this server. The email-gate spec mocks that endpoint with
 // `page.route()` and asserts the front-end contract, which is what we want in
@@ -16,7 +19,7 @@ import { defineConfig, devices } from '@playwright/test';
 //   `astro build && wrangler pages dev dist --port 4321`
 // with RESEND_API_KEY / FROM_EMAIL / PDF_URL provided as secrets.
 const PORT = 4321;
-const baseURL = `http://localhost:${PORT}`;
+const baseURL = `http://127.0.0.1:${PORT}`;
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -36,7 +39,7 @@ export default defineConfig({
     { name: 'mobile', use: { ...devices['Pixel 5'] } },
   ],
   webServer: {
-    command: `npm exec -- astro build && npm exec -- astro preview --port ${PORT}`,
+    command: `npm exec -- astro build && python3 -m http.server ${PORT} --bind 127.0.0.1 --directory dist`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
