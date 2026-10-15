@@ -24,4 +24,9 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'auto',
   },
+  // Astro 7 defaults to JSX whitespace rules ('jsx'), which drop the space
+  // between adjacent inline elements ("S&P GlobalCurrent", "01What is…").
+  // `true` keeps the pre-v7 HTML-aware compression: crawlers, screen readers
+  // and copy/paste read the same text as before.
+  compressHTML: true,
 });

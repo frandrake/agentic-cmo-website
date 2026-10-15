@@ -8,8 +8,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static marketing site for ***The Agentic CMO* (2nd edition)** by Francesco Federico. Astro 5 with
-React 18 islands, deployed as static assets to **Cloudflare Pages** (project `the-agentic-cmo`).
+Static marketing site for ***The Agentic CMO* (2nd edition)** by Francesco Federico. Astro 7 with
+React 18 islands, deployed as static assets to **Cloudflare Pages** (project `agentic-cmo-website`).
 Repo: `github.com/frandrake/agentic-cmo-website`. Two non-negotiable framings: **design *is* the
 product** (the site sells the book, the free *Cited* PDF sample, and the *Chronicles of Change*
 newsletter), and it is **SEO/LLM-first** (structured data + an explicit AI-crawler allowlist).
@@ -70,11 +70,17 @@ The hard guardrails (the site must never read as "AI made that"):
 
 ## Deploy
 
-Cloudflare Pages, project `the-agentic-cmo`, build output `dist/`, KV bound — **builds on push to
+Cloudflare Pages, project `agentic-cmo-website`, build output `dist/`, KV bound — **builds on push to
 `main`**. `wrangler.toml` is the source of truth for vars/secrets/bindings.
 
 ## Gotchas
 
+- **`compressHTML: true` in `astro.config.mjs` is load-bearing.** Astro 7 defaults to `'jsx'`
+  whitespace rules, which silently drop the space between adjacent inline elements ("S&P
+  GlobalCurrent", "01What is"). It is invisible on screen (flex/grid gaps) but corrupts the text
+  that crawlers, LLMs and screen readers read, which matters on an LLM-first site. Don't remove it.
+- **Astro is held at `~7.3.x`.** Astro 7.4+ needs Node >= 22.22, and this Pages project pins no
+  Node version, so it builds on the v3 image default (22.16). Add a `.node-version` before bumping.
 - `public/robots.txt` **deliberately allowlists AI crawlers** (GPTBot, ClaudeBot, PerplexityBot,
   Google-Extended, CCBot, …) and `public/llms.txt` / `llms-full.txt` exist — preserve them; they're
   the point of an LLM-first site.
