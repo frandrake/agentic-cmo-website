@@ -79,8 +79,8 @@ Cloudflare Pages, project `agentic-cmo-website`, build output `dist/`, KV bound 
   whitespace rules, which silently drop the space between adjacent inline elements ("S&P
   GlobalCurrent", "01What is"). It is invisible on screen (flex/grid gaps) but corrupts the text
   that crawlers, LLMs and screen readers read, which matters on an LLM-first site. Don't remove it.
-- **Astro is held at `~7.3.x`.** Astro 7.4+ needs Node >= 22.22, and this Pages project pins no
-  Node version, so it builds on the v3 image default (22.16). Add a `.node-version` before bumping.
+- **Node is pinned to 24** (`.node-version`; Pages builds on 24.13.1, and CI reads the same file via
+  `node-version-file`). Astro is still on `~7.3.x`, so the 7.4 bump (needs Node >= 22.22) is unblocked.
 - `public/robots.txt` **deliberately allowlists AI crawlers** (GPTBot, ClaudeBot, PerplexityBot,
   Google-Extended, CCBot, …) and `public/llms.txt` / `llms-full.txt` exist — preserve them; they're
   the point of an LLM-first site.
