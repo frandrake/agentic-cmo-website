@@ -1,6 +1,9 @@
 {
   "name": "the-agentic-cmo-website",
   "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "version": "1.0.0",
   "private": true,
   "description": "Marketing site for The Agentic CMO (Second Edition) by Francesco Federico.",
