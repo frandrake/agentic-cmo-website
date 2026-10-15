@@ -80,7 +80,7 @@ Cloudflare Pages, project `agentic-cmo-website`, build output `dist/`, KV bound 
   GlobalCurrent", "01What is"). It is invisible on screen (flex/grid gaps) but corrupts the text
   that crawlers, LLMs and screen readers read, which matters on an LLM-first site. Don't remove it.
 - **Node is pinned to 24** (`.node-version`; Pages builds on 24.13.1, and CI reads the same file via
-  `node-version-file`). Astro is still on `~7.3.x`, so the 7.4 bump (needs Node >= 22.22) is unblocked.
+  `node-version-file`). Astro is on `~7.4.x` (needs Node >= 22.22).
 - `public/robots.txt` **deliberately allowlists AI crawlers** (GPTBot, ClaudeBot, PerplexityBot,
   Google-Extended, CCBot, …) and `public/llms.txt` / `llms-full.txt` exist — preserve them; they're
   the point of an LLM-first site.
